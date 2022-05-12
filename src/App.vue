@@ -1,16 +1,18 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <watchCom/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+//import HelloWorld from './components/HelloWorld.vue'
+import watchCom from './components/watch-example.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+//    HelloWorld
+  watchCom
+  },
+  data: function(){return {count:4}}
 }
 </script>
 
