@@ -1,10 +1,25 @@
-<template>
-<div id="watch-example" class="demo">
+<template >
+<div id="watch-example" class="demo"  >
+  <ul id="array-rendering" class="demo">
+  <li v-for="item in items" :key="item.message">
+    {{ item.message }}
+  </li>
+</ul>
+
+<ul>
+  <template v-for="item in items2" :key="item.msg">
+    <li>{{ item.msg }}</li>
+  </template>
+</ul>
+  <div :class="{ active: isActive }">{{isActive}}</div>
+  <div :class="{ activeOrNot }">{{activeOrNot}}</div>
+  <div :class="[ activeOrNot ]">{{activeOrNot}}</div>
   <p>
     Ask a yes/no question:
     <input v-model="question" />
   </p>
   <p>{{ answer }}</p>
+
 </div>
 </template>
 
@@ -13,10 +28,16 @@ import axios from 'axios'
 
 export default {
   name: 'watchCom',
+  props: {propA: Number},
   data() {
     return {
       question: '',
-      answer: 'Questions usually contain a question mark. ;-)'
+      answer: 'Questions usually contain a question mark. ;-)',
+      isActive: true,
+      activeOrNot: 'active',
+      see:false,
+      items: [{ message: 'Foo' }, { message: 'Bar' }],
+      items2: [{ msg: 'Foo' }, { msg: 'Bar' }]
     }
   },
   watch: {

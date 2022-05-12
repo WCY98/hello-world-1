@@ -1,18 +1,24 @@
 <template>
-  <watchCom/>
+  <containerCom /> 
+  <toDoList></toDoList>
+  <toDoList2/>
 </template>
 
 <script>
 //import HelloWorld from './components/HelloWorld.vue'
-import watchCom from './components/watch-example.vue'
+//import watchCom from './components/watch-example.vue'
+import toDoList2 from './components/ToDoList2.vue'
+import containerCom from './components/containerCom.vue'
 
 export default {
   name: 'App',
   components: {
 //    HelloWorld
-  watchCom
-  },
-  data: function(){return {count:4}}
+//  watchCom,
+  containerCom,
+  toDoList2,
+ //  toDoList
+  }
 }
 </script>
 
