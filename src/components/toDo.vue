@@ -1,23 +1,17 @@
 
 <template>
   <li>
-            {{ title }}
+    <span :class="[isFinished? 'finished':'']">{{ title }} {{date}}</span>
+      <button v-on:click="$emit('toggle')"> toggle </button>
+      <button v-on:click="$emit('remove',index)">Remove</button>
             
   </li>
 </template>
 <script>
 
 export default {
-//   template: `
-//           <li>
-//             {{ title }}
-//             <button v-on:click="$emit('remove')">Remove</button>
-//           </li>
-//         `,
-  props: ['title'],
+  props: ['title','date','isFinished','index'],
+  emits:['remove','toggle']
 }
-
-//export default toDo;
-
 
 </script>
