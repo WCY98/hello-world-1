@@ -14,8 +14,6 @@
 <script>
 import TodoList from './TodoList';
 //import { ref } from "@vue/runtime-core";
-// add unused comments
-// add unused comments2
 export default {
   components: {
     TodoList,
