@@ -16,7 +16,7 @@ export default {
   },
   emits: ["update:modelValue"],
   created() {
-    console.log(this.modelModifiers); // { capitalize: true }
+    console.log(this.modelModifiers); // { capitalize: true } dummy
   },
 };
 </script>
