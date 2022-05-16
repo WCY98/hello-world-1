@@ -1,17 +1,39 @@
 <template>
-  <toDoList2/>
+<Date-Picker v-model="date" />
+<to-do-list2 first-name="json" name="peter" />
+  <v-model-example></v-model-example>
+  <my-component v-model.capitalize="modelValue"></my-component>
+  {{ modelValue }}
+  <my-component :modelValue="modelValue"></my-component>
+
 </template>
 
 <script>
+import toDoList2 from "./components/ToDoList2.vue";
+import DatePicker from "./components/DatePicker.vue";
+import VModelExample from "./components/vModelExample.vue";
+import MyComponent from "./components/myComponent.vue";
 
-import toDoList2 from './components/ToDoList2.vue'
 
 export default {
-  name: 'App',
+  data() {
+    return { modelValue: "abc" };
+  },
+  name: "App",
   components: {
-  toDoList2,
-  }
-}
+    toDoList2,
+    DatePicker,
+    VModelExample,
+    MyComponent,
+
+  },
+
+  methods: {
+    showChange(event) {
+      console.log(event.target.value); // 将打印所选选项的值
+    },
+  },
+};
 </script>
 
 <style>

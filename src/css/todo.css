@@ -1,39 +1,47 @@
-#month,#day{
+#month,
+#day {
     width: 20px;
     margin-left: 10px;
 }
 
-#sortDiv{
+#sortDiv {
     margin-top: 50px;
     margin-bottom: 50px;
 }
 
-li{
+li {
     width: 600px;
     display: flex;
     justify-content: center;
 
 }
 
-ul{
-   display: flex;
-   flex-direction: column;
-   width: 600px;
-   margin: auto;
-   list-style-type: none;
-   text-align: left;
+ul {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    margin: auto;
+    list-style-type: none;
+    text-align: left;
 }
 
-button{
+button {
     margin: 10px;
 
 }
+
 li span {
     display: inline-block;
     width: 200px;
     align-items: center;
     display: flex;
 }
-.finished{
+
+.finished {
     text-decoration-line: line-through;
+}
+
+#todo-list-example {
+    border-color: blue;
+    border-style: solid;
 }

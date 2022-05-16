@@ -3,6 +3,7 @@
     <div>
       <label for="new-todo">Add a todo</label>
       <input
+        v-focus
         v-model="newTodoText"
         id="new-todo"
         placeholder="E.g. Feed the cat"
@@ -15,18 +16,19 @@
     <div id="sortDiv">
       <button @click="sortByTime">sort by time</button>
     </div>
-
+    <span>{{ firstName }}</span>
+    <span>{{ name }}</span>
     <ul>
-      <toDo
+      <to-do
         v-for="(todo, index) in todos"
         v-bind:key="todo.id"
         v-bind:title="todo.title"
         v-bind:date="todo.date"
-        v-bind:isFinished="todo.isFinished"
+        v-bind:finished="todo.finished"
         v-bind:index="index"
-        v-on:remove="remove(index)"
-        v-on:toggle="todo.isFinished = !todo.isFinished"
-      ></toDo>
+        @remove="remove(index)"
+        @toggle-li="toggle(todo)"
+      ></to-do>
     </ul>
   </div>
 </template>
@@ -35,15 +37,34 @@
 import toDo from "./toDo";
 
 export default {
+  // setup(props) {
+  //   const setStorage = () => {
+  //     localStorage.setItem("todoList", JSON.stringify(props.todos));
+  //   };
+  //   return {
+  //     setStorage,
+  //   };
+  // },
+
   components: {
     toDo,
   },
 
+  directives: {
+    focus: {
+      // 指令的定义
+      mounted(el) {
+        el.focus();
+      },
+    },
+  },
+  props: ["firstName", "name"],
   // mounted
   mounted() {
     console.log(this.todos);
-    this.todos = JSON.parse(localStorage.getItem("todoList"));
-    if (this.todos) {
+    let store = JSON.parse(localStorage.getItem("todoList"));
+    if (store) {
+      this.todos = store;
       this.nextTodoId = this.todos.length + 1;
     }
   },
@@ -70,7 +91,8 @@ export default {
       this.newTodoText = "";
       this.month = "";
       this.day = "";
-      localStorage.setItem("todoList", JSON.stringify(this.todos));
+
+      this.setStorage();
     },
 
     sortByTime() {
@@ -89,6 +111,15 @@ export default {
 
     remove(index) {
       this.todos.splice(index, 1);
+      this.setStorage();
+    },
+
+    toggle(todo) {
+      todo.finished = !todo.finished;
+      this.setStorage();
+    },
+
+    setStorage() {
       localStorage.setItem("todoList", JSON.stringify(this.todos));
     },
   },
