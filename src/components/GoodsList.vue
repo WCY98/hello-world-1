@@ -1,5 +1,5 @@
 <template>
-  <ul>
+  <ul class="flex-ul">
     <template v-for="(goods,index) in goodsList" v-bind:key="index">
       <goods-li v-bind:goods="goods" ></goods-li>
     </template>
@@ -24,4 +24,10 @@ export default {
 </script>
 
 <style>
+.flex-ul {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+}
+
 </style>

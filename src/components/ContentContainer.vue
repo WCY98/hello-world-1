@@ -8,6 +8,7 @@
 import UlContainer from './UlContainer.vue'
 export default {
   components: { UlContainer },
+
 }
 </script>
 
@@ -16,4 +17,5 @@ export default {
     display:flex;
     justify-content: center;
 }
+
 </style> 
