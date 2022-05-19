@@ -5,6 +5,7 @@
     <p class="name">{{ name }}</p>
     <p class="item_price">{{ price }}</p>
     <p class="counter">{{ counter }}</p>
+    <!-- <p class="counter">{{ counter }}</p> -->
   </a>
 </template>
 
@@ -20,7 +21,6 @@ export default {
   },
 };
 </script>
-
 <style>
 .goods-link {
   display: flex;
@@ -36,4 +36,10 @@ export default {
   text-decoration: none;
   color: #000;
 }
-</style>
+.goods-link img {
+  width: 160px;
+  height: 160px;
+  opacity: 0.8;
+  margin: 37px;
+}
+</style> 
