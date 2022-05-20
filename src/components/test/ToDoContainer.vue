@@ -18,7 +18,6 @@ export default {
   components: {
     TodoList,
   },
-
   methods: {
     create(){
       console.log('in create ');

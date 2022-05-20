@@ -1,9 +1,10 @@
 <template>
-  <a class="goods-link" :href="link"
+  <a 
+   class="goods-link" 
+   :href="link"
    @mouseover="show"
    @mouseleave="data_showComment = false">
  
-
     <div class="info discount">{{ tittle }}</div>
     <img :src="imgSrc" :alt="name" />
     <p class="name">{{ name }}</p>
@@ -25,14 +26,12 @@ export default {
       data_showComment:false,
     };
   },
-
   props: {
     link: String,
     tittle: String,
     imgSrc: String,
     name: String,
     price: Number,
-    counter: String,
     comment:String,
   },
   methods:{
@@ -81,10 +80,14 @@ export default {
   background-color: #1baeae;
   color: #fff;
   text-align: left;
+  opacity: 0.8;
 }
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s ease;
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
 }
+
 .slide-fade-enter-from,
 .slide-fade-leave-to {
   transform: -translateY(101%);

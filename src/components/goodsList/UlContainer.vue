@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import GoodsList from "./GoodsList.vue";
+import GoodsList from "../goodsList/GoodsList.vue";
 export default {
   components: { GoodsList },
 };
@@ -16,6 +16,6 @@ export default {
     width: 1226px;
     flex-shrink: 0;
     height: 398px;
-    margin-top: 20p
+    margin-top: 20px;
 }
 </style>

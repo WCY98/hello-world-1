@@ -89,5 +89,142 @@
       "price": 250,
       "counter": "猜你喜欢"
     }
+  ],
+
+
+
+  "categories": [
+    {
+      "categoryName": "家电 数码 手机",
+      "categories": [
+        {
+          "categoryName": "家电",
+          "categories": [
+            {
+              "categoryName": "卷发器",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "电饭煲",
+              "link": "/goods/detail/10195"
+            }
+          ]
+        },
+        {
+          "categoryName": "数码",
+          "categories": [
+            {
+              "categoryName": "游戏主机",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "电脑主机",
+              "link": "/goods/detail/10195"
+            }
+          ]
+        },
+        {
+          "categoryName": "手机",
+          "categories": [
+            {
+              "categoryName": "荣耀手机",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "华为手机",
+              "link": "/goods/detail/10195"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "categoryName": "女装 男装 穿搭",
+      "categories": [
+        {
+          "categoryName": "女装",
+          "categories": [
+            {
+              "categoryName": "半身裙",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "连衣裙",
+              "link": "/goods/detail/10195"
+            }
+          ]
+        },
+        {
+          "categoryName": "男装",
+          "categories": [
+            {
+              "categoryName": "西装",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "领带",
+              "link": "/goods/detail/10195"
+            }
+          ]
+        },
+        {
+          "categoryName": "穿搭",
+          "categories": [
+            {
+              "categoryName": "运动",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "休闲",
+              "link": "/goods/detail/10195"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "categoryName": "家具 家饰 家纺",
+      "categories": [
+        {
+          "categoryName": "家具",
+          "categories": [
+            {
+              "categoryName": "沙发",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "床垫",
+              "link": "/goods/detail/10195"
+            }
+          ]
+        },
+        {
+          "categoryName": "家饰",
+          "categories": [
+            {
+              "categoryName": "挂钟",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "盆栽",
+              "link": "/goods/detail/10195"
+            }
+          ]
+        },
+        {
+          "categoryName": "家纺",
+          "categories": [
+            {
+              "categoryName": "窗帘",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "靠垫",
+              "link": "/goods/detail/10195"
+            }
+          ]
+        }
+      ]
+    }
   ]
 }
