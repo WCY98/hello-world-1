@@ -3,6 +3,7 @@ import HomePage from "../pages/HomePage.vue";
 import GoodsDetail from "../pages/GoodsDetail.vue";
 import TestChange from "../pages/TestChange";
 
+
 // export default createRouter({
     const routes = [
     // history : createWebHistory(),

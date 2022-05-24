@@ -431,6 +431,51 @@
   "postCode":{
     "code" : "10070-256",
     "address": "秋葉原"
-  }
+  },
+  "goodsDetailReviewTotal": [
+    {
+      "goodsId": 10195,
+      "ratingAvg": 5,
+      "reviewCount": 4,
+      "titleCount": 3
+    },
+    {
+      "goodsId": 10196,
+      "ratingAvg": 4,
+      "reviewCount": 3,
+      "titleCount": 2
+    }
+  ],
+  "reviewRating":[
+    {
+      "goodsId":10195,
+      "rating":[
+        {
+          "rating":5,
+          "percentage":60,
+          "ratingCount":4
+        },
+        {
+          "rating":4,
+          "percentage":40,
+          "ratingCount":2
+        },
+        {
+          "rating":3,
+          "percentage":0,
+          "ratingCount":0
+        },{
+          "rating":2,
+          "percentage":0,
+          "ratingCount":0
+        },
+        {
+          "rating":1,
+          "percentage":0,
+          "ratingCount":0
+        }
+      ]
+    }
+  ]
 
 }

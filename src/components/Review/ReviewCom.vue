@@ -4,28 +4,38 @@
       <li class="g-reviewList_item">
           <p class="g-label-brand g-reviewList_label">PickUpReview</p>
         <div class="g-lg-flow-sm">
-          <p class="g-score">
-            <span :data-score="review.rating">
+          <!-- <p class="g-score">
+            <span :data-score="rating">
               <span class="g-clip">Rating:</span>
             </span>
-          </p>
+          </p> -->
+          <star-rating
+            :starSize="20"
+            :rating="review.rating"
+            :read-only="true"
+            :increment="0.01"
+            :show-rating="false">
+            </star-rating>
           <p class="g-reviewList_user">
-            <b>NickName:{{review.nickName}}</b>
+            <b>NickName:{{nickName}}</b>さん
             <br>
             <br>
-            ReviewDate:{{ review.reviewDate }}
+            ReviewDate:{{ reviewDate }}
           </p>
         </div>
-        <p class="g-reviewList_info">購入商品:{{ review.goodsName }}</p>
-        <p class="g-reviewList_h">ReviewTitle:{{ review.title }}</p>
+        <p class="g-reviewList_info">購入商品:{{ goodsName }}</p>
+        <p class="g-reviewList_h">ReviewTitle:{{ title }}</p>
         <p>
-          ReviewContent:{{ review.content }}
+          ReviewContent:{{ content }}
         </p>
         <p class="g-reviewList_like">
           <a class="g-link reviewLike0" id="js-hitLike" data-count="0" 
           data="6256b13a449cda003200015a" data-clickable="">
+          <!-- <i class="g-s g-s-like-g" aria-hidden="true"></i>
+          <span>参考になった:（{{ count }}人）</span></a> -->
           <i class="g-s g-s-like-g" aria-hidden="true"></i>
-          <span>参考になった（{{ review.count }}人:）</span></a>
+            <span class="material-symbols-outlined"> thumb_up </span>
+            <span>参考になった:（{{ count }}人）</span></a>
         </p>
       </li>
     </ul>
@@ -34,10 +44,11 @@
 
 <script>
 // import ReviewContainerVue from './ReviewContainer.vue';
+import StarRating from 'vue-star-rating'
 
 export default {
   props: {
-    review: {
+    // review: {
       rating:Number,  
       nickName: String,
       reviewDate: String,
@@ -45,9 +56,15 @@ export default {
       title: String,
       content: String,
       count: Number,
-    },
+    // },
   },
+  components:{
+  StarRating
+}
 };
+
+  
+
 </script>
 
 <style>
@@ -94,7 +111,7 @@ b {
     font-weight: normal;
     margin: 10px 0;
     font-size: 1rem;
-    line-height: 1.5;
+    line-height: 0.5;
 }
 .g-reviewList_like {
     line-height: 1;
