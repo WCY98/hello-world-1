@@ -1,6 +1,7 @@
 <template>
   <div class="content-container">
-    <item-cat></item-cat>
+    <!-- <item-cat></item-cat> -->
+    <banner-com></banner-com>
     <sub-banner></sub-banner>
     <ul-container></ul-container>
   </div>
@@ -9,17 +10,18 @@
 <script>
 import SubBanner from "../components/goodsList/SubBanner.vue";
 import UlContainer from "../components/goodsList/UlContainer.vue";
-import ItemCat from "../components/category/ItemCat.vue";
+import BannerCom from "@/components/swiper/BannerCom.vue";
 
 export default {
-  components: { UlContainer, SubBanner, ItemCat },
+  components: { UlContainer, SubBanner, BannerCom },
 };
 </script>
 
 <style>
 .content-container {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
+  align-items: center;
   flex-direction: column;
 }
 </style>

@@ -1,6 +1,5 @@
 <template>
-  <!-- <div class="item-cat"> -->
-      <div class="all-sort-list">
+  <div class="all-sort-list">
     <div
       class="item"
       @mouseover.self="mouseOverFun($event)"
@@ -8,12 +7,6 @@
       v-for="(levelOneCat, index1) in categories"
       :key="index1"
     >
-      <!-- <div class="item" @mouseover="mouseOverFun" @mouseleave="mouseLeaveFun">
-      <item-cat-second
-      v-for= "(goods,index) in state.categories"
-      v-bind:goods="goods"
-             key = "index">
-      </item-cat-second> -->
       <h3>
         <span>·</span><a href="##">{{ levelOneCat.categoryName }}</a>
       </h3>
@@ -40,33 +33,27 @@
           </dl>
         </div>
       </div>
-      </div>
+    </div>
   </div>
 </template>
 
 <script  setup>
-// import { reactive, onMounted } from "vue";
-// import ItemCatSecond from "./ItemCatSecond.vue";
 import { onMounted, computed } from "vue";
 // import { mapActions, mapGetters } from "vuex";
 import { useStore } from "vuex";
-// const state = reactive({
-//     categories:[],
-// });
 const store = useStore();
-// onMounted(async ( ) => {
-//          const url = "http://localhost:3000/categories";
-//          const headers = { Accept: "application/json" };
-//          const goodses = await fetch(url,{headers});
-//          const j = await goodses.json();
-
-//           state.categories = [...j];
+// const state = reactive({
+//   // controll item list show or not
+//   displayOrNot: "none",
 // });
+//let { displayOrNot } = toRefs(state);
 const mouseOverFun = (event) => {
   // return (displayOrNot = "block"); is wrong ,have to .value
   // return (displayOrNot.value = "block");
-  console.log("event", event.target);
-  event.target.querySelector(".item-list").style.display = "block";
+  // console.log("event offsetTop", event.target.offsetTop);
+  // event.target.querySelector(".item-list").style.display = "block";
+  let style = "top: "+ event.target.offsetTop +"px; display: block;"
+  event.target.querySelector(".item-list").style = style;
 };
 const mouseLeaveFun = (event) => {
   // return (displayOrNot.value = "none");
@@ -74,12 +61,17 @@ const mouseLeaveFun = (event) => {
   event.target.querySelector(".item-list").style.display = "none";
 };
 
+// const routes = [
+//   // 匹配 /o/3549
+//   { path: '/o/:orderId' },
+//   // 匹配 /p/books
+//   { path: '/p/:productName' },
+// ]
+
 onMounted(() => {
   store.dispatch("setCategories");
 });
-
 let categories = computed(() => store.getters.getCategories);
-
 </script>
 
 <style>
@@ -185,5 +177,4 @@ let categories = computed(() => store.getters.getCategories);
   font-weight: normal;
   text-decoration: underline;
 }
-
-</style> 
+</style>

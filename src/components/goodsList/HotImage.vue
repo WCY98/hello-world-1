@@ -24,4 +24,5 @@ export default {
     margin-left: 4px;
     margin-right: 6px;
 } */
+
 </style> 

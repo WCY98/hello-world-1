@@ -52,5 +52,6 @@ import { reactive, onMounted } from "vue";
   text-decoration: none;
   list-style-type: none;
   font-family: Microsoft Yahei;
+  flex-wrap: wrap;
 }
 </style>

@@ -1,9 +1,16 @@
 <template>
-  <content-container></content-container>
+  
+    <!-- <router-link to ="/">Home</router-link>|
+    <router-link to ="/about">About</router-link>
+<div class = "content-container">
+  <router-view></router-view>>
+</div> -->
+  <router-view></router-view>
+  <!-- <content-container></content-container> -->
 </template>
 
 <script>
-import ContentContainer from "./pages/HomePage.vue";
+
 
 export default {
   data() {
@@ -13,7 +20,7 @@ export default {
   },
   name: "App",
   components: {
-    ContentContainer,
+   
   },
 
   methods: {
