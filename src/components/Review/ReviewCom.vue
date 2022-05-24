@@ -5,27 +5,27 @@
           <p class="g-label-brand g-reviewList_label">PickUpReview</p>
         <div class="g-lg-flow-sm">
           <p class="g-score">
-            <span :data-score="rating">
+            <span :data-score="review.rating">
               <span class="g-clip">Rating:</span>
             </span>
           </p>
           <p class="g-reviewList_user">
-            <b>NickName:{{nickName}}</b>
+            <b>NickName:{{review.nickName}}</b>
             <br>
             <br>
-            ReviewDate:{{ reviewDate }}
+            ReviewDate:{{ review.reviewDate }}
           </p>
         </div>
-        <p class="g-reviewList_info">購入商品:{{ goodsName }}</p>
-        <p class="g-reviewList_h">ReviewTitle:{{ title }}</p>
+        <p class="g-reviewList_info">購入商品:{{ review.goodsName }}</p>
+        <p class="g-reviewList_h">ReviewTitle:{{ review.title }}</p>
         <p>
-          ReviewContent:{{ content }}
+          ReviewContent:{{ review.content }}
         </p>
         <p class="g-reviewList_like">
           <a class="g-link reviewLike0" id="js-hitLike" data-count="0" 
           data="6256b13a449cda003200015a" data-clickable="">
           <i class="g-s g-s-like-g" aria-hidden="true"></i>
-          <span>参考になった（{{ count }}人）</span></a>
+          <span>参考になった（{{ review.count }}人:）</span></a>
         </p>
       </li>
     </ul>

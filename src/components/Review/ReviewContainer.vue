@@ -1,5 +1,5 @@
 <template
-    v-for="review in review" :key="review">
+    v-for="(review,index) in reviews" :key="index">
     <review-com v-bind:review="review"></review-com>
 </template>
 
@@ -22,6 +22,7 @@ export default {
   mounted() {
     const route = useRoute();
     const goodsId = route.params.goodsId
+    console.log(goodsId)
     this.fetchReview(goodsId);
     
   },

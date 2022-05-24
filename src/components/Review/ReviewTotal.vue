@@ -1,14 +1,14 @@
-<template>
+<!-- <template>
 <div class="p-reviewScore p-reviewScore-sm">
 			<div class="p-reviw-graph-area">
 				<div class="p-reviw-graph-area-left-row">
 					<span class="p-reviw-graph-area-comp-eva">総合評価</span>
 				</div>
 				<div class="p-reviw-graph-area-score p-reviw-graph-area-average p-reviw-graph-area-average-sm">
-					<span class="g-digit p-reviw-graph-area-g-score">4.6</span>
+					<span class="g-digit p-reviw-graph-area-g-score">{{ratingAvg}}</span>
 				</div>
 				<div class="p-reviw-graph-area-left-row p-reviw-graph-area-left-row-score">
-					<div class="g-score p-reviw-graph-area-g-score"><span data-score="4.6"></span></div>
+					<div class="g-score p-reviw-graph-area-g-score"><span data-score="ratingAvg"></span></div>
 				</div>
 				<div class="p-g-left-row">
 					<a class="g-link " id="js-totalrate" data-clickable=""><span>(<span id="js-reviews">6</span>)</span></a>
@@ -43,4 +43,4 @@
 			</div>
 		</div>
 
-</template>
+</template> -->
