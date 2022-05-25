@@ -1,7 +1,7 @@
 <template>
   <div class="p-reviewScore p-reviewScore-sm">
     <review-left-com :reviewTotal="reviewTotal"></review-left-com>
-    <review-right-com></review-right-com>
+    <review-right></review-right>
   
   </div>
 
@@ -22,7 +22,7 @@ import { computed, onMounted } from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
 import ReviewLeftCom from "./ReviewLeftCom.vue";
-import ReviewRightCom from "./ReviewRightCom.vue";
+import ReviewRight from "./ReviewRight.vue";
 
 const route = useRoute();
 const store = useStore();

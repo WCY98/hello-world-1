@@ -11,7 +11,7 @@
       <star-rating
         class="starAvg"
         :star-size="20"
-        :rating="ratingAvg"
+        :rating="reviewTotal.ratingAvg"
         :read-only="true"
         :increment="0.01"
         :show-rating="false"

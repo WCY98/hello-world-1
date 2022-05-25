@@ -17,10 +17,10 @@ export default {
   },
   actions: {
     //asyncronous
-    async setNewGoodses(state) {
+    async setNewGoodses(context) {
       const goodses = await fetch(url, { headers });
       const j = await goodses.json();
-      state.commit("setNewGoods", j);
+      context.commit("setNewGoods", j);
       console.log("in setNewGoodses method", j);
     },
 

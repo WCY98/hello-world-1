@@ -3,6 +3,8 @@ import category from './home/category'
 import hotGoods from './home/hotGoods'
 import swiper from './home/swiper'
 import review from "./goodsDetail/review";
+import reviewRating from "./goodsDetail/reviewRating";
+import reviewTotal from "./goodsDetail/reviewTotal";
 
 
 export default createStore({
@@ -11,5 +13,7 @@ export default createStore({
     hotGoods,
     swiper,
     review,
+    reviewRating,
+    reviewTotal
   },
 })

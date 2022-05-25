@@ -14,11 +14,11 @@ export default {
   },
   actions: {
     //asyncronous
-    async setReview(state, payload) {
+    async setReview(context, payload) {
       console.log(payload);
       const review = await fetch(url + payload, { headers });
       const j = await review.json();
-      state.commit("setReview", j);
+      context.commit("setReview", j);
       console.log("in setReview method", j);
     },
   },

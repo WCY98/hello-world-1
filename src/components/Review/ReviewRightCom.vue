@@ -2,13 +2,13 @@
   <div class="p-reviw-graph-area-right">
     <div class="g-lg-flow-sm p-reviw-graph-area-row-sm">
       <div class="g-score p-reviw-graph-area-score">
-        <span data-score="ratingAvg">
+        <!-- <span data-score="ratingAvg">
         <span class="g-clip">{{ ratingAvg }}</span>
-        </span>
+        </span> -->
         <star-rating
         class="star"
         :star-size="20"
-        :rating="ratingAvg"
+        :rating="rating2.rating"
         :read-only="true"
         :increment="0.01"
         :show-rating="false"

@@ -1,6 +1,6 @@
 <template>
 <div class="p-reviw-graph-area-right">
-    <template  v-for = "(rating,index) in ratingList.rating"
+    <template  v-for = "(rating,index) in ratingList"
      :key="index">
      <review-right-com :rating2="rating">
      </review-right-com></template>
@@ -20,7 +20,7 @@ const store = useStore();
 onMounted(() =>{
     store.dispatch("setReviewRating",goodsId);
 });
-let ratingList = computed(() => store.getters.getReviewRating)
+let ratingList = computed(() => store.getters.getRating)
 </script>
 
 <style scoped>
