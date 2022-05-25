@@ -6,7 +6,7 @@
   </div>
 
   <p class="p-reviw-graph-area-foot">
-    {{ reviewCount }}評価 {{ titleCount }}商品レビュー
+    {{ reviewTotal.reviewCount }}評価 {{ reviewTotal.titleCount }}商品レビュー
   </p>
   
   <div id="n-review-btn" class="n-review-btn">

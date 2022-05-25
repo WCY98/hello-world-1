@@ -405,7 +405,10 @@
       "goodsName": "ゴムバンド付き敷きパッド",
       "title": "ひんやり最高",
       "content": "めっちゃひんやりしていて気持ちがいいです 裏表使えるのもとってもいい◎ 買ってよかった",
-      "count": 3
+      "count": 3,
+      "photo1":"http://localhost:8080/assets/image/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
+      "photo2":"http://localhost:8080/assets/image/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
+      "photo3":"http://localhost:8080/assets/image/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg"
     },
     {
       "rating":4,  
@@ -415,7 +418,10 @@
       "goodsName": "ゴムバンド付き敷きパッド",
       "title": "寝心地サイコー",
       "content": "昨日から使用してますが、今は春秋用でぐっすり眠れました。 夏用が楽しみです。",
-      "count": 2
+      "count": 2,
+      "photo1":"http://localhost:8080/assets/image/7a406989-061b-4f69-baa1-6fa499aa091d.jpg",
+      "photo2":"http://localhost:8080/assets/image/7a406989-061b-4f69-baa1-6fa499aa091d.jpg",
+      "photo3":"http://localhost:8080/assets/image/7a406989-061b-4f69-baa1-6fa499aa091d.jpg"
     },
     {
       "rating":5,  
@@ -425,25 +431,61 @@
       "goodsName": "付き敷きパッド",
       "title": "冷感",
       "content": "今までジャパネットやイオンの冷感シーツ使っていたが、それよりもヒンヤリしていて夏を過ごせそう",
-      "count": 1
+      "count": 1,
+      "photo1": "http://localhost:8080/assets/image/8c1c9fb2-26aa-4fa0-b9ce-cf278d827fa6.jpg",
+      "photo2": "http://localhost:8080/assets/image/8c1c9fb2-26aa-4fa0-b9ce-cf278d827fa6.jpg",
+      "photo3": "http://localhost:8080/assets/image/8c1c9fb2-26aa-4fa0-b9ce-cf278d827fa6.jpg"
+    },
+    {
+      "rating":4,  
+      "nickName": "d",
+      "reviewDate": "2022/05/18",
+      "goodsId":10195,
+      "goodsName": "ゴムバンド付き敷きパッド",
+      "title": "title1",
+      "content": "content1",
+      "count": 5,
+      "photo1": "http://localhost:8080/assets/image/8fc9776e-9393-421d-998c-e516b3877dba.jpg",
+      "photo2": "http://localhost:8080/assets/image/8fc9776e-9393-421d-998c-e516b3877dba.jpg",
+      "photo3": "http://localhost:8080/assets/image/8fc9776e-9393-421d-998c-e516b3877dba.jpg"
+    },
+    {
+      "rating":4,  
+      "nickName": "e",
+      "reviewDate": "2022/05/23",
+      "goodsId":10195,
+      "goodsName": "ゴムバンド付き敷きパッド",
+      "title": "title2",
+      "content": "content2",
+      "count": 7,
+      "photo1": "http://localhost:8080/assets/image/8fc9776e-9393-421d-998c-e516b3877dba.jpg",
+      "photo2": "http://localhost:8080/assets/image/8fc9776e-9393-421d-998c-e516b3877dba.jpg",
+      "photo3": "http://localhost:8080/assets/image/8fc9776e-9393-421d-998c-e516b3877dba.jpg"
+    },
+    {
+      "rating":3,  
+      "nickName": "f",
+      "reviewDate": "2022/05/17",
+      "goodsId":10195,
+      "goodsName": "ゴムバンド付き敷きパッド"
     }
   ],
   "postCode":{
     "code" : "10070-256",
     "address": "秋葉原"
   },
-  "goodsDetailReviewTotal": [
+  "reviewTotal": [
     {
       "goodsId": 10195,
-      "ratingAvg": 5,
-      "reviewCount": 4,
-      "titleCount": 3
+      "ratingAvg": 4,
+      "reviewCount": 5,
+      "titleCount": 4
     },
     {
       "goodsId": 10196,
-      "ratingAvg": 4,
-      "reviewCount": 3,
-      "titleCount": 2
+      "ratingAvg": 5,
+      "reviewCount": 1,
+      "titleCount": 1
     }
   ],
   "reviewRating":[
@@ -475,7 +517,34 @@
           "ratingCount":0
         }
       ]
-    }
+    },
+    { "goodsId":10196,
+      "rating":[
+        {
+          "rating":5,
+          "percentage":20,
+          "ratingCount":5
+        },
+        {
+          "rating":4,
+          "percentage":40,
+          "ratingCount":10
+        },
+        {
+          "rating":3,
+          "percentage":40,
+          "ratingCount":10
+        },{
+          "rating":2,
+          "percentage":0,
+          "ratingCount":0
+        },
+        {
+          "rating":1,
+          "percentage":0,
+          "ratingCount":0
+        }
+      ]}
   ]
 
 }

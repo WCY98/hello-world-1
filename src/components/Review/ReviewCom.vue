@@ -1,4 +1,5 @@
 <template>
+
 <div id = "js-reviewList">
  <ul class="g-reviewList">
       <li class="g-reviewList_item">
@@ -11,7 +12,7 @@
           </p> -->
           <star-rating
             :starSize="20"
-            :rating="review.rating"
+            :rating="rating"
             :read-only="true"
             :increment="0.01"
             :show-rating="false">
@@ -48,15 +49,25 @@ import StarRating from 'vue-star-rating'
 
 export default {
   props: {
-    // review: {
-      rating:Number,  
+    // review: {(object)
+      rating: Number,  
       nickName: String,
       reviewDate: String,
       goodsName: String,
       title: String,
       content: String,
       count: Number,
-    // },
+      photo1: String,
+      photo2: String,
+      photo3: String,
+    // },  
+  },
+  data(){
+    return{
+      Image:[
+        this.photo1,this.photo2,this.photo3
+      ]
+    }
   },
   components:{
   StarRating
@@ -67,7 +78,7 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 *,
 *::before,
 *::after {

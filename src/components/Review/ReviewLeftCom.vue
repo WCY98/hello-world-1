@@ -5,7 +5,7 @@
     </div>
     <div
       class="p-reviw-graph-area-score p-reviw-graph-area-average p-reviw-graph-area-average-sm">
-      <span class="g-digit p-reviw-graph-area-g-score">{{ ratingAvg }}</span>
+      <span class="g-digit p-reviw-graph-area-g-score">{{ reviewTotal.ratingAvg }}</span>
     </div>
     <div>
       <star-rating
@@ -20,7 +20,7 @@
     </div>
     <div class="p-reviw-graph-area-left-row p-reviw-graph-area-left-row-score">
       <div class="g-score p-reviw-graph-area-g-score">
-        <span :data-score="ratingAvg">
+        <span :data-score="reviewTotal.ratingAvg">
         </span>
       </div>
     </div>
@@ -28,7 +28,7 @@
       <a class="g-link" id="js-totalrate" data-clickable>
         <span>
             "("
-            <span id="js-reviews">{{ reviewCount }}</span>
+            <span id="js-reviews">{{ reviewTotal.reviewCount }}</span>
             ")"
             </span>
       </a>
@@ -37,17 +37,21 @@
   
 </template>
 
-<script>
+<script >
 import StarRating from "vue-star-rating";
-export default {
-  components: {
-    StarRating,
+
+export default{
+  props:{
+    reviewTotal:{
+      reviewCount:Number,
+      ratingAvg:Number,
+    }
   },
-  props: {
-      ratingAvg: Number,
-      reviewCount: Number,
-    },
-};
+  components:{
+    StarRating,
+  }
+}
+
 </script>
 
 <style scoped>

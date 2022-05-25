@@ -14,12 +14,12 @@
         :show-rating="false"
       ></star-rating>
       </div>
-      <div class="a-meter g-mater-visble" id="js-mater5" data-rate="5">
-        <div class="a-meter-bar" style="width: 49%"></div>
+      <div class="a-meter g-mater-visble" id="js-mater5" data-rate="rating2.rating">
+        <div class="a-meter-bar" style="{width:rating2.percentage + '%'}"></div>
       </div>
-      <a class="g-link g-link-visble" id="js-rate5" data-rate="5"
-        title="レビューの66％に星5つが付いています。"
-        data-clickable>{{ ratingCount }}人</a
+      <a class="g-link g-link-visble" id="js-rate5" data-rate="rating2.rating"
+        title="title"
+        data-clickable>{{ rating2.ratingCount }}人</a
       >
     </div>
   </div>
@@ -32,9 +32,18 @@ export default {
     StarRating,
   },
    props: {
-      ratingAvg: Number,
+     rating2:{
+      rating: Number,
+      percentage:Number,
       ratingCount: Number,
+     }
     },
+    data(){
+      return{
+        title:
+        "レビューの" + this.rating2.percentage + "%に星" + this.rating2.rating +"つが付いています。",
+      }
+    }
 };
 </script>
 

@@ -23,7 +23,7 @@ onMounted(() =>{
 let ratingList = computed(() => store.getters.getReviewRating)
 </script>
 
-<style>
+<style scoped>
 .p-reviw-graph-area {
   box-sizing: border-box;
   display: inline-block;

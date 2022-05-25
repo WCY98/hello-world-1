@@ -17,7 +17,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .content-container {
   display: flex;
   /* justify-content: center; */
