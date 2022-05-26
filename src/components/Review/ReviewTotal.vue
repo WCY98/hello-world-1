@@ -1,7 +1,7 @@
 <template>
   <div class="p-reviewScore p-reviewScore-sm">
-    <review-left-com :reviewTotal="reviewTotal"></review-left-com>
-    <review-right></review-right>
+    <review-total-left :reviewTotal="reviewTotal"></review-total-left>
+    <review-total-right></review-total-right>
   
   </div>
 
@@ -12,7 +12,8 @@
   <div id="n-review-btn" class="n-review-btn">
     <button onclick="javascript:void(0);" class="g-btn g-btn-w-sm">
       <span>商品レビューを書く</span>
-      <i class="g-i g-i-arrow-r" aria-hidden="true"></i>
+      <span class="material-symbols-outlined"> arrow_forward_ios </span>
+      <!-- <i class="g-i g-i-arrow-r" aria-hidden="true"></i> -->
     </button>
 	</div>
 </template>
@@ -21,8 +22,8 @@
 import { computed, onMounted } from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
-import ReviewLeftCom from "./ReviewLeftCom.vue";
-import ReviewRight from "./ReviewRight.vue";
+import ReviewTotalLeft from "./ReviewTotalLeft.vue";
+import ReviewTotalRight from "./ReviewTotalRight.vue";
 
 const route = useRoute();
 const store = useStore();
@@ -50,5 +51,21 @@ let reviewTotal = computed(() =>
 .n-review-btn button span {
   padding: 5px 30px !important;
   color: #009e96;
+}
+.g-btn,
+.g-lg-btn {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  font-weight: normal;
+  display: inline-flex;
+  padding: 0;
+  transition: background-color 0.2s;
+  vertical-align: middle;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  background-color: #fff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 </style>

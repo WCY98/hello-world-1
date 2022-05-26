@@ -12,7 +12,7 @@ export default {
       state.rating.push(...payload[0].rating)
       //state.reviewRating = payload
       // state.reviewRating = payload[0];
-      console.log("array push ", payload[0].payload);
+      console.log("array push ", payload[0].rating);
     },
   },
   actions: {

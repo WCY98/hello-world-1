@@ -2,6 +2,7 @@
 
 <div id = "js-reviewList">
  <ul class="g-reviewList">
+   <template v-if="title != null">
       <li class="g-reviewList_item">
           <p class="g-label-brand g-reviewList_label">PickUpReview</p>
         <div class="g-lg-flow-sm">
@@ -29,6 +30,11 @@
         <p>
           ReviewContent:{{ content }}
         </p>
+
+        <ul class="g-sm-flow-sm g-lg-flow g-reviewList_pics">
+          <template v-if="photo != null"></template>
+        </ul>
+        
         <p class="g-reviewList_like">
           <a class="g-link reviewLike0" id="js-hitLike" data-count="0" 
           data="6256b13a449cda003200015a" data-clickable="">
@@ -39,6 +45,7 @@
             <span>参考になった:（{{ count }}人）</span></a>
         </p>
       </li>
+      </template>
     </ul>
 </div>
 </template>
@@ -46,7 +53,6 @@
 <script>
 // import ReviewContainerVue from './ReviewContainer.vue';
 import StarRating from 'vue-star-rating'
-
 export default {
   props: {
     // review: {(object)
@@ -73,9 +79,7 @@ export default {
   StarRating
 }
 };
-
   
-
 </script>
 
 <style scoped>
@@ -139,6 +143,4 @@ a {
     font-size: 2rem;
     margin-top: -4px;
 }
-
-
 </style>

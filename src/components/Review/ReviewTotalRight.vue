@@ -2,8 +2,8 @@
 <div class="p-reviw-graph-area-right">
     <template  v-for = "(rating,index) in ratingList"
      :key="index">
-     <review-right-com :rating2="rating">
-     </review-right-com></template>
+     <review-total-right-com :rating2="rating">
+     </review-total-right-com></template>
 </div>
 </template>
 
@@ -11,7 +11,7 @@
 import { onMounted,computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { useStore } from 'vuex';
-import ReviewRightCom from './ReviewRightCom.vue';
+import ReviewTotalRightCom from './ReviewTotalRightCom.vue';
 
 const route = useRoute();
 const goodsId = route.params.goodsId;

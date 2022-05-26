@@ -4,7 +4,7 @@
     v-bind="review" 
     :key="index">
     </review-com>
-    <review-total-com></review-total-com>
+    <review-total></review-total>
 </div>
 </template>
 
@@ -12,10 +12,9 @@
 import { mapActions, mapGetters } from "vuex"; 
 import ReviewCom from "./ReviewCom.vue";
 import { useRoute } from "vue-router";
-import ReviewTotalCom from "./ReviewTotalCom.vue";
-
+import ReviewTotal from "./ReviewTotal.vue";
 export default {
-  components: { ReviewCom ,ReviewTotalCom},
+  components: { ReviewCom , ReviewTotal},
   methods: {
     ...mapActions({ fetchReview: "setReview" }),
   },
