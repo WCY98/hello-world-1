@@ -1,24 +1,31 @@
 <template>
   <p class="g-label-brand g-reviewList_label">PickUpReview</p>
-  <div v-for="(review,index) in reviewList" :key="index">
-    <review-com v-bind="review"></review-com>
-  </div>
-  <template v-if="reviewList.length > 3">
-  <p class="g-align-tc">
-    <a class="g-link displaymorereview" 
-       href="#p-reviewMore" 
-       role="button" 
-       aria-expanded="false" 
-       aria-controls="p-reviewMore" 
-       data-label="閉じる" 
-       data-accordion='{"scroll":false}'>
-		<i class="g-i g-i-arrow-d"></i>
-      <span>レビューをもっと見る
-        （3/<span id="js-reviews-more">{{count}}</span>）
-        </span></a>
-  </p>
+   <div id="displayedReview">
+  <!-- <div v-for="(review,index) in reviewList" :key="index"> -->
+   <review-com v-bind="review"></review-com>
+  <!-- </div> -->
+  <ul>
+        <review-com
+          v-for="(review, index) in reviewList"
+          v-bind:review="review"
+          :key="index"
+        ></review-com>
+      </ul>
+    </div>
+
+    <div id="hiddenReview" v-if="showed">
+      <ul>
+        <review-com
+          v-for="(review2, index2) in reviewList2"
+          v-bind:review="review2"
+          :key="index2"
+        ></review-com>
+      </ul>
+      </div>
+    <div>
+	<span @click="showMeMore">{{ btnText }}</span>
+    </div>
   </template>
-</template>
 
 <script setup>
 import { computed, onMounted } from "vue";
@@ -28,14 +35,40 @@ import ReviewCom from "./ReviewCom.vue";
 
 const route = useRoute();
 const goodsId = route.params.goodsId;
-
 const store = useStore();
-onMounted(() => {
-  store.dispatch("setReview", goodsId);
-});
-let reviewList = computed(() => store.getters.getReview);
 
-let count = computed(() => store.getters.getReviewTotal.titleCount);
+// click事件
+const showMeMore = () => {
+  if (!showed.value) {
+    if (reviewList2.value.length === 0) {
+      store.dispatch("setReview", { goodsId: goodsId, offset: 3 });
+    } else {
+      store.commit("changeShowed", true);
+    }
+  } else {
+    store.commit("changeShowed", false);
+  }
+};
+
+//初始化
+onMounted(() => {
+  store.dispatch("setReview", { goodsId: goodsId, offset: 0 });
+});
+
+const reviewCount = computed(() => store.getters.getReview.reviewCount);
+const reviewList = computed(() => store.getters.getReview.reviewList);
+const reviewList2 = computed(() => store.getters.getReviewList);
+const showed = computed(() => store.getters.getShowed);
+
+const btnText = computed(() => {
+  if (!showed.value && reviewList.value !== undefined) {
+    return (
+      "show me more (" + reviewList.value.length + "/" + reviewCount.value + ")"
+    );
+  } else {
+    return "閉じる";
+  }
+});
 </script>
 
 <style scoped>
