@@ -402,7 +402,7 @@
   "review":[
     {"goodsId":10195,
       "offset":0,
-      "reviewCount":5,
+      "reviewCount":7,
       "reviewList":[
         {
           "rating":5,  
@@ -439,8 +439,14 @@
           "photo1": null,
           "photo2": null,
           "photo3": null
-    },
-    {
+    }
+  ]
+},
+{     "goodsId":10195,
+      "offset":3,
+      "reviewCount":7,
+      "reviewList":[
+        {
           "rating":4,  
           "nickName": "e",
           "reviewDate": "2022/05/23",
@@ -454,13 +460,7 @@
           "nickName": "f",
           "reviewDate": "2022/05/17",
           "goodsName": "ゴムバンド付き敷きパッド"
-    }
-  ]
-},
-{     "goodsId":10195,
-      "offset":3,
-      "reviewCount":5,
-      "reviewList":[
+    },
     {
           "rating":5, 
           "nickName": "c",

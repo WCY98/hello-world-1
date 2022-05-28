@@ -3,12 +3,14 @@
   style="display: flex; flex-direction: column; align-items: center">
   PickUpReview</p>
    <div v-for="(review, index) in reviewList" :key="index">
-    <review-com :review="review"></review-com>
+   <!-- reviewlist => offset=0的数据 ，默认前三个数据显示-->
+    <review-com v-bind="review"></review-com>
+    <!-- 如果写了v-bind=""的话，这种写法在子组件里传入的不是一个object -->
   </div>
 
     <div id="hiddenReview" v-if="showed">
       <div v-for="(review2, index2) in reviewList2" :key="index2">
-      <review-com :review="review2"></review-com>
+      <review-com v-bind="review2"></review-com>
     </div>
       </div>
      <div>
@@ -36,6 +38,7 @@ const showMeMore = () => {
   if (!showed.value) {
     if (reviewList2.value.length === 0) {
       store.dispatch("setReview", { goodsId: goodsId, offset: 3 });
+      //offset 起始下标 
     } else {
       store.commit("changeShowed", true);
     }

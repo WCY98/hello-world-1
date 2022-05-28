@@ -60,7 +60,7 @@
           >
           <i class="g-s g-s-like-g" aria-hidden="true"></i>
             <span class="material-symbols-outlined"> thumb_up </span>
-            <span>参考になった:（{{ count }}人）{{ helpfulText }}</span></a>
+            <span>参考になった:({{ count }}人){{ helpfulText }}</span></a>
         </p>
       </li>
       </template>
@@ -90,11 +90,11 @@ export default {
   },
   data(){
     return{
-      Images:[
+      images:[
         this.photo1,this.photo2,this.photo3
       ],
       code:200,
-      isShow: false,
+      helped:false
     }
   },
 
@@ -116,7 +116,7 @@ export default {
       if (this.helped && this.code === 200) {
         return "THANK YOU";
       } else if (this.helped && !this.code == 200) {
-        return "YOU'VE CLICKED！";
+        return "FAIL CLICK！";
       } else {
         return null;
       }
@@ -128,9 +128,10 @@ export default {
 
 <style>
 .images {
-  height: 100%;
+  height: 80%;
 }
 .image {
+  height:80px;
   width: 80px;
   cursor: pointer;
   margin: 3px;
@@ -185,5 +186,8 @@ b {
 }
 .g-link reviewLike0 {
   color: black;
+}
+.g-reviewList_like {
+  cursor: pointer;
 }
 </style>

@@ -18,12 +18,14 @@
            id="js-mater5" style="width: 150px">
 
         <div class="a-meter-bar" 
-             style="{width: rating2.percentage + '%'}"></div>
-      
+             :style="{width: rating2.percentage + '%'}"></div>
+      <!-- 记得绑定！！！ -->
       </div>
-      <a class="g-link g-link-visble" id="js-rate5" data-rate="rating2.rating"
+                                                    <!-- 记得绑定！！！ -->
+      <a class="g-link g-link-visble" id="js-rate5" :data-rate="rating2.rating"
         title="title"
         data-clickable>{{ rating2.ratingCount }}人</a>
+        <!-- 在tag尖括号里（标签外）用双括号 -->
         </span>
   </div>
 </template>
@@ -88,13 +90,21 @@ element.style {
     width: 57%;
     box-shadow: rgb(235 97 87) -2px 0px 0px -1px inset, rgb(235 97 87) 0px 0px 0px 1px inset;
 }
+
 .a-meter .a-meter-bar {
-    -webkit-transition: width 0.5s ease;
+    -webkit-transition: width .5s ease;
     transition: width .5s ease;
     float: left;
     font-size: 0;
     height: 100%;
     width: 0;
+}
+.a-meter .a-meter-bar {
+    border-radius: 4px;
+    box-shadow: inset -2px 0 0 -1px #a4433c, inset 0 0 0 1px #8d3a34;
+    background-color: #eb6157;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 #js-totalrate.active, #js-rate1.active, #js-rate2.active, #js-rate3.active, #js-rate4.active, #js-rate5.active {
     color: #eb6157;

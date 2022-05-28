@@ -27,9 +27,9 @@
     <div class="p-g-left-row">
       <a class="g-link" id="js-totalrate" data-clickable>
         <span>
-            "("
+            (
             <span id="js-reviews">{{ reviewTotal.reviewCount }}</span>
-            ")"
+            )
             </span>
       </a>
     </div>
