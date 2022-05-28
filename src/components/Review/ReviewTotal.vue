@@ -9,13 +9,7 @@
     {{ reviewTotal.reviewCount }}評価 {{ reviewTotal.titleCount }}商品レビュー
   </p>
   
-  <div id="n-review-btn" class="n-review-btn">
-    <button onclick="javascript:void(0);" class="g-btn g-btn-w-sm">
-      <span>商品レビューを書く</span>
-      <span class="material-symbols-outlined"> arrow_forward_ios </span>
-      <!-- <i class="g-i g-i-arrow-r" aria-hidden="true"></i> -->
-    </button>
-	</div>
+  
 </template>
 
 <script setup>

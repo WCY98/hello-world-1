@@ -414,7 +414,7 @@
           "count": 3,
           "photo1":"http://localhost:8080/assets/image/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
           "photo2":"http://localhost:8080/assets/image/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
-          "photo3":"http://localhost:8080/assets/image/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg"
+          "photo3":null
     },
     {
           "rating":4,  
@@ -425,8 +425,8 @@
           "content": "昨日から使用してますが、今は春秋用でぐっすり眠れました。 夏用が楽しみです。",
           "count": 2,
           "photo1":"http://localhost:8080/assets/image/7a406989-061b-4f69-baa1-6fa499aa091d.jpg",
-          "photo2":"http://localhost:8080/assets/image/7a406989-061b-4f69-baa1-6fa499aa091d.jpg",
-          "photo3":"http://localhost:8080/assets/image/7a406989-061b-4f69-baa1-6fa499aa091d.jpg"
+          "photo2":null,
+          "photo3":null
     },
     {
           "rating":4,  
@@ -436,9 +436,9 @@
           "title": "title1",
           "content": "content1",
           "count": 5,
-          "photo1": "http://localhost:8080/assets/image/8fc9776e-9393-421d-998c-e516b3877dba.jpg",
-          "photo2": "http://localhost:8080/assets/image/8fc9776e-9393-421d-998c-e516b3877dba.jpg",
-          "photo3": "http://localhost:8080/assets/image/8fc9776e-9393-421d-998c-e516b3877dba.jpg"
+          "photo1": null,
+          "photo2": null,
+          "photo3": null
     },
     {
           "rating":4,  
@@ -457,9 +457,9 @@
     }
   ]
 },
-{     "goodsId":10196,
+{     "goodsId":10195,
       "offset":3,
-      "reviewCount":2,
+      "reviewCount":5,
       "reviewList":[
     {
           "rating":5, 
@@ -569,6 +569,56 @@
           "ratingCount":0
         }
       ]}
+  ],
+
+  "goodsqa":[
+    {
+      "goodsId":10195,
+      "totalCount":5,
+      "qaList":[
+        {
+          "questionContents":"questionContents1",
+          "questionDate":"2022年04月17日",
+          "answerContents":"questionContents1",
+          "answerName":"answerName1",
+          "answerDate":"2022年05月17日",  
+          "count":1        
+        },
+        {
+          "questionContents":"questionContents2",
+          "questionDate":"2022年04月18日",
+          "answerContents":"questionContents2",
+          "answerName":"answerName1",
+          "answerDate":"2022年05月18日",  
+          "count":2        
+        },
+        {
+          "questionContents":"questionContents3",
+          "questionDate":"2022年04月19日",
+          "answerContents":"questionContents3",
+          "answerName":"answerName1",
+          "answerDate":"2022年05月19日",  
+          "count":3        
+        },
+        {
+          "questionContents":"questionContents4",
+          "questionDate":"2022年04月20日",
+          "answerContents":"questionContents4",
+          "answerName":"answerName1",
+          "answerDate":"2022年05月20日",  
+          "count":4        
+        },
+        {
+          "questionContents":"questionContents5",
+          "questionDate":"2022年04月21日",
+          "answerContents":"questionContents5",
+          "answerName":"answerName1",
+          "answerDate":"2022年05月21日",  
+          "count":5        
+        }
+        
+      ]
+    }
   ]
 
 }

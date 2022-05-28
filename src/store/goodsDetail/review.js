@@ -1,67 +1,55 @@
-const url = "http://localhost:3000/review/";
-const url2 = "http://localhost:3000/review/goodsId/:goodsId/offset/:offset";
+const url = "http://localhost:3000/review/goodsId/:goodsId/offset/:offset";
 const headers = { Accept: "application/json" };
 
 export default {
   state: {
-    goods:{},
-    review: {},
-    reviewList:[],
-    showed:false,
+    reviews: {},
+    reviewList: [],
+    showed: false,
   },
   mutations: {
-    setGoods(state, payload) {
-      state.goods = payload[0];
-      console.log("array push ", payload);
-    },
     //syncrous
-    setReview(state, payload) {
-      state.review = payload[0];
-      console.log("array push ", payload[0]);
+    setReview(state, j) {
+      state.reviews = j[0];
+      console.log("array push reviews", j);
+      console.log("array push reviews[0]", j[0]);
     },
-    setReviewList(state, payload) {
-      // state.reviewList = payload;
-      state.reviewList.push(...payload);
+    setReviewList(state, j) {
+      //state.reviewList =[];
+      state.reviewList.push(...j);
+      console.log("state.reviewList.push(...reviewList)", j);
     },
-
-    changeShowed(state,payload){
-      state.showed = payload;
-    }
+    changeShowed(state, changeShowed) {
+      state.showed = changeShowed;
+    },
   },
   actions: {
-    //asyncronous
-    async setGoods(context, payload) {
-      const goodsId = payload.goodsId;
-      const goods = await fetch(url + goodsId, { headers });
-      const j = await goods.json();
-      context.commit("setGoods", j);
-    },
+    //asyncronous  异步
     async setReview(context, payload) {
-      const { goodsId, offset} = payload;
-      const newUrl = url2
-                     .replace(":goodsId",goodsId)
-                     .replace(":offset",offset)
-      // console.log("url",newUrl)
+      const { goodsId, offset } = payload;
+      const newUrl = url
+        .replace(":goodsId", goodsId)
+        .replace(":offset", offset);
 
-      const goodses = await fetch(newUrl, { headers });
-      const j = await goodses.json();
+      const reviews = await fetch(newUrl, { headers });
+      const j = await reviews.json();
 
-      if(offset === 0 ){
+      console.log("in setReviews method", j);
+      console.log("j[0].reviewList", j[0].reviewList);
+
+      if (offset === 0) {
         context.commit("setReview", j);
-      }else{
+      } else {
         context.commit("changeShowed", true);
         context.commit("setReviewList", j[0].reviewList);
       }
     },
   },
   getters: {
-    getGoods: (state) => {
-      // console.log("in getGoods method", state.goods);
-      return state.goods;
-    },
     getReview: (state) => {
-      // console.log("in getReview method", state.review);
-      return state.review;
+      console.log("in getReviews method", state.reviews);
+      console.log(state.reviews);
+      return state.reviews;
     },
     getReviewList: (state) => {
       return state.reviewList;

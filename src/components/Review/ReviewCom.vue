@@ -1,16 +1,9 @@
 <template>
-
 <div id = "js-reviewList">
  <ul class="g-reviewList">
    <template v-if="title != null">
       <li class="g-reviewList_item">
-          <p class="g-label-brand g-reviewList_label">PickUpReview</p>
         <div class="g-lg-flow-sm">
-          <!-- <p class="g-score">
-            <span :data-score="rating">
-              <span class="g-clip">Rating:</span>
-            </span>
-          </p> -->
           <star-rating
             :starSize="20"
             :rating="rating"
@@ -32,17 +25,42 @@
         </p>
 
         <ul class="g-sm-flow-sm g-lg-flow g-reviewList_pics">
-          <template v-if="photo != null"></template>
+          <li>
+              <div>
+                <template v-if="photo1 != null">
+                  <viewer
+                    :images="images"
+                    @inited="inited"
+                    class="viewer"
+                    ref="viewer"
+                  >
+                    <template #default="scope">
+                      <img
+                        v-for="src in scope.images"
+                        :src="src"
+                        :key="src"
+                        class="image"
+                      />
+
+                      {{ scope.options }}
+                    </template>
+                  </viewer>
+                </template>
+                <!-- <button type="button" @click="show">Show</button> -->
+              </div>
+            </li>
         </ul>
         
         <p class="g-reviewList_like">
-          <a class="g-link reviewLike0" id="js-hitLike" data-count="0" 
-          data="6256b13a449cda003200015a" data-clickable="">
-          <!-- <i class="g-s g-s-like-g" aria-hidden="true"></i>
-          <span>参考になった:（{{ count }}人）</span></a> -->
+          <a 
+          @click="helped = !helped"
+          class="g-link reviewLike0" 
+          id="js-hitLike" 
+          data-count="0" 
+          >
           <i class="g-s g-s-like-g" aria-hidden="true"></i>
             <span class="material-symbols-outlined"> thumb_up </span>
-            <span>参考になった:（{{ count }}人）</span></a>
+            <span>参考になった:（{{ count }}人）{{ helpfulText }}</span></a>
         </p>
       </li>
       </template>
@@ -53,7 +71,9 @@
 <script>
 // import ReviewContainerVue from './ReviewContainer.vue';
 import StarRating from 'vue-star-rating'
+
 export default {
+ 
   props: {
     // review: {(object)
       rating: Number,  
@@ -70,77 +90,100 @@ export default {
   },
   data(){
     return{
-      Image:[
+      Images:[
         this.photo1,this.photo2,this.photo3
-      ]
+      ],
+      code:200,
+      isShow: false,
     }
   },
+
+   methods: {
+    inited(viewer) {
+      this.$viewer = viewer;
+    },
+    show() {
+      this.$viewer.show();
+    },
+  },
+
   components:{
   StarRating
-}
+},
+
+ computed: {
+    helpfulText() {
+      if (this.helped && this.code === 200) {
+        return "THANK YOU";
+      } else if (this.helped && !this.code == 200) {
+        return "YOU'VE CLICKED！";
+      } else {
+        return null;
+      }
+    },
+  },
 };
   
 </script>
 
-<style scoped>
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  justify-content: center;
+<style>
+.images {
+  height: 100%;
 }
-.g-reviewList {
-    box-shadow: 0 -1px 0 0 #dbdbdb;
+.image {
+  width: 80px;
+  cursor: pointer;
+  margin: 3px;
+  display: inline-block;
 }
 .g-reviewList_item {
-    padding: 15px 0;
-    border-bottom: 1px dashed #dbdbdb;
+  padding: 15px 0;
+  border-bottom: 1px dashed #dbdbdb;
+}
+.g-lg-flow-sm {
+  display: flex;
 }
 .g-reviewList_item p {
-    word-break: break-all;
+  word-break: break-all;
 }
-.g-reviewList_label {
-    margin-bottom: 15px;
-}
-b {
-    font-weight: normal;
-}
-.g-label-brand {
-    color: #009e96;
-    border: 1px solid #009e96;
-}
-.g-label-brand, .g-label-price, .g-label-maker, .g-label-required {
-    font-size: 1.2rem;
-    font-weight: normal;
-    line-height: 1;
-    display: inline-block;
-    padding: 3px 5px;
-    vertical-align: middle;
-    white-space: nowrap;
-    background-color: #fff;
-}
-.g-reviewList_item p {
-    word-break: break-all;
+.g-reviewList_info {
+  margin-top: 10px;
 }
 .g-reviewList_h {
-    font-weight: normal;
-    margin: 10px 0;
-    font-size: 1rem;
-    line-height: 0.5;
+  font-weight: bold;
+  margin: 10px 0;
+  font-size: 1.2rem;
+  line-height: 1.5;
 }
-.g-reviewList_like {
-    line-height: 1;
-    margin-top: 15px;
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }
-[data-clickable] {
-    cursor: pointer;
+li {
+  text-align: -webkit-match-parent;
 }
-a {
-    text-decoration: none;
-    color: #333;
+ul,
+ol {
+  padding: 0;
+  list-style-position: initial;
+  list-style-image: initial;
+  list-style-type: none;
 }
-.g-reviewList_like .g-s {
-    font-size: 2rem;
-    margin-top: -4px;
+b {
+  font-weight: bold;
+}
+.p-reviw-graph-area-right {
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 2px 2px 2px 2px;
+  vertical-align: top;
+  width: 100%;
+  color: black;
+}
+.g-link reviewLike0 {
+  color: black;
 }
 </style>
