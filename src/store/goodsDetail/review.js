@@ -6,6 +6,7 @@ export default {
     reviews: {},
     reviewList: [],
     showed: false,
+    allReviewList:[]
   },
   mutations: {
     //syncrous
@@ -22,6 +23,21 @@ export default {
     changeShowed(state, changeShowed) {
       state.showed = changeShowed;
     },
+    
+    filterReviews(state, rating) {
+      if(state.allReviewList.length ===0){
+        state.allReviewList.push(...state.reviews.reviewList);
+        state.allReviewList.push(...state.reviewList);
+      }
+      const arr = state.allReviewList.filter(review =>review.rating ===rating);
+
+      if (arr.length >3 ){
+        state.reviews.reviewList = arr.slice(0,3);
+        state.reviewList = arr.slice(3);
+      }else{
+        state.reviews.reviewList = arr;
+      }
+    }
   },
   actions: {
     //asyncronous  异步

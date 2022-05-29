@@ -1,16 +1,19 @@
 <template>
   <div>
     <h1>GoodsDetail</h1>
+    <p>goodsId:{{ goodsId }}</p>
     <router-link to="/">Home</router-link>
-    <review-container></review-container>
+    <hr />
+    <qa-and-review></qa-and-review>
   </div>
 </template>
 
-<script>
-import ReviewContainer from "../components/Review/ReviewContainer.vue";
-export default {
-  components: { ReviewContainer },
-};
+<script setup>
+import QaAndReview from "../components/QaAndReview.vue";
+import { useRoute } from "vue-router";
+
+const route = useRoute();
+const goodsId = route.params.goodsId;
 </script>
 
 <style>

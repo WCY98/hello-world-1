@@ -5,6 +5,19 @@
     <span>商品Q&amp;A</span>
   </h2>
   <div id="ZVCQA">
+    <div class="zv-cqa-step">
+      <div class="zv-cqa-step-link">
+        <span>全{{ totalCount }}件</span>
+
+        <span>ページ{{ pageNo }}/{{ totalPage }}</span>
+      </div>
+      <div class="zv-select-wrap">
+        <select id="zv-cqa-select-sort" class="zv-select" name="sort">
+          <option value="total_yes">トップ評価</option>
+          <option value="created_at" selected="">新しい順</option>
+        </select>
+      </div>
+    </div>
     <qa-list></qa-list>
   </div>
   <div>

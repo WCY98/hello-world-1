@@ -24,6 +24,7 @@
                                                     <!-- 记得绑定！！！ -->
       <a class="g-link g-link-visble" id="js-rate5" :data-rate="rating2.rating"
         title="title"
+        @click="clickRating(rating2.rating)"
         data-clickable>{{ rating2.ratingCount }}人</a>
         <!-- 在tag尖括号里（标签外）用双括号 -->
         </span>
@@ -31,7 +32,9 @@
 </template>
 
 <script>
-import StarRating from "vue-star-rating";
+import StarRating from "vue-star-rating"
+import {mapMutations} from "vuex"
+
 export default {
    components: {
     StarRating,
@@ -42,6 +45,19 @@ export default {
       percentage:Number,
       ratingCount: Number,
      }
+    },
+
+    methods:{
+      async clickRating(rating){
+        if(this.$store.getters.getReviewList.length === 0 
+             && this.$store.getters.getReview.reviewCount>3){
+               await this.$store.dispatch('setReview',{goodsId:this.$route.params.goodsId,offset:3});  
+             }
+             this.filterReview(rating);
+      },
+      ...mapMutations([
+        'filterReviews',
+      ])
     },
     data(){
       return{
@@ -109,6 +125,17 @@ element.style {
 #js-totalrate.active, #js-rate1.active, #js-rate2.active, #js-rate3.active, #js-rate4.active, #js-rate5.active {
     color: #eb6157;
     text-decoration: underline;
+}
+a.g-link-visble {
+  text-decoration: underline;
+}
+a.g-link,
+a.g-sm-link {
+  display: inline-flex;
+  align-items: center;
+}
+a.g-link-visble {
+  cursor: pointer;
 }
 
 </style>
