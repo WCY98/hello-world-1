@@ -53,7 +53,7 @@ export default {
              && this.$store.getters.getReview.reviewCount>3){
                await this.$store.dispatch('setReview',{goodsId:this.$route.params.goodsId,offset:3});  
              }
-             this.filterReview(rating);
+             this.filterReviews(rating);
       },
       ...mapMutations([
         'filterReviews',

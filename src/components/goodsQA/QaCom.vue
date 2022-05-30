@@ -4,6 +4,7 @@
       <span class="zv-space">Q. </span>
       <span class="zv-cqa-q-text">{{ questionContents }}</span>
     </div>
+    <br>
     <div class="zv-cqa-q-info">
       <span class="zv-cqa-q-reviewer">投稿者&nbsp; </span>
       <span class="zv-cqa-q-created-at">投稿日&nbsp;{{ questionDate }}</span>
@@ -17,6 +18,7 @@
               {{ answerContents }}
             </p>
           </div>
+          <br>
 
           <div class="zv-cqa-a-info">
             <span class="zv-space"></span>
@@ -104,6 +106,10 @@ export default {
     answerDate: String,
     count: Number,
   },
+
+  data(){
+
+  }
 };
 </script>
 
@@ -175,5 +181,13 @@ div {
   padding: 0;
   border: none;
   border-radius: 0;
+}
+#ZVCQA span.zv-cqa-q-reviewer, #ZVCQA span.zv-cqa-a-reviewer, #ZVCQA div.zv-popupModal1, #ZVCQA span.zv-separator {
+    display: none;
+}
+.zv-cqa-q-text {
+    font-weight: bold;
+    margin: 10px 0;
+    line-height: 1.5;
 }
 </style>

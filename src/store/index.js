@@ -5,6 +5,7 @@ import swiper from './home/swiper'
 import review from "./goodsDetail/review";
 import reviewRating from "./goodsDetail/reviewRating";
 import reviewTotal from "./goodsDetail/reviewTotal";
+import goodsQa from './goodsDetail/goodsQa';
 
 
 export default createStore({
@@ -14,6 +15,7 @@ export default createStore({
     swiper,
     review,
     reviewRating,
-    reviewTotal
+    reviewTotal,
+    goodsQa
   },
 })

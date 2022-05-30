@@ -34,10 +34,12 @@ const reviewList2 = computed(() => store.getters.getReviewList);
 const showed = computed(() => store.getters.getShowed);
 
 // click事件
-const showMeMore = () => {
+const showMeMore = async () => {
   if (!showed.value) {
     if (reviewList2.value.length === 0) {
-      store.dispatch("setReview", { goodsId: goodsId, offset: 3 });
+      // store.dispatch("setReview", { goodsId: goodsId, offset: 3 });
+      await store.dispatch("setReview",{goodsId:goodsId,offset:3})
+      store.commit("changeShowed",true);
       //offset 起始下标 
     } else {
       store.commit("changeShowed", true);
@@ -61,6 +63,9 @@ const btnText = computed(() => {
     return "閉じる";
   }
 });
+
+//点击对应的rating、出现的review<3不显示ShowMeMore，review>3显示对应rating的全部review
+
 </script>
 
 <style scoped>

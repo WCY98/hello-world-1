@@ -462,7 +462,7 @@
           "goodsName": "ゴムバンド付き敷きパッド"
     },
     {
-          "rating":5, 
+          "rating":3, 
           "nickName": "c",
           "reviewDate": "2022/05/13",
           "goodsName": "付き敷きパッド",
@@ -474,7 +474,7 @@
           "photo3": "http://localhost:8080/assets/image/8c1c9fb2-26aa-4fa0-b9ce-cf278d827fa6.jpg"
        },
        {
-        "rating":5, 
+        "rating":2, 
         "nickName": "g",
         "reviewDate": "2022/05/19",
         "goodsName": "付き敷きパッド",
@@ -502,8 +502,8 @@
     {
       "goodsId": 10195,
       "ratingAvg": 4,
-      "reviewCount": 5,
-      "titleCount": 4
+      "reviewCount": 7,
+      "titleCount": 6
     },
     {
       "goodsId": 10196,
@@ -518,22 +518,22 @@
       "rating":[
         {
           "rating":5,
-          "percentage":60,
-          "ratingCount":4
+          "percentage":14.28,
+          "ratingCount":1
         },
         {
           "rating":4,
-          "percentage":40,
-          "ratingCount":2
+          "percentage":42.85,
+          "ratingCount":3
         },
         {
           "rating":3,
-          "percentage":0,
-          "ratingCount":0
+          "percentage":28.57,
+          "ratingCount":2
         },{
           "rating":2,
-          "percentage":0,
-          "ratingCount":0
+          "percentage":14.28,
+          "ratingCount":1
         },
         {
           "rating":1,
@@ -617,6 +617,36 @@
           "count":5        
         }
         
+      ]
+    },
+    {
+      "goodsId":10196,
+      "totalCount":3,
+      "qaList":[
+        {
+          "questionContents":"questionContents6",
+          "questionDate":"2022年04月17日",
+          "answerContents":"questionContents6",
+          "answerName":"answerName1",
+          "answerDate":"2022年05月17日",  
+          "count":1        
+        },
+        {
+          "questionContents":"questionContents7",
+          "questionDate":"2022年04月18日",
+          "answerContents":"questionContents7",
+          "answerName":"answerName1",
+          "answerDate":"2022年05月18日",  
+          "count":2        
+        },
+        {
+          "questionContents":"questionContents8",
+          "questionDate":"2022年04月19日",
+          "answerContents":"questionContents8",
+          "answerName":"answerName1",
+          "answerDate":"2022年05月19日",  
+          "count":3        
+        }        
       ]
     }
   ]

@@ -23,14 +23,15 @@ export default {
     changeShowed(state, changeShowed) {
       state.showed = changeShowed;
     },
-    
+
     filterReviews(state, rating) {
-      if(state.allReviewList.length ===0){
+      if(state.allReviewList.length === 0){
         state.allReviewList.push(...state.reviews.reviewList);
         state.allReviewList.push(...state.reviewList);
       }
       const arr = state.allReviewList.filter(review =>review.rating ===rating);
 
+      state.reviews.reviewCount = arr.length;
       if (arr.length >3 ){
         state.reviews.reviewList = arr.slice(0,3);
         state.reviewList = arr.slice(3);
@@ -56,7 +57,7 @@ export default {
       if (offset === 0) {
         context.commit("setReview", j);
       } else {
-        context.commit("changeShowed", true);
+        // context.commit("changeShowed", true);
         context.commit("setReviewList", j[0].reviewList);
       }
     },
