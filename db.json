@@ -578,42 +578,42 @@
       "qaList":[
         {
           "questionContents":"questionContents1",
-          "questionDate":"2022年04月17日",
+          "questionDate":"2022/04/17",
           "answerContents":"questionContents1",
           "answerName":"answerName1",
-          "answerDate":"2022年05月17日",  
+          "answerDate":"2022/05/17",  
           "count":1        
         },
         {
           "questionContents":"questionContents2",
-          "questionDate":"2022年04月18日",
+          "questionDate":"2022/04/18",
           "answerContents":"questionContents2",
           "answerName":"answerName1",
-          "answerDate":"2022年05月18日",  
+          "answerDate":"2022/05/18",  
           "count":2        
         },
         {
           "questionContents":"questionContents3",
-          "questionDate":"2022年04月19日",
+          "questionDate":"2022/04/19",
           "answerContents":"questionContents3",
           "answerName":"answerName1",
-          "answerDate":"2022年05月19日",  
-          "count":3        
+          "answerDate":"2022/05/19",  
+          "count":10        
         },
         {
           "questionContents":"questionContents4",
-          "questionDate":"2022年04月20日",
+          "questionDate":"2022/04/20",
           "answerContents":"questionContents4",
           "answerName":"answerName1",
-          "answerDate":"2022年05月20日",  
+          "answerDate":"2022/05/10",  
           "count":4        
         },
         {
           "questionContents":"questionContents5",
-          "questionDate":"2022年04月21日",
+          "questionDate":"2022/04/21",
           "answerContents":"questionContents5",
           "answerName":"answerName1",
-          "answerDate":"2022年05月21日",  
+          "answerDate":"2022/05/21",  
           "count":5        
         }
         
@@ -625,26 +625,26 @@
       "qaList":[
         {
           "questionContents":"questionContents6",
-          "questionDate":"2022年04月17日",
+          "questionDate":"2022/04/17",
           "answerContents":"questionContents6",
           "answerName":"answerName1",
-          "answerDate":"2022年05月17日",  
+          "answerDate":"2022/05/17",  
           "count":1        
         },
         {
           "questionContents":"questionContents7",
-          "questionDate":"2022年04月18日",
+          "questionDate":"2022/04/18",
           "answerContents":"questionContents7",
           "answerName":"answerName1",
-          "answerDate":"2022年05月18日",  
+          "answerDate":"2022/05/18",  
           "count":2        
         },
         {
           "questionContents":"questionContents8",
-          "questionDate":"2022年04月19日",
+          "questionDate":"2022/04/19",
           "answerContents":"questionContents8",
           "answerName":"answerName1",
-          "answerDate":"2022年05月19日",  
+          "answerDate":"2022/05/19",  
           "count":3        
         }        
       ]

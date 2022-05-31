@@ -20,6 +20,18 @@ export default {
     setTotalCount(state, payload) {
       state.totalCount = payload[0].totalCount;
     },
+
+    setSort(state, payload){
+      if (payload === "新しい順"){
+        state.goodsQA.qaList.sort(( a , b) => {
+          return new Date(b.answerDate)- new Date(a.answerDate);
+        }
+        );
+        }else{
+          state.goodsQA.qaList.sort(( a , b ) => b.count - a.count);
+        }
+    },
+
     nextPage(state) {
       state.pageNo++;
     },

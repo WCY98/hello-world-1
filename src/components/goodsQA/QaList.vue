@@ -5,20 +5,27 @@
         <span>全{{ totalCount }}件</span>
         <span class="zv-cqa-previous zv-cqa-page-btn"
               @click="previousPage">
-          <span class="zv-cqa-arrow zv-cqa-arrow-left" data-page="1">&lt;</span></span>
+          <span class="zv-cqa-arrow zv-cqa-arrow-left" data-page="1"
+          v-if ="pageNo!= 1">&lt;</span></span>
         <span>ページ{{ pageNo }}/{{ totalPage }}</span>
         <span class="zv-cqa-next zv-cqa-page-btn"
                @click="nextPage">
-          <span class="zv-cqa-arrow zv-cqa-arrow-right" data-page="2">&gt;</span></span>
+          <span class="zv-cqa-arrow zv-cqa-arrow-right" data-page="2"
+          v-if = "pageNo != totalPage">&gt;</span></span>
         
       </div>
 
-      <!-- <div class="zv-select-wrap"> -->
-        <select id="zv-cqa-select-sort" class="zv-select" name="sort">
+      <div class="zv-select-wrap">
+        <!-- <select id="zv-cqa-select-sort" class="zv-select" name="sort">
           <option value="total_yes">トップ評価</option>
           <option value="created_at" selected="">新しい順</option>
-        </select>
+        </select> -->
+         <select v-on:change = "change">
+              <option value="トップ評価">トップ評価</option>
+              <option value="新しい順">新しい順</option>
+            </select>
       </div>
+    </div>
     </div>
     <!-- QA内容 -->
     <div v-for="(qa, index) in qaList" :key="index">
@@ -30,11 +37,13 @@
         <span>全{{ totalCount }}件</span>
         <span class="zv-cqa-previous zv-cqa-page-btn"
               @click="previousPage">
-          <i class="zv-cqa-arrow zv-cqa-arrow-left" data-page="1">&lt;</i></span>
+           <span class="zv-cqa-arrow zv-cqa-arrow-left" data-page="1"
+          v-if ="pageNo!= 1">&lt;</span></span>
         <span>ページ{{ pageNo }}/{{ totalPage }}</span>
         <span class="zv-cqa-next zv-cqa-page-btn"
               @click="nextPage">
-          <i class="zv-cqa-arrow zv-cqa-arrow-right" data-page="2">&gt;</i></span>
+          <span class="zv-cqa-arrow zv-cqa-arrow-right" data-page="2"
+          v-if = "pageNo != totalPage">&gt;</span></span>
       </div>
     </div>
 </template>
@@ -76,6 +85,14 @@ function previousPage() {
 const totalPage = computed(() => {
   return Math.ceil(totalCount.value / 3);
 })
+
+// function foo (e) {
+//           this.val = e.target.value
+//         }
+const change = (e) =>(
+  store.commit("setSort", e.target.value)
+);
+      
 </script>
 
 <style scoped>
