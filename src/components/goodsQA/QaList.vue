@@ -5,11 +5,11 @@
         <span>全{{ totalCount }}件</span>
         <span class="zv-cqa-previous zv-cqa-page-btn"
               @click="previousPage">
-          <i class="zv-cqa-arrow zv-cqa-arrow-left" data-page="1">&lt;</i></span>
+          <span class="zv-cqa-arrow zv-cqa-arrow-left" data-page="1">&lt;</span></span>
         <span>ページ{{ pageNo }}/{{ totalPage }}</span>
         <span class="zv-cqa-next zv-cqa-page-btn"
                @click="nextPage">
-          <i class="zv-cqa-arrow zv-cqa-arrow-right" data-page="2">&gt;</i></span>
+          <span class="zv-cqa-arrow zv-cqa-arrow-right" data-page="2">&gt;</span></span>
         
       </div>
 
@@ -53,12 +53,18 @@ onMounted(() => {
   store.dispatch("setGoodsQA", goodsId);
 });
 
-let qaList = computed(() => store.getters.getGoodsQA.qaList.slice(0,3));
+let pageNo = computed(() => store.getters.getPageNo);
+
+let start = computed(() => {
+  return (pageNo.value - 1) * 3
+})
+let end = computed(() =>{
+  return pageNo.value * 3
+})
+let qaList = computed(() => store.getters.getGoodsQA.qaList.slice(start.value, end.value));
 
 let totalCount = computed(() => store.getters.getGoodsQA.totalCount);
 //console.log("TotalCount", TotalCount);
-
-let pageNo = computed(() => store.getters.getPageNo);
 
 function nextPage() {
   store.commit("nextPage");

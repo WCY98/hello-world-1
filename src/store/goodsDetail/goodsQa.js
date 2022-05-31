@@ -7,7 +7,7 @@ export default {
     totalCount: Number,
     pageNo: 1,
     totalPage: Number,
-    showLeft: false,
+    
   },
 
   mutations: {
@@ -41,9 +41,20 @@ export default {
   },
   getters: {
     getGoodsQA: (state) => {
-      // console.log("in getGoodsQA method", state.goodsQA);
-      // console.log(state.goodsQA);
       return state.goodsQA;
     },
+    getQaList: (state) => {
+      return state.qaList;
+    },
+    getTotalCount: (state) => {
+      return state.totalCount;
+    },
+    getPageNo: (state) => {
+      return state.pageNo;
+    },
+    getTotalPage: (state) => {
+      return state.totalPage;
+    },
+    
   },
 };
