@@ -3,16 +3,31 @@ const headers = { Accept: "application/json" };
 
 export default {
   state: {
-    goodsQA: [],
+    goodsQA: {qaList: []},
     totalCount: Number,
+    pageNo: 1,
+    totalPage: Number,
+    showLeft: false,
   },
+
   mutations: {
     //syncrous
     setGoodsQA(state, payload) {
-      //state.goodsQA.push(...payload);
-      //state.goodsQA = payload;
-      state.goodsQA = payload[0].qaList;
+      state.goodsQA = payload[0];
       console.log("array push ", payload);
+    },
+
+    setTotalCount(state, payload) {
+      state.totalCount = payload[0].totalCount;
+    },
+    nextPage(state) {
+      state.pageNo++;
+    },
+    previousPage(state) {
+      state.pageNo--;
+    },
+    changeShowLeft(state, changeShowLeft) {
+      state.showLeft = changeShowLeft;
     },
   },
   actions: {

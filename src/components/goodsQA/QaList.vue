@@ -3,10 +3,12 @@
     <div class="zv-cqa-step">
       <div class="zv-cqa-step-link">
         <span>全{{ totalCount }}件</span>
-        <span class="zv-cqa-previous zv-cqa-page-btn">
+        <span class="zv-cqa-previous zv-cqa-page-btn"
+              @click="previousPage">
           <i class="zv-cqa-arrow zv-cqa-arrow-left" data-page="1">&lt;</i></span>
         <span>ページ{{ pageNo }}/{{ totalPage }}</span>
-        <span class="zv-cqa-next zv-cqa-page-btn">
+        <span class="zv-cqa-next zv-cqa-page-btn"
+               @click="nextPage">
           <i class="zv-cqa-arrow zv-cqa-arrow-right" data-page="2">&gt;</i></span>
         
       </div>
@@ -26,10 +28,12 @@
     <div class="zv-cqa-step">
       <div class="zv-cqa-step-link">
         <span>全{{ totalCount }}件</span>
-        <span class="zv-cqa-previous zv-cqa-page-btn">
+        <span class="zv-cqa-previous zv-cqa-page-btn"
+              @click="previousPage">
           <i class="zv-cqa-arrow zv-cqa-arrow-left" data-page="1">&lt;</i></span>
         <span>ページ{{ pageNo }}/{{ totalPage }}</span>
-        <span class="zv-cqa-next zv-cqa-page-btn">
+        <span class="zv-cqa-next zv-cqa-page-btn"
+              @click="nextPage">
           <i class="zv-cqa-arrow zv-cqa-arrow-right" data-page="2">&gt;</i></span>
       </div>
     </div>
@@ -40,19 +44,32 @@ import QaCom from "./QaCom.vue";
 import { computed, onMounted } from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
+
 const route = useRoute();
 const goodsId = route.params.goodsId;
+
 const store = useStore();
 onMounted(() => {
   store.dispatch("setGoodsQA", goodsId);
 });
-let qaList = computed(() => store.getters.getGoodsQA);
-//let qaCount = computed(() => store.getters.getGoodsQA.getTotalCount);
-onMounted(() => {
-  store.dispatch("setGoodsQA", goodsId);
-});
-let totalCount = computed(() => store.getters.getGoodsQA.length);
+
+let qaList = computed(() => store.getters.getGoodsQA.qaList.slice(0,3));
+
+let totalCount = computed(() => store.getters.getGoodsQA.totalCount);
 //console.log("TotalCount", TotalCount);
+
+let pageNo = computed(() => store.getters.getPageNo);
+
+function nextPage() {
+  store.commit("nextPage");
+}
+function previousPage() {
+  store.commit("previousPage");
+}
+
+const totalPage = computed(() => {
+  return Math.ceil(totalCount.value / 3);
+})
 </script>
 
 <style scoped>
@@ -118,5 +135,4 @@ let totalCount = computed(() => store.getters.getGoodsQA.length);
 #ZVCQA div.zv-cqa-step {
     box-shadow: 0 1px 0 0 #dbdbdb;
 }
-
 </style>
