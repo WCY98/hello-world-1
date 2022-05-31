@@ -31,6 +31,7 @@ export default {
       }
       const arr = state.allReviewList.filter(review =>review.rating ===rating);
 
+      //点击rating对应的review之后、showMeMore的分母数字改变
       state.reviews.reviewCount = arr.length;
       if (arr.length >3 ){
         state.reviews.reviewList = arr.slice(0,3);

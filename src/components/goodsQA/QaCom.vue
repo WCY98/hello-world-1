@@ -6,7 +6,7 @@
     </div>
     <br>
     <div class="zv-cqa-q-info">
-      <span class="zv-cqa-q-reviewer">投稿者&nbsp; </span>
+      <!-- <span class="zv-cqa-q-reviewer">投稿者&nbsp; </span> -->
       <span class="zv-cqa-q-created-at">投稿日&nbsp;{{ questionDate }}</span>
     </div>
     <div class="zv-cqa-answers">
@@ -22,7 +22,7 @@
 
           <div class="zv-cqa-a-info">
             <span class="zv-space"></span>
-            <span class="zv-cqa-a-reviewer">回答者&nbsp; {{ answerName }}</span>
+            <!-- <span class="zv-cqa-a-reviewer">回答者&nbsp; {{ answerName }}</span> -->
             <span class="zv-cqa-a-created-at"
               >回答日&nbsp;{{ answerDate }}</span
             >
@@ -55,7 +55,7 @@
                 >
               </span>
             </span>
-            <span class="zv-separator">|</span>
+            <!-- <span class="zv-separator">|</span>
             <div class="zv-popupModal1">
               <input type="radio" name="modalPop" id="pop11227726" />
               <label for="pop11227726">違反を報告</label>
@@ -79,8 +79,8 @@
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              </div> -->
+            <!-- </div> -->
           </div>
           <div class="zv-cqa-comment">
             <div class="zv-cqa-comment-actions">
@@ -102,7 +102,7 @@ export default {
     questionContents: String,
     questionDate: String,
     answerContents: String,
-    answerName: String,
+    // answerName: String,
     answerDate: String,
     count: Number,
   },

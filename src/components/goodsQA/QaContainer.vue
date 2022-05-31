@@ -27,7 +27,7 @@ import QuestionPost from "./QuestionPost.vue";
 
 </script>
 
-<style>
+<style scoped>
 .p-hd {
   font-size: 1.8rem;
   margin-bottom: 13px;

@@ -1,14 +1,14 @@
 <template>
-  <p class="zv-heading">カスタマーQ&amp;A</p>
-  
     <div id="ZVCQA">
     <div class="zv-cqa-step">
       <div class="zv-cqa-step-link">
         <span>全{{ totalCount }}件</span>
-        <span class="material-symbols-outlined"> chevron_left </span>
+        <span class="zv-cqa-previous zv-cqa-page-btn">
+          <i class="zv-cqa-arrow zv-cqa-arrow-left" data-page="1">&lt;</i></span>
         <span>ページ{{ pageNo }}/{{ totalPage }}</span>
-        <!-- click ">" -> go back to a next page -->
-        <span class="material-symbols-outlined"> chevron_right </span>
+        <span class="zv-cqa-next zv-cqa-page-btn">
+          <i class="zv-cqa-arrow zv-cqa-arrow-right" data-page="2">&gt;</i></span>
+        
       </div>
 
       <!-- <div class="zv-select-wrap"> -->
@@ -26,7 +26,11 @@
     <div class="zv-cqa-step">
       <div class="zv-cqa-step-link">
         <span>全{{ totalCount }}件</span>
+        <span class="zv-cqa-previous zv-cqa-page-btn">
+          <i class="zv-cqa-arrow zv-cqa-arrow-left" data-page="1">&lt;</i></span>
         <span>ページ{{ pageNo }}/{{ totalPage }}</span>
+        <span class="zv-cqa-next zv-cqa-page-btn">
+          <i class="zv-cqa-arrow zv-cqa-arrow-right" data-page="2">&gt;</i></span>
       </div>
     </div>
 </template>
@@ -36,17 +40,14 @@ import QaCom from "./QaCom.vue";
 import { computed, onMounted } from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
-
 const route = useRoute();
 const goodsId = route.params.goodsId;
-
 const store = useStore();
 onMounted(() => {
   store.dispatch("setGoodsQA", goodsId);
 });
 let qaList = computed(() => store.getters.getGoodsQA);
 //let qaCount = computed(() => store.getters.getGoodsQA.getTotalCount);
-
 onMounted(() => {
   store.dispatch("setGoodsQA", goodsId);
 });
@@ -54,44 +55,68 @@ let totalCount = computed(() => store.getters.getGoodsQA.length);
 //console.log("TotalCount", TotalCount);
 </script>
 
-<style>
-p.zv-heading,
-pan.zv-cqa-q-reviewer,
-span.zv-cqa-a-reviewer,
-div.zv-popupModal1,
-span.zv-separator {
-  display: none;
+<style scoped>
+*, *::before, *::after {
+    box-sizing: border-box;
 }
-p,
-form,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-ul,
-ol,
-dl,
-dd,
-input,
-textarea,
-select,
-button {
-  margin: 0;
+#ZVCQA {
+    font-size: 14px;
+    margin-bottom: 30px;
+    color: #333;
+    padding: 0;
 }
-#ZVCQA p.zv-heading {
-  margin-top: 10px;
-  margin-bottom: 0;
-  padding: 0;
-  font-size: 20px;
-  font-weight: bold;
+.zv-cqa-page-btn {
+    cursor: pointer;
+    text-decoration: none;
+    color: #333;
 }
-p {
-  display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
+#ZVCQA i.zv-cqa-arrow-left, #ZVCQA a.zv-cqa-next, #ZVCQA a.zv-cqa-previous {
+    font-size: 0;
 }
+#ZVCQA i.zv-cqa-arrow, #ZVCQA a.zv-cqa-next, #ZVCQA a.zv-cqa-previous {
+    transition: transform 0.3s;
+    color: #009e96;
+    flex-shrink: 0;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: 'icon';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    letter-spacing: 0;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+#ZVCQA i.zv-cqa-arrow-left:before, #ZVCQA a.zv-cqa-previous:before {
+    font-size: 14px;
+    content: '\EA04';
+}
+#ZVCQA .zv-cqa-step-link {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+#ZVCQA .zv-select-wrap {
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #bdc3c7;
+    border-radius: 3px;
+    background: #ffffff;
+    width: auto;
+    display: inline-block;
+    -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
+    -webkit-box-shadow: inset 0 1px 2px rgb(0 0 0 / 20%);
+    box-shadow: inner 0 1px 2px rgba(0, 0, 0, 0.2);
+    vertical-align: middle;
+}
+.zv-cqa-question {
+    padding: 15px 0 0;
+}
+#ZVCQA div.zv-cqa-step {
+    box-shadow: 0 1px 0 0 #dbdbdb;
+}
+
 </style>
