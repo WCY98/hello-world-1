@@ -649,6 +649,26 @@
         }        
       ]
     }
+  ],
+
+
+  "goodsInfo": [
+    {
+      "goodsId": 10195,
+      "color": "ベージュ",
+      "size": "幅100×奥行200cm",
+      "material": "コットン",
+      "weight": "約920g",
+      "warrantyYear": "1年"
+    },
+    {
+      "goodsId": 10196,
+      "color": "ブルー",
+      "size": "幅100×奥行200cm",
+      "material": "ナイロン／ポリエステル／ＰＥ／ＰＵ",
+      "weight": "約1.12kg",
+      "warrantyYear": "1年"
+    }
   ]
 
 }

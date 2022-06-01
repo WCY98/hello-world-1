@@ -39,7 +39,7 @@ import { reactive, onMounted } from "vue";
 // };
 </script>
 
-<style>
+<style scoped>
 #sub_banner {
   display: flex;
   width: 1226px;

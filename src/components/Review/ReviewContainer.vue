@@ -74,4 +74,11 @@ div {
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
 }
+.material-symbols-outlined {
+cursor: pointer;
+color: #009e96;
+flex-shrink: 0;
+display: inline-block;
+vertical-align: middle;
+}
 </style>

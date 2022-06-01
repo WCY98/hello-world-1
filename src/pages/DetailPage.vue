@@ -10,7 +10,6 @@
 import { useRoute } from "vue-router";
 import { useStore} from "vuex";
 import { onMounted, computed } from "vue";
-
 // export default{
 //     setup(){
         const route = useRoute();
@@ -18,17 +17,14 @@ import { onMounted, computed } from "vue";
         
         
         const store = useStore();
-
         onMounted(() =>{
             store.dispatch("setGoods");
         });
         let goodsInfo = computed(() => store.getters.getGoods)
         // return {goodsId}
-
 //     }
 // }
 </script>
 
 <style>
-
 </style>

@@ -11,7 +11,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .ul-container{
     width: 1226px;
     flex-shrink: 0;

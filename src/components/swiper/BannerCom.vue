@@ -14,7 +14,7 @@ export default{
 }
 </script>
 
-<style>
+<style scoped>
 #banner{
   width: 1226px;
   display: flex;
