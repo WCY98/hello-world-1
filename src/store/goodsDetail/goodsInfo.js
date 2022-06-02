@@ -5,10 +5,7 @@ export default {
   state: {
     info: {sizeList:[]},
     colorList:[],
-    // count =1
-    // sizeList: info [ sizeList:[]],
     // info:{ }
-    // showed:false,
   },
   mutations: {
     //synchronous 同期
@@ -23,13 +20,7 @@ export default {
 
     // changeShowed(state, changeShowed) {
     //   state.showed = changeShowed;
-    // },
-  // let count = color
-  //  filterColorList(state, color) {
-  //     if ( state.count.color >= 1) {
-
-  //     }
-  //   }
+    
   },
 
   actions: {

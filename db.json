@@ -833,42 +833,46 @@
           ],
           "colorList":[
             {
-              "goodsSize":"single", 
-              "color":"gray",
-              "colorValue":"00100070019",
-              "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965479792670/BasicColor_GRY.jpg"
-            },
-            {
-              "goodsSize":"single",
-              "color":"beige",
-              "colorValue":"00100180026",
-              "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965478907934/BasicColor_BE.jpg"
-            },
-            {
-              "goodsSize":"semidouble",
-              "color":"gray",
-              "colorValue":"00100070019",
-              "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965479792670/BasicColor_GRY.jpg"
-            },
-            {
-              "goodsSize":"semidouble",
-              "color":"beige",
-              "colorValue":"00100180026",
-              "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965478907934/BasicColor_BE.jpg"
-            },
-            {
-              "goodsSize":"double",
-              "color":"gray",
-              "colorValue":"00100070019",
-              "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965479792670/BasicColor_GRY.jpg"
-            },
-            {
-              "goodsSize":"double",
-              "color":"beige",
-              "colorValue":"00100180026",
-              "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965478907934/BasicColor_BE.jpg"
-            }
+              "single":[
+                {
+                  "color":"gray",
+                  "colorValue":"00100070019",
+                  "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965479792670/BasicColor_GRY.jpg"
+                },
+                {
+                  "color":"beige",
+                  "colorValue":"00100180026",
+                  "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965478907934/BasicColor_BE.jpg"
+                }
+              ],
+              "semidouble":[
+                {
+                  "color":"gray",
+                  "colorValue":"00100070019",
+                  "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965479792670/BasicColor_GRY.jpg"
+                },
+                {
+                  "color":"beige",
+                  "colorValue":"00100180026",
+                  "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965478907934/BasicColor_BE.jpg"
+                }
+              ],
+              "double":[
+                {
+                  "color":"gray",
+                  "colorValue":"00100070019",
+                  "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965479792670/BasicColor_GRY.jpg"
+                },
+                {
+                  "color":"beige",
+                  "colorValue":"00100180026",
+                  "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965478907934/BasicColor_BE.jpg"
+                }
               ]
             }
-          ] 
+          ]
+        }
+  ]  
+        
+
 }

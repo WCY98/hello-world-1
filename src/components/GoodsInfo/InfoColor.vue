@@ -48,6 +48,7 @@ onMounted(() => {
 });
 
 const colorList = computed(() => store.getters.getInfo.colorList);
+
 </script>
 
 <style>
