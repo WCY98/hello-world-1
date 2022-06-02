@@ -7,6 +7,7 @@
               @click="previousPage">
           <span class="zv-cqa-arrow zv-cqa-arrow-left" data-page="1"
           v-if ="pageNo!= 1">&lt;</span></span>
+
         <span>ページ{{ pageNo }}/{{ totalPage }}</span>
         <span class="zv-cqa-next zv-cqa-page-btn"
                @click="nextPage">
@@ -157,5 +158,12 @@ const change = (e) =>(
 }
 #ZVCQA div.zv-cqa-step {
     box-shadow: 0 1px 0 0 #dbdbdb;
+}
+.material-symbols-outlined {
+cursor: pointer;
+color: #009e96;
+flex-shrink: 0;
+display: inline-block;
+vertical-align: middle;
 }
 </style>

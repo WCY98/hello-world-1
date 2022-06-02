@@ -34,8 +34,7 @@ import QuestionPost from "./QuestionPost.vue";
 }
 .g-h-2,
 .g-lg-h-2 {
-  font-size: 2.4rem;
-  margin-bottom: calc(30px - 0.6rem);
+  font-size: 2rem;
 }
 .g-h-i,
 .g-lg-h-i {
@@ -56,9 +55,7 @@ import QuestionPost from "./QuestionPost.vue";
   letter-spacing: 0;
   pointer-events: none;
 }
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
 }
 article,
@@ -73,32 +70,23 @@ nav,
 section {
   display: block;
 }
-#ZVCQA div.zv-cqa-step {
-    box-shadow: 0 1px 0 0 #dbdbdb;
-}
-
-#ZVCQA .zv-cqa-step-link {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 20px;
-    display: inline-block;
-    padding-bottom: 5px;
-}
-
 #ZVCQA {
   font-size: 14px;
   margin-bottom: 30px;
   color: #333;
   padding: 0;
 }
-.zv-cqa-question {
-    padding: 15px 0 0;
+#ZVCQA div.zv-cqa-step {
+  box-shadow: 0 1px 0 0 #dbdbdb;
 }
-.zv-space {
-    width: 20px;
-    display: block;
-    float: left;
-    font-weight: bold;
+#ZVCQA .zv-cqa-step-link {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  display: inline-block;
+  padding-bottom: 5px;
 }
-
+.material-symbols-outlined {
+  cursor: default;
+}
 </style>

@@ -218,7 +218,7 @@ tr {
     box-sizing: border-box;
 }
 .g-table-a, .g-sm-table-a {
-    width: 50%;
+    width: 100%;
     border-spacing: 0;
     border-top: 1px solid #dbdbdb;
 }
@@ -232,7 +232,13 @@ flex-shrink: 0;
 display: inline-block;
 vertical-align: middle;
 }
-.material-symbols-outlined {
-  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+section {
+  width: 500px;
+}
+.g-h-i .g-i:first-child,
+.g-h-i .g-s:first-child,
+.g-lg-h-i .g-i:first-child,
+.g-lg-h-i .g-s:first-child {
+  margin-right: 0.5em;
 }
 </style>

@@ -3,7 +3,11 @@ const headers = { Accept: "application/json" };
 
 export default {
   state: {
-    info: [],
+    info: {sizeList:[]},
+    colorList:[],
+    // count =1
+    // sizeList: info [ sizeList:[]],
+    // info:{ }
     // showed:false,
   },
   mutations: {
@@ -13,9 +17,19 @@ export default {
       console.log("array push ", payload);
     },
 
+    setColorList(state, payload){
+      state.colorList.push(...payload[0].color);
+    }
+
     // changeShowed(state, changeShowed) {
     //   state.showed = changeShowed;
     // },
+  // let count = color
+  //  filterColorList(state, color) {
+  //     if ( state.count.color >= 1) {
+
+  //     }
+  //   }
   },
 
   actions: {
@@ -26,10 +40,21 @@ export default {
       context.commit("setInfo", j);
       console.log("in setInfo method", j)
     },
+
+    async setColorList(context, payload) {
+      const colorList = await fetch(url + payload, {headers});
+      const j = await colorList.json();
+      context.commit("setColorList", j);
+      console.log("in setColorList method", j)
+    }
   },
   getters: {
     getInfo: (state) => {
       return state.info;
+    },
+
+    getColorList: (state) => {
+      return state.colorList;
     },
 
     // getShowed: (state) => {

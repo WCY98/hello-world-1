@@ -4,7 +4,7 @@
     <p>goodsId:{{ goodsId }}</p>
     <router-link to="/">Home</router-link>
     <hr />
-    <goods-info></goods-info>
+    <info-container></info-container>
     <qa-and-review></qa-and-review>
   </div>
 </template>
@@ -12,7 +12,7 @@
 <script setup>
 import QaAndReview from "../components/QaAndReview.vue";
 import { useRoute } from "vue-router";
-import GoodsInfo from "../components/GoodsInfo.vue";
+import InfoContainer from "@/components/GoodsInfo/InfoContainer.vue";
 
 const route = useRoute();
 const goodsId = route.params.goodsId;

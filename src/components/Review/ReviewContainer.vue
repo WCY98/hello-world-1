@@ -27,7 +27,7 @@ import ReviewTotal from "./ReviewTotal.vue";
 // const goodsId = route.params.goodsId;
 </script>
 
-<style>
+<style scoped>
 /* #normal-productreview {
   width: 415px;
 } */

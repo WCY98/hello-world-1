@@ -652,23 +652,223 @@
   ],
 
 
-  "goodsInfo": [
+  "goodsInfo":[
     {
-      "goodsId": 10195,
-      "color": "ベージュ",
-      "size": "幅100×奥行200cm",
-      "material": "コットン",
-      "weight": "約920g",
-      "warrantyYear": "1年"
-    },
-    {
-      "goodsId": 10196,
-      "color": "ブルー",
-      "size": "幅100×奥行200cm",
-      "material": "ナイロン／ポリエステル／ＰＥ／ＰＵ",
-      "weight": "約1.12kg",
-      "warrantyYear": "1年"
-    }
-  ]
-
+      "goodsId":10195,
+      "goodsDescribe":"Tシャツのような肌ざわり、ニット素材",
+      "sizeList":[
+        {
+          "goodsSize":"single",
+          "sizeValue":"7564861",
+          "dataCode":"05700010014",
+          "price":1990,
+          "code":7564865,
+          "size":"幅100×奥行200cm",
+          "material": "コットン",
+          "weight": "約920g",
+          "warrantyYear": "1年",
+          "photo":[
+              {
+                "photo1":"http://localhost:8080/assets/image/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
+                "photo2":"http://localhost:8080/assets/image/756486701.jpg",
+                "photo3":"http://localhost:8080/assets/image/756486701.jpg",
+                "photo4":"http://localhost:8080/assets/image/756486701.jpg",
+                "photo5":"http://localhost:8080/assets/image/756486701.jpg",
+                "photo6":"http://localhost:8080/assets/image/756486701.jpg",
+                "photo7":"http://localhost:8080/assets/image/756486701.jpg",
+                "photo8":"http://localhost:8080/assets/image/756486701.jpg",
+                "photo9":"http://localhost:8080/assets/image/756486701.jpg"
+              }
+            ]
+           },
+           {
+            "goodsSize":"single",
+            "sizeValue":"7564861",
+            "dataCode":"05700010014",
+            "price":1990,
+            "code":7564861,
+            "size":"幅100×奥行200cm",
+            "material": "コットン",
+            "weight": "約920g",
+            "warrantyYear": "1年",
+            "photo":[
+              {
+                "photo1":"http://localhost:8080/assets/image/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
+                "photo2":"http://localhost:8080/assets/image/756486301.webp",
+                "photo3":"http://localhost:8080/assets/image/756486301.webp",
+                "photo4":"http://localhost:8080/assets/image/756486301.webp",
+                "photo5":"http://localhost:8080/assets/image/756486301.webp",
+                "photo6":"http://localhost:8080/assets/image/756486301.webp",
+                "photo7":"http://localhost:8080/assets/image/756486301.webp",
+                "photo8":"http://localhost:8080/assets/image/756486301.webp",
+                "photo9":"http://localhost:8080/assets/image/756486301.webp"
+              }
+            ]
+           },
+        {
+          "goodsSize":"semidouble",
+          "sizeValue":"7564862",
+          "dataCode":"05700010017",
+          "price":2990,
+          "code":7564866,
+          "color":"gray",
+          "colorValue":"00100070019",
+          "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965479792670/BasicColor_GRY.jpg",
+          "size":"幅100×奥行200cm",
+          "material": "コットン",
+          "weight": "約920g",
+          "warrantyYear": "1年",
+          "photo":[
+              {
+                "photo1":"http://localhost:8080/assets/image/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
+                "photo2":"http://localhost:8080/assets/image/756486701.jpg",
+                "photo3":"http://localhost:8080/assets/image/756486701.jpg",
+                "photo4":"http://localhost:8080/assets/image/756486701.jpg",
+                "photo5":"http://localhost:8080/assets/image/756486701.jpg",
+                "photo6":"http://localhost:8080/assets/image/756486701.jpg",
+                "photo7":"http://localhost:8080/assets/image/756486701.jpg",
+                "photo8":"http://localhost:8080/assets/image/756486701.jpg",
+                "photo9":"http://localhost:8080/assets/image/756486701.jpg"
+              }
+            ]
+           },
+           {
+          "goodsSize":"semidouble",
+          "sizeValue":"7564862",
+          "dataCode":"05700010017",
+          "price":2990,
+          "code":7564862,
+          "color":"beige",
+          "colorValue":"00100180026",
+          "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965478907934/BasicColor_BE.jpg",
+          "size":"幅100×奥行200cm",
+          "material": "コットン",
+          "weight": "約920g",
+          "warrantyYear": "1年",
+          "photo":[
+              {
+              "photo1":"http://localhost:8080/assets/image/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
+              "photo2":"http://localhost:8080/assets/image/756486301.webp",
+              "photo3":"http://localhost:8080/assets/image/756486301.webp",
+              "photo4":"http://localhost:8080/assets/image/756486301.webp",
+              "photo5":"http://localhost:8080/assets/image/756486301.webp",
+              "photo6":"http://localhost:8080/assets/image/756486301.webp",
+              "photo7":"http://localhost:8080/assets/image/756486301.webp",
+              "photo8":"http://localhost:8080/assets/image/756486301.webp",
+              "photo9":"http://localhost:8080/assets/image/756486301.webp"
+              }
+            ]
+           },
+        {
+          "goodsSize":"double",
+          "sizeValue":"7564863",
+          "dataCode":"05700010019",
+          "price":3990,
+          "code":7564867,
+          "color":"gray",
+          "colorValue":"00100070019",
+          "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965479792670/BasicColor_GRY.jpg",
+          "size":"幅100×奥行200cm",
+          "material": "コットン",
+          "weight": "約920g",
+          "warrantyYear": "1年",
+          "photo":[
+              {
+              "photo1":"http://localhost:8080/assets/image/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
+              "photo2":"http://localhost:8080/assets/image/756486701.jpg",
+              "photo3":"http://localhost:8080/assets/image/756486701.jpg",
+              "photo4":"http://localhost:8080/assets/image/756486701.jpg",
+              "photo5":"http://localhost:8080/assets/image/756486701.jpg",
+              "photo6":"http://localhost:8080/assets/image/756486701.jpg",
+              "photo7":"http://localhost:8080/assets/image/756486701.jpg",
+              "photo8":"http://localhost:8080/assets/image/756486701.jpg",
+              "photo9":"http://localhost:8080/assets/image/756486701.jpg"
+              }
+            ]
+           },
+           {
+            "goodsSize":"double",
+            "sizeValue":"7564863",
+            "dataCode":"05700010019",
+            "price":3990,
+            "code":7564863,
+            "color":"beige",
+            "colorValue":"00100180026",
+            "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965478907934/BasicColor_BE.jpg",
+            "size":"幅100×奥行200cm",
+            "material": "コットン",
+            "weight": "約920g",
+            "warrantyYear": "1年",
+            "photo":[
+              {
+              "photo1":"http://localhost:8080/assets/image/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
+              "photo2":"http://localhost:8080/assets/image/756486301.webp",
+              "photo3":"http://localhost:8080/assets/image/756486301.webp",
+              "photo4":"http://localhost:8080/assets/image/756486301.webp",
+              "photo5":"http://localhost:8080/assets/image/756486301.webp",
+              "photo6":"http://localhost:8080/assets/image/756486301.webp",
+              "photo7":"http://localhost:8080/assets/image/756486301.webp",
+              "photo8":"http://localhost:8080/assets/image/756486301.webp",
+              "photo9":"http://localhost:8080/assets/image/756486301.webp"
+              }
+            ]
+           }
+          ],
+          "sizeList1":[
+            {
+            "goodsSize":"single",
+            "sizeValue":"7564861",
+            "dataCode":"05700010014"
+            },
+            {
+            "goodsSize":"semidouble",
+            "sizeValue":"7564862",
+            "dataCode":"05700010017" 
+            },
+            {
+            "goodsSize":"double",
+            "sizeValue":"7564863",
+            "dataCode":"05700010019"
+            }
+          ],
+          "colorList":[
+            {
+              "goodsSize":"single", 
+              "color":"gray",
+              "colorValue":"00100070019",
+              "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965479792670/BasicColor_GRY.jpg"
+            },
+            {
+              "goodsSize":"single",
+              "color":"beige",
+              "colorValue":"00100180026",
+              "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965478907934/BasicColor_BE.jpg"
+            },
+            {
+              "goodsSize":"semidouble",
+              "color":"gray",
+              "colorValue":"00100070019",
+              "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965479792670/BasicColor_GRY.jpg"
+            },
+            {
+              "goodsSize":"semidouble",
+              "color":"beige",
+              "colorValue":"00100180026",
+              "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965478907934/BasicColor_BE.jpg"
+            },
+            {
+              "goodsSize":"double",
+              "color":"gray",
+              "colorValue":"00100070019",
+              "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965479792670/BasicColor_GRY.jpg"
+            },
+            {
+              "goodsSize":"double",
+              "color":"beige",
+              "colorValue":"00100180026",
+              "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965478907934/BasicColor_BE.jpg"
+            }
+              ]
+            }
+          ] 
 }
