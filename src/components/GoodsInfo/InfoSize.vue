@@ -5,6 +5,7 @@
             <i class="g-i g-i-dropdown" aria-hidden="true"></i>
             <select 
             v-model = "goodsSize"
+            @change="store.commit('setImgList',{goodsSize,color})"
             name="" 
             required=""
             aria-required="true" 
@@ -12,11 +13,11 @@
             data-control="#p-eo-label-">
 
         <option disabled value="" selected></option>
-		<template v-for= "(size, index) in sizeList" :key="index">
+		<template v-for= "(v, index) in variants" :key="index">
              <option 
-				:value="size.goodsSize" 
-				:data-code="size.dataCode" 
-                :data-label="size.goodsSize" data-parent="">{{size.goodsSize}}
+				:value="v.goodsSize" 
+				
+                :data-label="v.goodsSize" data-parent="">{{v.goodsSize}}
 					</option>
                     </template>
 				</select>
@@ -34,10 +35,10 @@ const goodsId = route.params.goodsId;
 
 const store = useStore();
 onMounted(() => {
-    store.dispatch("setInfo",goodsId)
+    store.dispatch("setSizeList",goodsId)
 });
 
-const sizeList = computed(() => store.getters.getInfo.sizeList1);
+let variants = computed(() => store.getters.getVariants);
 
 const state = reactive({
     goodsSize: "single",

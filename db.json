@@ -667,18 +667,12 @@
           "material": "コットン",
           "weight": "約920g",
           "warrantyYear": "1年",
-          "photo":[
-              {
-                "photo1":"http://localhost:8080/assets/image/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
-                "photo2":"http://localhost:8080/assets/image/756486701.jpg",
-                "photo3":"http://localhost:8080/assets/image/756486701.jpg",
-                "photo4":"http://localhost:8080/assets/image/756486701.jpg",
-                "photo5":"http://localhost:8080/assets/image/756486701.jpg",
-                "photo6":"http://localhost:8080/assets/image/756486701.jpg",
-                "photo7":"http://localhost:8080/assets/image/756486701.jpg",
-                "photo8":"http://localhost:8080/assets/image/756486701.jpg",
-                "photo9":"http://localhost:8080/assets/image/756486701.jpg"
-              }
+          "photoList":[
+              "http://localhost:8080/assets/image/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
+              "http://localhost:8080/assets/image/756486701.jpg",
+              "http://localhost:8080/assets/image/756486701.jpg",
+              "http://localhost:8080/assets/image/756486701.jpg",
+              "http://localhost:8080/assets/image/756486701.jpg"
             ]
            },
            {
@@ -691,18 +685,13 @@
             "material": "コットン",
             "weight": "約920g",
             "warrantyYear": "1年",
-            "photo":[
-              {
-                "photo1":"http://localhost:8080/assets/image/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
-                "photo2":"http://localhost:8080/assets/image/756486301.webp",
-                "photo3":"http://localhost:8080/assets/image/756486301.webp",
-                "photo4":"http://localhost:8080/assets/image/756486301.webp",
-                "photo5":"http://localhost:8080/assets/image/756486301.webp",
-                "photo6":"http://localhost:8080/assets/image/756486301.webp",
-                "photo7":"http://localhost:8080/assets/image/756486301.webp",
-                "photo8":"http://localhost:8080/assets/image/756486301.webp",
-                "photo9":"http://localhost:8080/assets/image/756486301.webp"
-              }
+            "photoList":[
+              "http://localhost:8080/assets/image/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
+              "http://localhost:8080/assets/image/756486301.webp",
+              "http://localhost:8080/assets/image/756486301.webp",
+              "http://localhost:8080/assets/image/756486301.webp",
+              "http://localhost:8080/assets/image/756486301.webp"
+             
             ]
            },
         {
@@ -718,19 +707,13 @@
           "material": "コットン",
           "weight": "約920g",
           "warrantyYear": "1年",
-          "photo":[
-              {
-                "photo1":"http://localhost:8080/assets/image/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
-                "photo2":"http://localhost:8080/assets/image/756486701.jpg",
-                "photo3":"http://localhost:8080/assets/image/756486701.jpg",
-                "photo4":"http://localhost:8080/assets/image/756486701.jpg",
-                "photo5":"http://localhost:8080/assets/image/756486701.jpg",
-                "photo6":"http://localhost:8080/assets/image/756486701.jpg",
-                "photo7":"http://localhost:8080/assets/image/756486701.jpg",
-                "photo8":"http://localhost:8080/assets/image/756486701.jpg",
-                "photo9":"http://localhost:8080/assets/image/756486701.jpg"
-              }
-            ]
+          "photoList":[
+            "http://localhost:8080/assets/image/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
+            "http://localhost:8080/assets/image/756486701.jpg",
+            "http://localhost:8080/assets/image/756486701.jpg",
+            "http://localhost:8080/assets/image/756486701.jpg",
+            "http://localhost:8080/assets/image/756486701.jpg"
+          ]
            },
            {
           "goodsSize":"semidouble",
@@ -745,19 +728,13 @@
           "material": "コットン",
           "weight": "約920g",
           "warrantyYear": "1年",
-          "photo":[
-              {
-              "photo1":"http://localhost:8080/assets/image/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
-              "photo2":"http://localhost:8080/assets/image/756486301.webp",
-              "photo3":"http://localhost:8080/assets/image/756486301.webp",
-              "photo4":"http://localhost:8080/assets/image/756486301.webp",
-              "photo5":"http://localhost:8080/assets/image/756486301.webp",
-              "photo6":"http://localhost:8080/assets/image/756486301.webp",
-              "photo7":"http://localhost:8080/assets/image/756486301.webp",
-              "photo8":"http://localhost:8080/assets/image/756486301.webp",
-              "photo9":"http://localhost:8080/assets/image/756486301.webp"
-              }
-            ]
+          "photoList":[
+            "http://localhost:8080/assets/image/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
+              "http://localhost:8080/assets/image/756486301.webp",
+              "http://localhost:8080/assets/image/756486301.webp",
+              "http://localhost:8080/assets/image/756486301.webp",
+              "http://localhost:8080/assets/image/756486301.webp"
+          ]
            },
         {
           "goodsSize":"double",
@@ -772,19 +749,13 @@
           "material": "コットン",
           "weight": "約920g",
           "warrantyYear": "1年",
-          "photo":[
-              {
-              "photo1":"http://localhost:8080/assets/image/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
-              "photo2":"http://localhost:8080/assets/image/756486701.jpg",
-              "photo3":"http://localhost:8080/assets/image/756486701.jpg",
-              "photo4":"http://localhost:8080/assets/image/756486701.jpg",
-              "photo5":"http://localhost:8080/assets/image/756486701.jpg",
-              "photo6":"http://localhost:8080/assets/image/756486701.jpg",
-              "photo7":"http://localhost:8080/assets/image/756486701.jpg",
-              "photo8":"http://localhost:8080/assets/image/756486701.jpg",
-              "photo9":"http://localhost:8080/assets/image/756486701.jpg"
-              }
-            ]
+          "photoList":[
+            "http://localhost:8080/assets/image/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
+            "http://localhost:8080/assets/image/756486701.jpg",
+            "http://localhost:8080/assets/image/756486701.jpg",
+            "http://localhost:8080/assets/image/756486701.jpg",
+            "http://localhost:8080/assets/image/756486701.jpg"
+          ]
            },
            {
             "goodsSize":"double",
@@ -799,18 +770,12 @@
             "material": "コットン",
             "weight": "約920g",
             "warrantyYear": "1年",
-            "photo":[
-              {
-              "photo1":"http://localhost:8080/assets/image/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
-              "photo2":"http://localhost:8080/assets/image/756486301.webp",
-              "photo3":"http://localhost:8080/assets/image/756486301.webp",
-              "photo4":"http://localhost:8080/assets/image/756486301.webp",
-              "photo5":"http://localhost:8080/assets/image/756486301.webp",
-              "photo6":"http://localhost:8080/assets/image/756486301.webp",
-              "photo7":"http://localhost:8080/assets/image/756486301.webp",
-              "photo8":"http://localhost:8080/assets/image/756486301.webp",
-              "photo9":"http://localhost:8080/assets/image/756486301.webp"
-              }
+            "photoList":[
+              "http://localhost:8080/assets/image/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
+              "http://localhost:8080/assets/image/756486301.webp",
+              "http://localhost:8080/assets/image/756486301.webp",
+              "http://localhost:8080/assets/image/756486301.webp",
+              "http://localhost:8080/assets/image/756486301.webp"
             ]
            }
           ],
@@ -831,44 +796,18 @@
             "dataCode":"05700010019"
             }
           ],
-          "colorList":[
+          "variants":[
             {
-              "single":[
-                {
-                  "color":"gray",
-                  "colorValue":"00100070019",
-                  "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965479792670/BasicColor_GRY.jpg"
-                },
-                {
-                  "color":"beige",
-                  "colorValue":"00100180026",
-                  "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965478907934/BasicColor_BE.jpg"
-                }
-              ],
-              "semidouble":[
-                {
-                  "color":"gray",
-                  "colorValue":"00100070019",
-                  "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965479792670/BasicColor_GRY.jpg"
-                },
-                {
-                  "color":"beige",
-                  "colorValue":"00100180026",
-                  "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965478907934/BasicColor_BE.jpg"
-                }
-              ],
-              "double":[
-                {
-                  "color":"gray",
-                  "colorValue":"00100070019",
-                  "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965479792670/BasicColor_GRY.jpg"
-                },
-                {
-                  "color":"beige",
-                  "colorValue":"00100180026",
-                  "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965478907934/BasicColor_BE.jpg"
-                }
-              ]
+              "goodsSize":"single",
+              "color":["gray","beige"]
+            },
+            {
+              "goodsSize":"semidouble",
+              "color":["gray","beige"]
+            },
+            {
+              "goodsSize":"double",
+              "color":["gray","beige"]
             }
           ]
         }

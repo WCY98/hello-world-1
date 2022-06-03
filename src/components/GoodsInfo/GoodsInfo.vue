@@ -74,12 +74,12 @@ onMounted(() => {
   store.dispatch("setInfo", goodsId);
 });
 
-const color = computed(() => store.getters.getInfo.color);
+const color = computed(() => store.getters.getSizeList.color);
 // console.log("aaaa",color);
-const size = computed(() => store.getters.getInfo.size);
-const material = computed(() => store.getters.getInfo.material);
-const weight = computed(() => store.getters.getInfo.weight);
-const warrantyYear = computed(() => store.getters.getInfo.warrantyYear);
+const size = computed(() => store.getters.getSizeList.size);
+const material = computed(() => store.getters.getSizeList.material);
+const weight = computed(() => store.getters.getSizeList.weight);
+const warrantyYear = computed(() => store.getters.getSizeList.warrantyYear);
 
 // // click事件
 // const showMeMore = async () => {
