@@ -8,26 +8,41 @@ export default {
     imgList:[],
     goodsSize:"",
     color:"",
+    newList:[],
+    newList1:{}
     // info:{ }
   },
 mutations: {
     //synchronous 同期
 setSizeList(state, payload) {
-      state.sizeList.push(...payload);
+      state.sizeList=payload;
     },
 
 setVariants(state, payload){
-      state.variants.push(...payload);
+      state.variants=payload;
     },
 
     // changeShowed(state, changeShowed) {
     //   state.showed = changeShowed;
 setImgList(state,{goodsSize,color}){
-let imgs = state.sizeList.filter((info) => info.goodsSize === goodsSize && info.color===color)
+  // console.log("eeeeeee",state.sizeList)
+  // console.log("ggggggg",goodsSize)
+  // console.log(color)
+
+let imgs = [];
+// console.log("fffffffffff",state.imgList)
+const newList = state.sizeList.filter((info) => info.goodsSize === goodsSize && info.color===color)
+if (newList.length > 0){
+  imgs = newList[0].photoList;
+}
+
+state.newList1=newList[0]
+// let imgs = state.sizeList.filter((info) => info.goodsSize === goodsSize && info.color===color)[0].photoList;
+state.newList = newList
       
 const limit = 3;
-let count = imgs.length/limit;
-count = imgs.length % limit? count++ :count;
+let count = Math.ceil(imgs.length/limit);
+// count = imgs.length % limit? count++ :count;
 let idx = 0;
 state.imgList = [];
 while (idx < count) {
@@ -50,17 +65,17 @@ idx++;
     async setSizeList(context, payload) {
       const sizeList = await fetch(url + payload, { headers });
       const j = await sizeList.json();
-      context.commit("setSizeList", j);
-      console.log("in setSizeList method", j);
+      // console.log("in setSizeList method", j);
 
     context.commit("setSizeList",j[0].sizeList);
     context.commit("setVariants",j[0].variants);
     const goodsSize = j[0].variants[0].goodsSize;
-    const color =j[0].variants[0].color;
+    const color =j[0].variants[0].color[0];
 
     context.commit("setGoodsSize", goodsSize);
     context.commit("setColor", color);
     context.commit("setImgList", { goodsSize, color });
+    
     },
 
     // async setImgList(context, payload) {
@@ -92,6 +107,10 @@ idx++;
 
     getColor:(state) =>{
       return state.color;
+    },
+
+    getNewList1:(state) =>{
+      return state.newList1;
     }
 
     // getShowed: (state) => {

@@ -661,6 +661,7 @@
           "goodsSize":"single",
           "sizeValue":"7564861",
           "dataCode":"05700010014",
+          "color":"gray",
           "price":1990,
           "code":7564865,
           "size":"幅100×奥行200cm",
@@ -668,17 +669,18 @@
           "weight": "約920g",
           "warrantyYear": "1年",
           "photoList":[
-              "http://localhost:8080/assets/image/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
+              "http://localhost:8080/assets/image/graycolor1.jpg",
               "http://localhost:8080/assets/image/756486701.jpg",
-              "http://localhost:8080/assets/image/756486701.jpg",
-              "http://localhost:8080/assets/image/756486701.jpg",
-              "http://localhost:8080/assets/image/756486701.jpg"
+              "http://localhost:8080/assets/image/graycolor2.jpg",
+              "http://localhost:8080/assets/image/graycolor3.jpg",
+              "http://localhost:8080/assets/image/graycolor4.jpg"
             ]
            },
            {
             "goodsSize":"single",
-            "sizeValue":"7564861",
+            "sizeValue":"7564871",
             "dataCode":"05700010014",
+            "color":"beige",
             "price":1990,
             "code":7564861,
             "size":"幅100×奥行200cm",
@@ -686,10 +688,10 @@
             "weight": "約920g",
             "warrantyYear": "1年",
             "photoList":[
-              "http://localhost:8080/assets/image/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
+              "http://localhost:8080/assets/image/756486102.webp",
               "http://localhost:8080/assets/image/756486301.webp",
-              "http://localhost:8080/assets/image/756486301.webp",
-              "http://localhost:8080/assets/image/756486301.webp",
+              "http://localhost:8080/assets/image/756486103.webp",
+              "http://localhost:8080/assets/image/756486102.webp",
               "http://localhost:8080/assets/image/756486301.webp"
              
             ]
@@ -708,16 +710,16 @@
           "weight": "約920g",
           "warrantyYear": "1年",
           "photoList":[
-            "http://localhost:8080/assets/image/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
-            "http://localhost:8080/assets/image/756486701.jpg",
-            "http://localhost:8080/assets/image/756486701.jpg",
-            "http://localhost:8080/assets/image/756486701.jpg",
-            "http://localhost:8080/assets/image/756486701.jpg"
+            "http://localhost:8080/assets/image/graycolor1.jpg",
+              "http://localhost:8080/assets/image/756486701.jpg",
+              "http://localhost:8080/assets/image/graycolor2.jpg",
+              "http://localhost:8080/assets/image/graycolor3.jpg",
+              "http://localhost:8080/assets/image/graycolor4.jpg"
           ]
            },
            {
           "goodsSize":"semidouble",
-          "sizeValue":"7564862",
+          "sizeValue":"7564872",
           "dataCode":"05700010017",
           "price":2990,
           "code":7564862,
@@ -729,13 +731,34 @@
           "weight": "約920g",
           "warrantyYear": "1年",
           "photoList":[
-            "http://localhost:8080/assets/image/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
+            "http://localhost:8080/assets/image/756486102.webp",
               "http://localhost:8080/assets/image/756486301.webp",
-              "http://localhost:8080/assets/image/756486301.webp",
-              "http://localhost:8080/assets/image/756486301.webp",
+              "http://localhost:8080/assets/image/756486103.webp",
+              "http://localhost:8080/assets/image/756486102.webp",
               "http://localhost:8080/assets/image/756486301.webp"
           ]
            },
+           {
+            "goodsSize":"semidouble",
+            "sizeValue":"7564882",
+            "dataCode":"05700010017",
+            "price":2990,
+            "code":7564862,
+            "color":"white",
+            "colorValue":"00100180026",
+            "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965478907934/BasicColor_BE.jpg",
+            "size":"幅100×奥行200cm",
+            "material": "コットン",
+            "weight": "約920g",
+            "warrantyYear": "1年",
+            "photoList":[
+              "http://localhost:8080/assets/image/graycolor1.jpg",
+              "http://localhost:8080/assets/image/756486701.jpg",
+              "http://localhost:8080/assets/image/graycolor2.jpg",
+              "http://localhost:8080/assets/image/graycolor3.jpg",
+              "http://localhost:8080/assets/image/graycolor4.jpg"
+            ]
+             },
         {
           "goodsSize":"double",
           "sizeValue":"7564863",
@@ -750,16 +773,16 @@
           "weight": "約920g",
           "warrantyYear": "1年",
           "photoList":[
-            "http://localhost:8080/assets/image/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
-            "http://localhost:8080/assets/image/756486701.jpg",
-            "http://localhost:8080/assets/image/756486701.jpg",
-            "http://localhost:8080/assets/image/756486701.jpg",
-            "http://localhost:8080/assets/image/756486701.jpg"
+            "http://localhost:8080/assets/image/graycolor1.jpg",
+              "http://localhost:8080/assets/image/756486701.jpg",
+              "http://localhost:8080/assets/image/graycolor2.jpg",
+              "http://localhost:8080/assets/image/graycolor3.jpg",
+              "http://localhost:8080/assets/image/graycolor4.jpg"
           ]
            },
            {
             "goodsSize":"double",
-            "sizeValue":"7564863",
+            "sizeValue":"7564873",
             "dataCode":"05700010019",
             "price":3990,
             "code":7564863,
@@ -771,15 +794,15 @@
             "weight": "約920g",
             "warrantyYear": "1年",
             "photoList":[
-              "http://localhost:8080/assets/image/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
+              "http://localhost:8080/assets/image/756486102.webp",
               "http://localhost:8080/assets/image/756486301.webp",
-              "http://localhost:8080/assets/image/756486301.webp",
-              "http://localhost:8080/assets/image/756486301.webp",
+              "http://localhost:8080/assets/image/756486103.webp",
+              "http://localhost:8080/assets/image/756486102.webp",
               "http://localhost:8080/assets/image/756486301.webp"
             ]
            }
           ],
-          "sizeList1":[
+      "sizeList1":[
             {
             "goodsSize":"single",
             "sizeValue":"7564861",
@@ -796,14 +819,14 @@
             "dataCode":"05700010019"
             }
           ],
-          "variants":[
+      "variants":[
             {
               "goodsSize":"single",
               "color":["gray","beige"]
             },
             {
               "goodsSize":"semidouble",
-              "color":["gray","beige"]
+              "color":["gray","beige","white"]
             },
             {
               "goodsSize":"double",

@@ -40,14 +40,6 @@
 </template>
 
 
-<!-- <script>
-export default {
-  data() {
-    return {};
-  },
-};
-</script> -->
-
 <script setup>
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
@@ -58,7 +50,7 @@ const route = useRoute();
 const goodsId = route.params.goodsId; 
 
 onMounted(() => {
-  store.dispatch("setInfo",{goodsId});
+  store.dispatch("setSizeList",goodsId);
 });
 
 let imgList = computed(() => store.getters.getImgList);
@@ -68,7 +60,7 @@ let imgList = computed(() => store.getters.getImgList);
 </script>
 
 <style scoped>
-.swiper-wrapper {
+/* .swiper-wrapper {
   position: relative;
   width: 100%;
   height: 100%;
@@ -122,5 +114,17 @@ gallery_thumbs .swiper-slide {
   transition: opacity 0.2s;
   background-repeat: no-repeat;
   background-size: contain;
+} */
+
+
+.swiper-slide {
+  width: 200px;
+  height: 300px;
+}
+.slide-image-div {
+  width: 100px;
+  height: 100px;
+  background-size: contain;
+
 }
 </style>

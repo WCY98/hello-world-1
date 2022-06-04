@@ -15,7 +15,7 @@ straighten
         <tbody>
           <tr>
             <th>商品コード</th>
-            <td>{{ goodsId }}</td>
+            <td>{{ sizeValue }}</td>
           </tr>
           <tr>
             <th>カラー</th>
@@ -23,7 +23,7 @@ straighten
           </tr>
           <tr>
             <th>サイズ</th>
-            <td>{{ size }}</td>
+            <td>{{ goodsSize }}</td>
           </tr>
           <tr>
             <th>素材</th>
@@ -67,49 +67,19 @@ import { useRoute } from "vue-router";
 
 const route = useRoute();
 const goodsId = route.params.goodsId;
-//从router.js第17行
-const store = useStore();
 
+const store = useStore();
 onMounted(() => {
-  store.dispatch("setInfo", goodsId);
+    store.dispatch("setSizeList",goodsId)
 });
 
-const color = computed(() => store.getters.getSizeList.color);
-// console.log("aaaa",color);
-const size = computed(() => store.getters.getSizeList.size);
-const material = computed(() => store.getters.getSizeList.material);
-const weight = computed(() => store.getters.getSizeList.weight);
-const warrantyYear = computed(() => store.getters.getSizeList.warrantyYear);
+const sizeValue = computed(() => store.getters.getNewList1.sizeValue)
+const color = computed(() => store.getters.getNewList1.color);
+const goodsSize = computed(() => store.getters.getNewList1.goodsSize);
+const material = computed(() => store.getters.getNewList1.material);
+const weight = computed(() => store.getters.getNewList1.weight);
+const warrantyYear = computed(() => store.getters.getNewList1.warrantyYear);
 
-// // click事件
-// const showMeMore = async () => {
-//   if (!showed.value) {
-//     if (reviewList2.value.length === 0) {
-//       await store.dispatch("setInfo",{goodsId:goodsId})
-//       store.commit("changeShowed",true);
-//       //offset 起始下标 
-//     } else {
-//       store.commit("changeShowed", true);
-//     }
-//   } else {
-//     store.commit("changeShowed", false);
-//   }
-// };
-
-// //初始化
-// onMounted(() => {
-//   store.dispatch("setReview", { goodsId: goodsId, offset: 0 });
-// });
-
-// const btnText = computed(() => {
-//   if (!showed.value && reviewList.value !== undefined) {
-//     return (
-//       "show me more (" + reviewList.value.length + "/" + reviewCount.value + ")"
-//     );
-//   } else {
-//     return "閉じる";
-//   }
-// });
 </script>
 
 <style scoped>
