@@ -56,7 +56,7 @@
 		<div class="g-flow-0 g-align-fbl">
 			<dl class="p-price">
 				<dd class="g-price g-price-lg price-size-up ">
-					{{}}1,990<span>円</span></dd>
+					{{ price }}<span>円</span></dd>
 				</dl>
 		</div>
 		
@@ -64,7 +64,7 @@
 	
 	<div class="g-butterfly">
 			<p class="p-point">
-				獲得ポイント<span class="g-digit">18 pt </span> 付与</p>
+				獲得ポイント<span class="g-digit">{{ point }}pt </span> 付与</p>
 			<p class="g-font-sm p-point-link">
 				<a class="g-link" href="/ec/userguide/memberscardpoint/">
 					<span>ポイントについて</span>
@@ -81,44 +81,36 @@
 import { computed, onMounted, reactive, toRefs} from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
-
 const route = useRoute();
 const goodsId = route.params.goodsId;
-
 const store = useStore();
 onMounted(() => {
     store.dispatch("setSizeList",goodsId)
 });
-
 let variants = computed(() => store.getters.getVariants);
-
 let firstVarColors = computed(() => {
     if(store.getters.getVariants[0])
     return store.getters.getVariants[0].color;
     else
     return [];
 });
-
 const changeColor = (e) =>{
     store.commit('setImgList',{"goodsSize":goodsSize.value,
                                 "color":e.target.value})
 }
-
 // let color = computed(() => store.getters.getColor);
 // let goodsSize = computed(() => store.getters.getGoodsSize);
-
-
 const state = reactive({
     goodsSize: "single",
 });
 let { goodsSize } = toRefs(state);
-
 const state1 = reactive({
     color: "gray",
 });
 let {color} = toRefs(state1);
 
-
+const price = computed(() => store.getters.getNewList1.price)
+const point = computed(() => store.getters.getNewList1.point);
 </script>
 
 <style>
@@ -319,7 +311,6 @@ ol {
   background-color: #fff;
   box-shadow: 0 0 0 1px #dbdbdb inset;
 }
-
 .g-checkable,
 .g-lg-checkable {
   line-height: 1;

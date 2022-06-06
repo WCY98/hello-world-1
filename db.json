@@ -668,6 +668,7 @@
           "material": "コットン",
           "weight": "約920g",
           "warrantyYear": "1年",
+          "point":"18",
           "photoList":[
               "http://localhost:8080/assets/image/graycolor1.jpg",
               "http://localhost:8080/assets/image/756486701.jpg",
@@ -687,6 +688,7 @@
             "material": "コットン",
             "weight": "約920g",
             "warrantyYear": "1年",
+            "point":"18",
             "photoList":[
               "http://localhost:8080/assets/image/756486102.webp",
               "http://localhost:8080/assets/image/756486301.webp",
@@ -709,6 +711,7 @@
           "material": "コットン",
           "weight": "約920g",
           "warrantyYear": "1年",
+          "point":"27",
           "photoList":[
             "http://localhost:8080/assets/image/graycolor1.jpg",
               "http://localhost:8080/assets/image/756486701.jpg",
@@ -730,6 +733,7 @@
           "material": "コットン",
           "weight": "約920g",
           "warrantyYear": "1年",
+          "point":"27",
           "photoList":[
             "http://localhost:8080/assets/image/756486102.webp",
               "http://localhost:8080/assets/image/756486301.webp",
@@ -751,6 +755,7 @@
             "material": "コットン",
             "weight": "約920g",
             "warrantyYear": "1年",
+            "point":"27",
             "photoList":[
               "http://localhost:8080/assets/image/graycolor1.jpg",
               "http://localhost:8080/assets/image/756486701.jpg",
@@ -772,6 +777,7 @@
           "material": "コットン",
           "weight": "約920g",
           "warrantyYear": "1年",
+          "point":"36",
           "photoList":[
             "http://localhost:8080/assets/image/graycolor1.jpg",
               "http://localhost:8080/assets/image/756486701.jpg",
@@ -793,6 +799,7 @@
             "material": "コットン",
             "weight": "約920g",
             "warrantyYear": "1年",
+            "point":"36",
             "photoList":[
               "http://localhost:8080/assets/image/756486102.webp",
               "http://localhost:8080/assets/image/756486301.webp",
