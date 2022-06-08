@@ -16,6 +16,7 @@
     "v-viewer": "^3.0.10",
     "vue": "^3.2.13",
     "vue-axios": "^3.4.1",
+    "vue-class-component": "^8.0.0-0",
     "vue-cool-lightbox": "^2.7.4",
     "vue-easy-lightbox": "^1.4.1",
     "vue-router": "^4.0.15",
@@ -25,11 +26,16 @@
   "devDependencies": {
     "@babel/core": "^7.12.16",
     "@babel/eslint-parser": "^7.12.16",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-plugin-typescript": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
+    "@vue/eslint-config-typescript": "^9.1.0",
     "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^8.0.3"
+    "eslint-plugin-vue": "^8.0.3",
+    "typescript": "~4.5.5"
   },
   "eslintConfig": {
     "root": true,
@@ -38,10 +44,11 @@
     },
     "extends": [
       "plugin:vue/vue3-essential",
-      "eslint:recommended"
+      "eslint:recommended",
+      "@vue/typescript"
     ],
     "parserOptions": {
-      "parser": "@babel/eslint-parser"
+      "parser": "@typescript-eslint/parser"
     },
     "rules": {
       "strict": "off"

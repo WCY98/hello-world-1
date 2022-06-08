@@ -21,9 +21,9 @@
   </div>
   </template>
 
-<script setup>
+<script setup lang="ts" >
 import { computed, onMounted } from "vue";
-import { useStore } from "vuex";
+import { useStore } from "../../store/index";
 import { useRoute } from "vue-router";
 import ReviewCom from "./ReviewCom.vue";
 
@@ -31,8 +31,20 @@ const route = useRoute();
 const goodsId = route.params.goodsId;
 const store = useStore();
 
-const reviewCount = computed(() => store.getters.getReview.reviewCount);
-const reviewList = computed(() => store.getters.getReview.reviewList);
+const reviewCount = computed(() => {
+  if (store.getters.getReview !== undefined) {
+    return store.getters.getReview.reviewCount;
+  }
+  return 0;
+});
+
+const reviewList = computed(() => {
+  if (store.getters.getReview !== undefined) {
+    return store.getters.getReview.reviewList;
+  }
+  return [];
+});
+
 const reviewList2 = computed(() => store.getters.getReviewList);
 const showed = computed(() => store.getters.getShowed);
 

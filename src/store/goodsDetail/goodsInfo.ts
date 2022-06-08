@@ -1,6 +1,33 @@
 const url = "http://localhost:3000/goods/info/";
 const headers = { Accept: "application/json" };
 
+type DetailState={
+  sizeList: [],
+  variants:[],
+  imgList:string[][],
+  goodsSize:string,
+  color:string,
+  newList:[],
+  newList1:{}
+}
+
+type info = {
+  "goodsSize":string,
+  "sizeValue":string,
+  "dataCode":string,
+  "color":string,
+  "price":number,
+  "code":string,
+  "size":string,
+  "material": string,
+  "weight": string,
+  "warrantyYear": string,
+  "point":string,
+  "photoList":string[]
+}
+
+
+
 export default {
   state: {
     sizeList: [],
@@ -14,34 +41,34 @@ export default {
   },
 mutations: {
     //synchronous 同期
-setSizeList(state, payload) {
+setSizeList(state:DetailState, payload:[]) {
       state.sizeList=payload;
     },
 
-setVariants(state, payload){
+setVariants(state:DetailState, payload:[]){
       state.variants=payload;
     },
 
     // changeShowed(state, changeShowed) {
     //   state.showed = changeShowed;
-setImgList(state,{goodsSize,color}){
+setImgList(state:DetailState,{goodsSize,color}:{goodsSize:string,color:string}){
   // console.log("eeeeeee",state.sizeList)
   // console.log("ggggggg",goodsSize)
   // console.log(color)
 
-let imgs = [];
+let imgs :string[] = [];
 // console.log("fffffffffff",state.imgList)
-const newList = state.sizeList.filter((info) => info.goodsSize === goodsSize && info.color===color)
+const newList = state.sizeList.filter((info:info) => info.goodsSize === goodsSize && info.color===color)
 if (newList.length > 0){
-  imgs = newList[0].photoList;
+  imgs = newList[0]["photoList"];
 }
 
 state.newList1=newList[0]
 // let imgs = state.sizeList.filter((info) => info.goodsSize === goodsSize && info.color===color)[0].photoList;
-state.newList = newList
+// state.newList= newList
       
 const limit = 3;
-let count = Math.ceil(imgs.length/limit);
+const count = Math.ceil(imgs.length/limit);
 // count = imgs.length % limit? count++ :count;
 let idx = 0;
 state.imgList = [];
@@ -50,11 +77,11 @@ state.imgList.push(imgs.slice(idx * limit, idx * limit+ limit))
 idx++;
       }
     },
-    setGoodsSize(state,payload){
+    setGoodsSize(state:DetailState,payload:string){
       state.goodsSize = payload;
     },
 
-    setColor(state,payload){
+    setColor(state:DetailState,payload:string){
       state.color = payload;
     }
 
@@ -62,19 +89,19 @@ idx++;
 
   actions: {
     //asyncronous 非同期
-    async setSizeList(context, payload) {
+    async setSizeList({commit}:{commit:Function}, payload:string) {
       const sizeList = await fetch(url + payload, { headers });
       const j = await sizeList.json();
       // console.log("in setSizeList method", j);
 
-    context.commit("setSizeList",j[0].sizeList);
-    context.commit("setVariants",j[0].variants);
+    commit("setSizeList",j[0].sizeList);
+    commit("setVariants",j[0].variants);
     const goodsSize = j[0].variants[0].goodsSize;
     const color =j[0].variants[0].color[0];
 
-    context.commit("setGoodsSize", goodsSize);
-    context.commit("setColor", color);
-    context.commit("setImgList", { goodsSize, color });
+    commit("setGoodsSize", goodsSize);
+    commit("setColor", color);
+    commit("setImgList", { goodsSize, color });
     
     },
 
@@ -89,27 +116,27 @@ idx++;
 
 
   getters: {
-    getSizeList: (state) => {
+    getSizeList: (state:DetailState) => {
       return state.sizeList;
     },
 
-    getVariants: (state) => {
+    getVariants: (state:DetailState) => {
       return state.variants;
     },
     
-    getImgList:(state) =>{
+    getImgList:(state:DetailState) =>{
       return state.imgList;
     },
 
-    getGoodsSize:(state) =>{
+    getGoodsSize:(state:DetailState) =>{
       return state.goodsSize;
     },
 
-    getColor:(state) =>{
+    getColor:(state:DetailState) =>{
       return state.color;
     },
 
-    getNewList1:(state) =>{
+    getNewList1:(state:DetailState) =>{
       return state.newList1;
     }
 

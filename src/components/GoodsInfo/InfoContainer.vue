@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import goodsInfoTwo from "./GoodsInfoTwo.vue";
 import GoodsInfo from "./GoodsInfo.vue";
 </script>

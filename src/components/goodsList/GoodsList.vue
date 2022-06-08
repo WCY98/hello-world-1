@@ -6,9 +6,9 @@
   </ul>
 </template>
 
-<script>
+<script >
 import { mapActions, mapGetters } from "vuex";
-import GoodsLi from "./GoodsLi";
+import GoodsLi from "./GoodsLi.vue";
 export default {
   components: { GoodsLi },
   methods: {

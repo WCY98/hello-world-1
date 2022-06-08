@@ -1,14 +1,18 @@
 const url = "http://localhost:3000/newGoodses";
 const headers = { Accept: "application/json" };
 
+type hotGoodsState = {
+  newGoodses:[]
+}
+
 export default {
   state: {
     newGoodses: [],
-    day: { years: [], year: new Date().getFullYear(), month: 0, day: 1 },
+    // day: { years: [], year: new Date().getFullYear(), month: 0, day: 1 },
   },
   mutations: {
     //syncrous
-    setNewGoods(state, payload) {
+    setNewGoods(state:hotGoodsState, payload:[]) {
       state.newGoodses.push(...payload);
       console.log("array push ", payload);
     },
@@ -17,10 +21,10 @@ export default {
   },
   actions: {
     //asyncronous
-    async setNewGoodses(context) {
+    async setNewGoodses({commit}:{commit: Function}) {
       const goodses = await fetch(url, { headers });
       const j = await goodses.json();
-      context.commit("setNewGoods", j);
+      commit("setNewGoods", j);
       console.log("in setNewGoodses method", j);
     },
 
@@ -28,7 +32,7 @@ export default {
   },
   modules: {},
   getters: {
-    getNewGoodses: (state) => {
+    getNewGoodses: (state:hotGoodsState) => {
       console.log("in getNewGoodses method", state.newGoodses);
       console.log(state.newGoodses);
       return state.newGoodses;

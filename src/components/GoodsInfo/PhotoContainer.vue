@@ -40,8 +40,8 @@
 </template>
 
 
-<script setup>
-import { useStore } from "vuex";
+<script setup lang="ts">
+import { useStore } from "../../store/index";
 import { useRoute } from "vue-router";
 import { onMounted, computed } from "vue";
 

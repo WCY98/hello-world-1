@@ -7,7 +7,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import InfoContainer from "./InfoContainer.vue";
 import PhotoContainer from "./PhotoContainer.vue";
 </script>

@@ -22,11 +22,13 @@
     </swiper-slide>
   </swiper>
 </template>
-<script>
+
+
+<script lang="ts">
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation, Pagination } from "swiper";
 import { onMounted, computed } from "vue";
-import { useStore } from "vuex";
+import { useStore } from "../../store/index";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";

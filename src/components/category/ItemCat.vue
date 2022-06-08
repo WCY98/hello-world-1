@@ -37,36 +37,36 @@
   </div>
 </template>
 
-<script  setup>
+<script lang="ts" setup>
 import { onMounted, computed } from "vue";
 // import { mapActions, mapGetters } from "vuex";
-import { useStore } from "vuex";
+import { useStore } from "../../store/index";
 const store = useStore();
 // const state = reactive({
 //   // controll item list show or not
 //   displayOrNot: "none",
 // });
 //let { displayOrNot } = toRefs(state);
-const mouseOverFun = (event) => {
-  // return (displayOrNot = "block"); is wrong ,have to .value
-  // return (displayOrNot.value = "block");
-  // console.log("event offsetTop", event.target.offsetTop);
-  // event.target.querySelector(".item-list").style.display = "block";
-  let style = "top: "+ event.target.offsetTop +"px; display: block;"
-  event.target.querySelector(".item-list").style = style;
-};
-const mouseLeaveFun = (event) => {
-  // return (displayOrNot.value = "none");
-  console.log("event", event);
-  event.target.querySelector(".item-list").style.display = "none";
+const mouseOverFun = (event:MouseEvent) => {
+// { target: HTMLInputElement }) => {
+  // event.
+  let style = 
+  "top: " + (event.currentTarget as HTMLElement).offsetTop + "px; display: block";
+  (event.currentTarget as HTMLElement)
+    .querySelector(".item-list")!
+    .setAttribute("style",style);
 };
 
-// const routes = [
-//   // 匹配 /o/3549
-//   { path: '/o/:orderId' },
-//   // 匹配 /p/books
-//   { path: '/p/:productName' },
-// ]
+const mouseLeaveFun = (event: MouseEvent) => {
+// { target: HTMLInputElement }) => {
+  // console.log("event", event);
+  let style = "display = none";
+
+  (event.target as HTMLElement)
+    .querySelector(".item-list")!
+    .setAttribute("style", style);
+};
+
 
 onMounted(() => {
   store.dispatch("setCategories");

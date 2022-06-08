@@ -9,7 +9,7 @@
             v-model = "goodsSize"
             @change="store.commit('setImgList',{goodsSize,color})"
             name="" 
-            required=""
+            
             aria-required="true" 
             aria-label="サイズの選択" 
             data-control="#p-eo-label-">
@@ -77,9 +77,9 @@
 </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed, onMounted, reactive, toRefs} from "vue";
-import { useStore } from "vuex";
+import { useStore } from "../../store/index";
 import { useRoute } from "vue-router";
 const route = useRoute();
 const goodsId = route.params.goodsId;
@@ -94,7 +94,7 @@ let firstVarColors = computed(() => {
     else
     return [];
 });
-const changeColor = (e) =>{
+const changeColor = (e: { target: HTMLInputElement })=>{
     store.commit('setImgList',{"goodsSize":goodsSize.value,
                                 "color":e.target.value})
 }

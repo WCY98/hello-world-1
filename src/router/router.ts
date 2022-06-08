@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory} from "vue-router";
 import HomePage from "../pages/HomePage.vue";
 import GoodsDetail from "../pages/GoodsDetail.vue";
-import TestChange from "../pages/TestChange";
+import TestChange from "../pages/TestChange.vue";
 
 
 // export default createRouter({

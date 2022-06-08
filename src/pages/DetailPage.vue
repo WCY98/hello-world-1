@@ -5,10 +5,10 @@
 </div>
  </template>
 
-<script setup>
+<script setup lang="ts">
 // import { onMounted } from "vue";
 import { useRoute } from "vue-router";
-import { useStore} from "vuex";
+import { useStore} from "../store/index";
 import { onMounted, computed } from "vue";
 // export default{
 //     setup(){

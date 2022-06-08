@@ -2,8 +2,8 @@
   <li><goods-link v-bind="goods"></goods-link></li>
 </template>
 
-<script>
-import GoodsLink from './GoodsLink'
+<script lang="ts">
+import GoodsLink from './GoodsLink.vue'
 export default {
  components: { GoodsLink },
   props: {
