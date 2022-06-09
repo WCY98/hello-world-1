@@ -8,7 +8,7 @@ type QaState = {
   pageNo: number,
   totalPage: number,
   qaList:[],
-  showLeft:false
+  // showLeft:false
 }
 
 type Qa ={
@@ -23,7 +23,6 @@ type Qa ={
 export default {
   state: {
     goodsQA: {qaList: []},
-    totalCount: Number,
     pageNo: 1,
     totalPage: Number,
     
@@ -58,9 +57,9 @@ export default {
     previousPage(state:QaState) {
       state.pageNo--;
     },
-    changeShowLeft(state:QaState, changeShowLeft:any) {
-      state.showLeft = changeShowLeft;
-    },
+    // changeShowLeft(state:QaState, changeShowLeft:any) {
+    //   state.showLeft = changeShowLeft;
+    // },
   },
   actions: {
     //asyncronous
@@ -73,20 +72,21 @@ export default {
   },
   getters: {
     getGoodsQA: (state:QaState) => {
+      console.log("QQQQQQQQQQ",state.goodsQA)
       return state.goodsQA;
     },
-    getQaList: (state:QaState) => {
-      return state.qaList;
-    },
-    getTotalCount: (state:QaState) => {
-      return state.totalCount;
-    },
+    // getQaList: (state:QaState) => {
+    //   return state.qaList;
+    // },
+    // getTotalCount: (state:QaState) => {
+    //   return state.totalCount;
+    // },
     getPageNo: (state:QaState) => {
       return state.pageNo;
     },
-    getTotalPage: (state:QaState) => {
-      return state.totalPage;
-    },
+    // getTotalPage: (state:QaState) => {
+    //   return state.totalPage;
+    // },
     
   },
 };

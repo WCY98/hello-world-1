@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import SwiperCom from '../swiper/SwiperCom.vue'
 export default {
     components:{SwiperCom}

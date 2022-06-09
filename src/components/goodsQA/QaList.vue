@@ -49,12 +49,11 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import QaCom from "./QaCom.vue";
 import { computed, onMounted } from "vue";
-import { useStore } from "vuex";
+import { useStore } from "../../store/index";
 import { useRoute } from "vue-router";
-
 const route = useRoute();
 const goodsId = route.params.goodsId;
 
@@ -73,7 +72,7 @@ let end = computed(() =>{
 })
 let qaList = computed(() => store.getters.getGoodsQA.qaList.slice(start.value, end.value));
 
-let totalCount = computed(() => store.getters.getGoodsQA.totalCount);
+const totalCount = computed(() => store.getters.getGoodsQA.totalCount);
 //console.log("TotalCount", TotalCount);
 
 function nextPage() {
@@ -90,9 +89,10 @@ const totalPage = computed(() => {
 // function foo (e) {
 //           this.val = e.target.value
 //         }
-const change = (e) =>(
-  store.commit("setSort", e.target.value)
-);
+const change = (e:Event) =>{
+  if( e.target instanceof HTMLSelectElement){
+  store.commit("setSort", e.target.value)}
+};
       
 </script>
 

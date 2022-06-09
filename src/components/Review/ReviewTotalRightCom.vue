@@ -31,7 +31,7 @@
   </div>
 </template>
 
-<script>
+<script >
 import StarRating from "vue-star-rating"
 import {mapMutations} from "vuex"
 

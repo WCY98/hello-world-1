@@ -19,7 +19,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import ReviewList from "./ReviewList.vue";
 import ReviewTotal from "./ReviewTotal.vue";
 // import { useRoute } from "vue-router";

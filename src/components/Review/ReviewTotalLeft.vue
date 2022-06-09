@@ -37,7 +37,7 @@
   
 </template>
 
-<script >
+<script lang="ts">
 import StarRating from "vue-star-rating";
 
 export default{

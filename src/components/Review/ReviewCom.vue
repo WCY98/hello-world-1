@@ -30,10 +30,10 @@
                 <template v-if="photo1 != null">
                   <viewer
                     :images="images"
-                    @inited="inited"
                     class="viewer"
                     ref="viewer"
                   >
+                  <!-- @inited="inited" -->
                     <template #default="scope">
                       <img
                         v-for="src in scope.images"
@@ -68,11 +68,15 @@
 </div>
 </template>
 
-<script>
+<script lang="ts">
 // import ReviewContainerVue from './ReviewContainer.vue';
-import StarRating from 'vue-star-rating'
+import StarRating from 'vue-star-rating';
+import { defineComponent } from "vue";
 
-export default {
+export default defineComponent({
+  components: {
+    StarRating,
+  },
  
   props: {
     // review: {(object)
@@ -98,31 +102,27 @@ export default {
     }
   },
 
-   methods: {
-    inited(viewer) {
-      this.$viewer = viewer;
-    },
-    show() {
-      this.$viewer.show();
-    },
-  },
-
-  components:{
-  StarRating
-},
+  //  methods: {
+  //   inited(viewer) {
+  //     this.$viewer = viewer;
+  //   },
+  //   show() {
+  //     this.$viewer.show();
+  //   },
+  // },
 
  computed: {
     helpfulText() {
       if (this.helped && this.code === 200) {
         return "THANK YOU";
-      } else if (this.helped && !this.code == 200) {
+      } else if (this.helped && this.code !== 200) {
         return "FAIL CLICK！";
       } else {
         return null;
       }
     },
   },
-};
+});
   
 </script>
 

@@ -12,9 +12,9 @@
   
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed, onMounted } from "vue";
-import { useStore } from "vuex";
+import { useStore } from "../../store/index";
 import { useRoute } from "vue-router";
 import ReviewTotalLeft from "./ReviewTotalLeft.vue";
 import ReviewTotalRight from "./ReviewTotalRight.vue";

@@ -5,7 +5,7 @@
 </div>
 </template>
 
-<script>
+<script lang="ts">
 import ItemCat from "../category/ItemCat.vue";
 import SwiperContainer from "./SwiperContainer.vue";
 

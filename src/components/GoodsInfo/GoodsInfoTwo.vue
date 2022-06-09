@@ -94,10 +94,17 @@ let firstVarColors = computed(() => {
     else
     return [];
 });
-const changeColor = (e: { target: HTMLInputElement })=>{
-    store.commit('setImgList',{"goodsSize":goodsSize.value,
-                                "color":e.target.value})
+// const changeColor = (e: { target: HTMLInputElement })=>{
+//     store.commit('setImgList',{"goodsSize":goodsSize.value,
+//                                 "color":e.target.value})
+// }
+const changeColor = (e: Event) =>{
+  if (e.target instanceof HTMLSelectElement){
+    store.commit("setNewList",{"goodsSize":goodsSize.value, "color":e.target.value});
+  }
 }
+
+
 // let color = computed(() => store.getters.getColor);
 // let goodsSize = computed(() => store.getters.getGoodsSize);
 const state = reactive({

@@ -7,10 +7,10 @@
 </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { onMounted,computed } from 'vue';
 import { useRoute } from 'vue-router';
-import { useStore } from 'vuex';
+import { useStore } from '../../store/index';
 import ReviewTotalRightCom from './ReviewTotalRightCom.vue';
 
 const route = useRoute();

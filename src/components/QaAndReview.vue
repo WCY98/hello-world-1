@@ -9,7 +9,7 @@
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import QaContainer from "./goodsQA/QaContainer.vue";
 import ReviewContainer from "./Review/ReviewContainer.vue";
 </script>
