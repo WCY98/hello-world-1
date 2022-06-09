@@ -100,7 +100,7 @@ let firstVarColors = computed(() => {
 // }
 const changeColor = (e: Event) =>{
   if (e.target instanceof HTMLSelectElement){
-    store.commit("setNewList",{"goodsSize":goodsSize.value, "color":e.target.value});
+    store.commit("setImgList",{"goodsSize":goodsSize.value, "color":e.target.value});
   }
 }
 

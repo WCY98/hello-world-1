@@ -757,11 +757,11 @@
             "warrantyYear": "1年",
             "point":"27",
             "photoList":[
-              "http://localhost:8080/assets/image/graycolor1.jpg",
-              "http://localhost:8080/assets/image/756486701.jpg",
-              "http://localhost:8080/assets/image/graycolor2.jpg",
-              "http://localhost:8080/assets/image/graycolor3.jpg",
-              "http://localhost:8080/assets/image/graycolor4.jpg"
+              "http://localhost:8080/assets/image/white1.jpg",
+              "http://localhost:8080/assets/image/white2.jpg",
+              "http://localhost:8080/assets/image/white3.jpg",
+              "http://localhost:8080/assets/image/white4.jpg",
+              "http://localhost:8080/assets/image/white5.jpg"
             ]
              },
         {

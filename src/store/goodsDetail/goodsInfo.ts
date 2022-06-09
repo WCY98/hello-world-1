@@ -7,7 +7,7 @@ type DetailState={
   imgList:string[][],
   goodsSize:string,
   color:string,
-  newList:[],
+  newList:any[],
   newList1:{}
 }
 
@@ -65,7 +65,7 @@ if (newList.length > 0){
 
 state.newList1=newList[0]
 // let imgs = state.sizeList.filter((info) => info.goodsSize === goodsSize && info.color===color)[0].photoList;
-// state.newList= newList
+state.newList= newList
       
 const limit = 3;
 const count = Math.ceil(imgs.length/limit);

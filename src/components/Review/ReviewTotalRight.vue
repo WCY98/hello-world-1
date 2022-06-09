@@ -18,7 +18,7 @@ const goodsId = route.params.goodsId;
 
 const store = useStore();
 onMounted(() =>{
-    store.dispatch("setReviewRating",goodsId);
+    store.dispatch("setRating",goodsId);
 });
 let ratingList = computed(() => store.getters.getRating)
 </script>

@@ -30,9 +30,9 @@ export default {
 
   mutations: {
     //syncrous
-    setGoodsQA(state:QaState, payload:QaState) {
-      // state.goodsQA = payload[0];
-      state.goodsQA = payload;
+    setGoodsQA(state:QaState, payload) {
+      state.goodsQA = payload[0];
+      // state.goodsQA = payload;
       console.log("array push ", payload);
     },
 
