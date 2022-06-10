@@ -658,10 +658,12 @@
       "goodsDescribe":"Tシャツのような肌ざわり、ニット素材",
       "sizeList":[
         {
+          "skuName":"ゴムバンド付き敷きパッド single(オーガニックコットン BE S)",
           "goodsSize":"single",
           "sizeValue":"7564861",
           "dataCode":"05700010014",
           "color":"gray",
+          "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965479792670/BasicColor_GRY.jpg",
           "price":1990,
           "code":7564865,
           "size":"幅100×奥行200cm",
@@ -678,10 +680,12 @@
             ]
            },
            {
+            "skuName":"ゴムバンド付き敷きパッド single(オーガニックコットン BE S)",
             "goodsSize":"single",
             "sizeValue":"7564871",
             "dataCode":"05700010014",
             "color":"beige",
+            "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965478907934/BasicColor_BE.jpg",
             "price":1990,
             "code":7564861,
             "size":"幅100×奥行200cm",
@@ -699,6 +703,7 @@
             ]
            },
         {
+          "skuName":"ゴムバンド付き敷きパッド semidouble(オーガニックコットン BE SD)",
           "goodsSize":"semidouble",
           "sizeValue":"7564862",
           "dataCode":"05700010017",
@@ -721,6 +726,7 @@
           ]
            },
            {
+            "skuName":"ゴムバンド付き敷きパッド semidouble(オーガニックコットン BE SD)",
           "goodsSize":"semidouble",
           "sizeValue":"7564872",
           "dataCode":"05700010017",
@@ -743,14 +749,15 @@
           ]
            },
            {
+            "skuName":"ゴムバンド付き敷きパッド semidouble(オーガニックコットン BE SD)",
             "goodsSize":"semidouble",
             "sizeValue":"7564882",
             "dataCode":"05700010017",
             "price":2990,
-            "code":7564862,
+            "code":7564860,
             "color":"white",
             "colorValue":"00100180026",
-            "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965478907934/BasicColor_BE.jpg",
+            "imgUrl":"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8966164348958/BasicColor_WH.jpg" ,
             "size":"幅100×奥行200cm",
             "material": "コットン",
             "weight": "約920g",
@@ -765,6 +772,7 @@
             ]
              },
         {
+          "skuName":"ゴムバンド付き敷きパッド double(オーガニックコットン BE D)",
           "goodsSize":"double",
           "sizeValue":"7564863",
           "dataCode":"05700010019",
@@ -787,6 +795,7 @@
           ]
            },
            {
+            "skuName":"ゴムバンド付き敷きパッド double(オーガニックコットン BE D)",
             "goodsSize":"double",
             "sizeValue":"7564873",
             "dataCode":"05700010019",

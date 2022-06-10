@@ -7,21 +7,19 @@
             <i class="g-i g-i-dropdown" aria-hidden="true"></i>
             <select 
             v-model = "goodsSize"
-            @change="store.commit('setImgList',{goodsSize,color})"
+            @change="change"
             name="" 
             
             aria-required="true" 
             aria-label="サイズの選択" 
             data-control="#p-eo-label-">
 
-        <option disabled value="" selected></option>
 		<template v-for= "(v, index) in variants" :key="index">
-             <option 
-				:value="v.goodsSize" 
-				
-                :data-label="v.goodsSize" data-parent="">{{v.goodsSize}}
-					</option>
-                    </template>
+        <option 
+		:value="v.goodsSize" 
+		:data-label="v.goodsSize" data-parent="">{{v.goodsSize}}
+				</option>
+    </template>
 				</select>
 		</div>
 	</dd>
@@ -32,7 +30,7 @@
             v-model = "color"
             @change = "changeColor"
             >
-		<option v-for= "(c, index) in firstVarColors" :key="index">
+		<option v-for= "(c, index) in colorList" :key="index">
 			<!-- <label class="g-checkable g-checkable-circle">
 				<input type="radio" 
                     name="1カラー" 
@@ -78,7 +76,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, reactive, toRefs} from "vue";
+import { computed, onMounted} from "vue";
 import { useStore } from "../../store/index";
 import { useRoute } from "vue-router";
 const route = useRoute();
@@ -88,33 +86,44 @@ onMounted(() => {
     store.dispatch("setSizeList",goodsId)
 });
 let variants = computed(() => store.getters.getVariants);
-let firstVarColors = computed(() => {
-    if(store.getters.getVariants[0])
-    return store.getters.getVariants[0].color;
-    else
-    return [];
-});
+let colorList = computed(() => store.getters.getColorList);
+//     if(store.getters.getVariants[0])
+//     return store.getters.getVariants[0].color;
+//     else
+//     return [];
+// });
 // const changeColor = (e: { target: HTMLInputElement })=>{
 //     store.commit('setImgList',{"goodsSize":goodsSize.value,
 //                                 "color":e.target.value})
 // }
 const changeColor = (e: Event) =>{
   if (e.target instanceof HTMLSelectElement){
-    store.commit("setImgList",{"goodsSize":goodsSize.value, "color":e.target.value});
+    store.commit("setImgList",{goodsSize:goodsSize.value, color:e.target.value});
   }
 }
+
+const change = (e: Event) => {
+  if (e.target instanceof HTMLSelectElement) {
+    // store.commit("setNewList", { size: e.target.value, color: color.value });
+    store.dispatch("setImgLists", { goodsSize: e.target.value, color: color.value });
+  }
+};
 
 
 // let color = computed(() => store.getters.getColor);
 // let goodsSize = computed(() => store.getters.getGoodsSize);
-const state = reactive({
-    goodsSize: "single",
-});
-let { goodsSize } = toRefs(state);
-const state1 = reactive({
-    color: "gray",
-});
-let {color} = toRefs(state1);
+// const state = reactive({
+//     goodsSize: "single",
+// });
+// let { goodsSize } = toRefs(state);
+const goodsSize = computed(() => store.getters.getGoodsSize)
+
+const color = computed(() => store.getters.getColor)
+
+// const state1 = reactive({
+//     color: "gray",
+// });
+// let {color} = toRefs(state1);
 
 const price = computed(() => store.getters.getNewList1.price)
 const point = computed(() => store.getters.getNewList1.point);
