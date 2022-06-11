@@ -17,13 +17,9 @@
         <div class="swiper-container p-gallery_photo_el swiper-container-fade swiper-container-horizontal">
 					<div class="swiper-wrapper js-gallery-images">
 						<div class="swiper-slide p-gallery_item swiper-slide-active" data-caption="" style="width: 395px; opacity: 1; transform: translate3d(0px, 0px, 0px);">
-								<img class="swiper-lazy swiper-lazy-loaded" src="https://www.nitori-net.jp/ecstatic/image/product/7564862/756486201.jpg?ccp=1654758000&amp;imwidth=415&amp;imdensity=1&amp;ts=20210128145153691" alt="" imgcount="0">
+								<img class="swiper-lazy swiper-lazy-loaded" :src="imgSrc" alt="" style="width: 320px"/>
 									</div>
-							<div class="swiper-slide p-gallery_item swiper-slide-next" data-caption="" style="width: 395px; opacity: 0; transform: translate3d(-395px, 0px, 0px);">
-								<img class="swiper-lazy swiper-lazy-loaded" alt="" imgcount="1" src="https://www.nitori-net.jp/ecstatic/image/product/7564862/756486202.jpg?ccp=1654758000&amp;imwidth=415&amp;imdensity=1&amp;ts=20210128145153691">
-										
-									</div>
-        <div class="captionArea-static" style="height: 0px;">
+        <!-- <div class="captionArea-static" style="height: 0px;">
 			<div class="p-gallery_caption captionText-static" short="" show="long" long="" rowcount="0" index="0"></div>
 			<div id="p-galleryCaptionMore-static" aria-hidden="true"></div>
 			<div class="" id="js-caption-more-static" aria-hidden="false">
@@ -33,7 +29,7 @@
 					</a>
 				</p>
 			</div>
-		</div>
+		</div> -->
 
 							
 							
@@ -43,18 +39,28 @@
              <div class="inner-swiper">
               <div
                 class="swiper-slide "
+                @click="changeUrl"
                 v-for = "(imgs,index) in imgList"
                 :key = "index"
+                style="width: 350px"
+
                 >
-              <div 
+              <img 
                  class="slide-image-div"
+                
                  v-for = "(img,idx2) in imgs"
                  :key = "idx2"
-                 :style="{ backgroundImage: 'url(' + img + ')' }"
-              ></div>
+                 :src ="img"
+                  />
+                
              </div>
 
-              <div class="p-gallery_controls">
+              
+
+
+                        
+            </div>
+            <div class="p-gallery_controls">
 				<div class="p-gallery_btn p-gallery_prev swiper-button-disabled">
           <span
           class="material-symbols-outlined"
@@ -74,10 +80,6 @@
         <span class="material-symbols-outlined"> arrow_forward_ios </span>
       </div>
 			</div>
-
-
-                        
-            </div>
           </div>
         </div>
       </div>
@@ -102,6 +104,13 @@ onMounted(() => {
 
 let imgList = computed(() => store.getters.getImgList);
 
+let imgSrc = computed(() => store.getters.getImgSrc);
+const changeUrl = (e: Event) => {
+  if (e.target instanceof HTMLImageElement) {
+    store.commit("changeUrl", e.target.src);
+  }
+};
+
 
 // data(){
 //   return{
@@ -114,9 +123,24 @@ let imgList = computed(() => store.getters.getImgList);
 </script>
 
 <style scoped>
+.inner-swiper {
+  display: flex;
+  /* flex-wrap: wrap; */
+}
+.swiper-slide {
+  width: 400px;
+  height: 400px;
+}
+.slide-image-div {
+  width: 100px;
+  height: 100px;
+  background-size: contain;
+  margin: 20px;
+  
+}
 .p-gallery-static .p-gallery_pagination {
     flex-grow: 1;
-    text-align: center;
+    /* text-align: center; */
 }
 .g-i-arrow-r, .g-i-arrow-l, .g-i-arrow-u, .g-i-arrow-d, .g-i-arrow-d2 {
     transition: transform 0.3s;
@@ -187,12 +211,14 @@ p, form, h1, h2, h3, h4, h5, h6, ul, ol, dl, dd, input, textarea, select, button
     left: 0;
 }
 .swiper-container {
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-    list-style: none;
-    padding: 0;
-    z-index: 1;
+  overflow: hidden;
+  /* background-color: pink; */
+  
+  overflow: hidden;
+  cursor: pointer;
+}
+.swiper-container:hover {
+  overflow: visible;
 }
 .p-gallery-static {
     max-width: 415px;
@@ -219,15 +245,7 @@ p, form, h1, h2, h3, h4, h5, h6, ul, ol, dl, dd, input, textarea, select, button
   position: relative;
   margin-top: 15px;
 }
-.swiper-container {
-  margin: 0 auto;
-  position: relative;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  list-style: none;
-  padding: 0;
-  z-index: 1;
-}
+
 .swiper-wrapper {
   position: relative;
   width: 100%;
@@ -253,9 +271,9 @@ p, form, h1, h2, h3, h4, h5, h6, ul, ol, dl, dd, input, textarea, select, button
 .p-gallery_thumbs_item {
   background-position: center;
 }
-.p-galleryReview_thumbs_item {
+/* .p-galleryReview_thumbs_item {
   background-position: center;
-}
+} */
 .p-gallery_thumbs_item:not(.p-gallery_thumbs_item-active) {
   cursor: pointer;
 }

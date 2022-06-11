@@ -21,7 +21,7 @@
 			</ul>
 		</div>
   <div class="g-layout_body">
-    <div class="p-grid g-lg-grid-2 g-grid-lg">
+    <div class="p-grid g-lg-grid-2 g-grid-lg" style="display:flex">
       <photo-container></photo-container>
       <!-- <style flex-direction:row></style> -->
       <info-container></info-container>

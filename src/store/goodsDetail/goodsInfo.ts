@@ -9,7 +9,9 @@ type DetailState={
   color:string,
   newList:any[],
   newList1:{},
-  colorList:string[]
+  colorList:string[],
+  imgSrc: string,
+
 }
 
 type info = {
@@ -42,7 +44,8 @@ export default {
     color:"",
     colorList:[],
     newList:[],
-    newList1:{}
+    newList1:{},
+    imgSrc: "",
     // info:{ }
   },
 mutations: {
@@ -92,7 +95,9 @@ idx++;
 
 state.goodsSize = goodsSize;
 state.color = color;
+state.imgSrc = state.newList1["photoList"][0];
 },
+
 
 
 setGoodsSize(state:DetailState,payload:string){
@@ -101,9 +106,13 @@ setGoodsSize(state:DetailState,payload:string){
 
 setColor(state:DetailState,payload:string){
   state.color = payload;
-}
-
 },
+
+changeUrl(state: DetailState, img: string) {
+  state.imgSrc = img;
+},
+},
+
 
   actions: {
     //asyncronous 非同期
@@ -180,6 +189,10 @@ setColor(state:DetailState,payload:string){
       return state.colorList;
     },
 
+    getImgSrc: (state: DetailState) => {
+      console.log("colors", state.imgSrc);
+      return state.imgSrc;
+    },
     // getShowed: (state) => {
     //   return state.showed;
     // },
