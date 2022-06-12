@@ -35,15 +35,23 @@
 							
 							</div>
 				</div>
-        <div class="swiper-container">
-             <div class="inner-swiper">
+        <div class="swiper-container"
+        
+        >
+             <div class="inner-swiper"
+             :style="{
+          
+          transform:'translate3d( '+ x + 'px,0px,0px)',
+
+        }"
+             >
               <div
                 class="swiper-slide "
                 @click="changeUrl"
                 v-for = "(imgs,index) in imgList"
                 :key = "index"
                 style="width: 350px"
-
+                
                 >
               <img 
                  class="slide-image-div"
@@ -51,33 +59,32 @@
                  v-for = "(img,idx2) in imgs"
                  :key = "idx2"
                  :src ="img"
+                
                   />
                 
              </div>
-
-              
-
-
-                        
+            
             </div>
             <div class="p-gallery_controls">
 				<div class="p-gallery_btn p-gallery_prev swiper-button-disabled">
           <span
           class="material-symbols-outlined"
           style="height: 0px; color: #009e96"
+          @click="rightShift"
         >
           arrow_back_ios
         </span>
         </div>
 				<div class="p-gallery_pagination swiper-pagination-clickable swiper-pagination-bullets">
-          <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
+          <span class="swiper-pagination-bullet swiper-pagination-bullet-active"
+          ></span>
           <span class="swiper-pagination-bullet"></span>
           </div>
 				<div
         class="p-gallery_btn p-gallery_next"
-        style="height: 0px; color: #009e96"
+        
       >
-        <span class="material-symbols-outlined"> arrow_forward_ios </span>
+        <span class="material-symbols-outlined" @click="leftShift"> arrow_forward_ios </span>
       </div>
 			</div>
           </div>
@@ -111,14 +118,31 @@ const changeUrl = (e: Event) => {
   }
 };
 
-
-// data(){
-//   return{
-//     photoList:[
-//       this.photo1
-//     ]
+// const rightShift = (e:Event) => {
+//   if (e.target instanceof HTMLImageElement) {
+//     store.commit("rightShift", e.target.src);
 //   }
 // }
+// function leftShift(){
+ 
+//   let top = document.querySelector(".inner-swiper") as HTMLElement;
+//   top.style.transform = "translate3d(-300px,0px,0px)";
+// }
+// function rightShift(){
+//   let top = document.querySelector(".inner-swiper") as HTMLElement;
+//   top.style.transform = "translate3d(0px,0px,0px)";
+// }
+let index = computed(() => store.getters.getIndex);
+
+let x = computed(() =>{
+  return ((index.value-1)*360)
+})
+function leftShift() {
+  store.commit("leftShift");
+}
+function rightShift() {
+  store.commit("rightShift");
+}
 
 </script>
 
@@ -135,7 +159,8 @@ const changeUrl = (e: Event) => {
   width: 100px;
   height: 100px;
   background-size: contain;
-  margin: 20px;
+  margin: 10px;
+  transform:translate3d(10px, 0, 0)
   
 }
 .p-gallery-static .p-gallery_pagination {
@@ -213,13 +238,11 @@ p, form, h1, h2, h3, h4, h5, h6, ul, ol, dl, dd, input, textarea, select, button
 .swiper-container {
   overflow: hidden;
   /* background-color: pink; */
+  width:340px;
   
-  overflow: hidden;
   cursor: pointer;
 }
-.swiper-container:hover {
-  overflow: visible;
-}
+
 .p-gallery-static {
     max-width: 415px;
 }

@@ -11,6 +11,7 @@ type DetailState={
   newList1:{},
   colorList:string[],
   imgSrc: string,
+  index:number
 
 }
 
@@ -46,6 +47,7 @@ export default {
     newList:[],
     newList1:{},
     imgSrc: "",
+    index:1
     // info:{ }
   },
 mutations: {
@@ -111,6 +113,14 @@ setColor(state:DetailState,payload:string){
 changeUrl(state: DetailState, img: string) {
   state.imgSrc = img;
 },
+
+leftShift(state:DetailState){
+  state.index--;
+},
+rightShift(state:DetailState){
+  state.index++;
+}
+
 },
 
 
@@ -149,13 +159,7 @@ changeUrl(state: DetailState, img: string) {
     
     },
 
-    // async setImgList(context, payload) {
-    //   const imgList = await fetch(url + payload, { headers });
-    //   const j = await imgList.json();
-    //   context.commit("setImgList", j);
-    //   console.log("in setImgList method", j)
-    // },
-    
+
   },
 
 
@@ -196,5 +200,8 @@ changeUrl(state: DetailState, img: string) {
     // getShowed: (state) => {
     //   return state.showed;
     // },
+    getIndex:(state:DetailState) =>{
+      return state.index
+    }  
   },
 };
