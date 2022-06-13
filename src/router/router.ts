@@ -2,6 +2,7 @@ import { createRouter, createWebHistory} from "vue-router";
 import HomePage from "../pages/HomePage.vue";
 import GoodsDetail from "../pages/GoodsDetail.vue";
 import TestChange from "../pages/TestChange.vue";
+import CartPage from "../pages/CartPage.vue";
 
 
 // export default createRouter({
@@ -21,6 +22,11 @@ import TestChange from "../pages/TestChange.vue";
         //    component:() =>
         //    import ("../views/About.vue"),
         },
+        {
+          path:"/cart/page",
+          name:"CartPage",
+          component: CartPage,
+      },
         {  
           path: "/test", 
           name: "test", 

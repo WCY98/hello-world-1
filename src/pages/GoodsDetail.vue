@@ -3,6 +3,8 @@
     <h1>GoodsDetail</h1>
     <p>goodsId:{{ goodsId }}</p>
     <router-link to="/">Home</router-link>
+    <br>
+    <router-link to="/cart/page">Cart</router-link>
     <hr />
     <body-container></body-container>
     <qa-and-review></qa-and-review>

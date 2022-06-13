@@ -487,12 +487,7 @@
      }
      ]
    } 
-]
-,
-
-
-
-
+],
 
   "postCode":{
     "code" : "10070-256",
@@ -850,7 +845,27 @@
             }
           ]
         }
-  ]  
+  ],
+  
+  "cart":[
+    {
+      "goodsTitle":"ゴムバンド付き敷きパッド　double(オーガニックコットン BE D)",
+      "sizeValue":7564873,
+      "color":"beige",
+      "goodsSize":"double",
+      "price":3990,
+      "photo":"http://localhost:8080/assets/image/756486102.webp"
+    },
+    {
+      "goodsTitle":"ゴムバンド付き敷きパッド　semidouble(オーガニックコットン BE SD)",
+      "sizeValue":7564882,
+      "color":"white",
+      "goodsSize":"semidouble",
+      "price":2990,
+      "photo":"http://localhost:8080/assets/image/white1.jpg"
+    }
+    
+  ]
         
 
 }

@@ -6,4 +6,5 @@
     "/review/goodsId/:goodsId/offset/:offset": "/review?goodsId=:goodsId&offset=:offset",
     "/goodsqa/:goodsId": "/goodsqa?goodsId=:goodsId",
     "/goods/info/:goodsId":"/goodsInfo?goodsId=:goodsId"
+    
 }

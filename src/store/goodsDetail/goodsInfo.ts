@@ -11,7 +11,8 @@ type DetailState={
   newList1:{},
   colorList:string[],
   imgSrc: string,
-  index:number
+  index:number,
+  indexA:number
 
 }
 
@@ -47,7 +48,7 @@ export default {
     newList:[],
     newList1:{},
     imgSrc: "",
-    index:1
+    index:0
     // info:{ }
   },
 mutations: {
@@ -114,14 +115,22 @@ changeUrl(state: DetailState, img: string) {
   state.imgSrc = img;
 },
 
+
 leftShift(state:DetailState){
+  
   state.index--;
 },
 rightShift(state:DetailState){
+  if(state.index < 0)
   state.index++;
-}
-
 },
+
+changeDiv(state:DetailState,indexA:number){
+  state.index = -indexA;
+  // state.activeItem = -1;
+}
+}
+,
 
 
   actions: {

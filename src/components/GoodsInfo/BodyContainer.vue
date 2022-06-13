@@ -62,7 +62,10 @@ const skuName = computed(() => store.getters.getNewList1.skuName)
 
 <style scoped>
 g-lg-grid-2{
- flex-direction:row
+ flex-direction:row;
+
+ width:500px;
+ margin-bottom:20px
 }
 *::before, *::after {
     box-sizing: border-box;

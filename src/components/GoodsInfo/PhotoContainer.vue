@@ -66,25 +66,65 @@
             
             </div>
             <div class="p-gallery_controls">
-				<div class="p-gallery_btn p-gallery_prev swiper-button-disabled">
+				<div class="p-gallery_btn p-gallery_prev swiper-button-disabled"
+        >
           <span
+          
+          v-if="x!==0"
           class="material-symbols-outlined"
           style="height: 0px; color: #009e96"
-          @click="rightShift"
+          @click="rightShift"   
         >
           arrow_back_ios
         </span>
+        <span
+          v-if="x===0"
+          class="material-symbols-outlined"
+          style="height: 0px; color: gray"
+          @click="rightShift"  
+           
+        >
+          arrow_back_ios
+        </span>
+        
+
         </div>
-				<div class="p-gallery_pagination swiper-pagination-clickable swiper-pagination-bullets">
-          <span class="swiper-pagination-bullet swiper-pagination-bullet-active"
+				<div class="p-gallery_pagination 
+                swiper-pagination-clickable swiper-pagination-bullets"
+        >
+        <span
+              v-for="(n,indexA) in imgList.length"
+              :key="indexA"
+              class="swiper-pagination-bullet"
+              :class="{'swiper-pagination-bullet-active': index == -indexA}"
+              @click="changeDiv(indexA)"
+            > 
+            </span>
+          <!-- <span class="swiper-pagination-bullet swiper-pagination-bullet-active"
           ></span>
-          <span class="swiper-pagination-bullet"></span>
+          <span class="swiper-pagination-bullet"></span> -->
           </div>
 				<div
         class="p-gallery_btn p-gallery_next"
         
       >
-        <span class="material-symbols-outlined" @click="leftShift"> arrow_forward_ios </span>
+        <span 
+        :class="x===max?'gray':'green'"
+        class="material-symbols-outlined" 
+        
+        @click="leftShift"
+        > 
+        arrow_forward_ios 
+        </span>
+        <!-- <span 
+        v-if="x===max"
+        class="material-symbols-outlined" 
+        style=" color: grey" 
+        @click="leftShift"
+        > 
+        arrow_forward_ios 
+        </span> -->
+
       </div>
 			</div>
           </div>
@@ -110,6 +150,7 @@ onMounted(() => {
 });
 
 let imgList = computed(() => store.getters.getImgList);
+console.log("qqqqqqqq",imgList)
 
 let imgSrc = computed(() => store.getters.getImgSrc);
 const changeUrl = (e: Event) => {
@@ -134,19 +175,42 @@ const changeUrl = (e: Event) => {
 // }
 let index = computed(() => store.getters.getIndex);
 
+const max = computed (() => -(imgList.value.length-1)*360);
+
+
 let x = computed(() =>{
-  return ((index.value-1)*360)
-})
+  return ((index.value)*360)
+});
+
+// $("#material-symbols-outlined").attr('disabled',true);
+
 function leftShift() {
   store.commit("leftShift");
+
 }
 function rightShift() {
   store.commit("rightShift");
 }
 
+let changeDiv = (indexA:number) => {
+  store.commit("changeDiv",indexA)
+}
+
+
 </script>
 
 <style scoped>
+
+.green-round {
+  background: #009e96;
+}
+.black-round {
+  background: black;
+}
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 20;
+}
+
 .inner-swiper {
   display: flex;
   /* flex-wrap: wrap; */
@@ -167,9 +231,16 @@ function rightShift() {
     flex-grow: 1;
     /* text-align: center; */
 }
+.green{
+  color: #009e96;
+}
+.gray{
+  color:#808080;
+  pointer-events:none;
+}
 .g-i-arrow-r, .g-i-arrow-l, .g-i-arrow-u, .g-i-arrow-d, .g-i-arrow-d2 {
     transition: transform 0.3s;
-    color: #009e96;
+    color:  #009e96;;
 }
 .p-gallery_btn.swiper-button-disabled .g-i {
     color: #808080;
@@ -199,7 +270,7 @@ function rightShift() {
     background-size: contain;
 }
 .p-gallery-static .p-gallery_thumbs_item-active {
-    box-shadow: 0 0 0 2px #009e96 inset;
+    box-shadow: 0 0 0 2px  #009e96 n inset;
 }
 .p-gallery-static .p-gallery_thumbs_item:nth-child(-n + 4) {
     margin-top: 0;
@@ -323,7 +394,7 @@ p, form, h1, h2, h3, h4, h5, h6, ul, ol, dl, dd, input, textarea, select, button
   text-align: center;
 }
 .p-gallery .swiper-pagination-bullet-active {
-  background: #009e96;
+  background:  #009e96;;
 }
 .p-gallery .swiper-pagination-bullet {
   width: 15px;
@@ -343,7 +414,7 @@ p, form, h1, h2, h3, h4, h5, h6, ul, ol, dl, dd, input, textarea, select, button
 }
 .g-i-arrow-l {
   transition: transform 0.3s;
-  color: #009e96;
+  color:  #009e96;;
 }
 .p-grid .g-grid_item {
   max-width: 395px;
@@ -465,10 +536,7 @@ a {
   pointer-events: none;
   -webkit-font-smoothing: antialiased;
 }
-.g-i-arrow-d {
-  transition: transform 0.3s;
-  color: #1da59e;
-}
+
 .g-link [class*="g-i-arrow-"] {
   margin-top: -0.2em;
 }
