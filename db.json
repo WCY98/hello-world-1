@@ -653,6 +653,7 @@
       "goodsDescribe":"Tシャツのような肌ざわり、ニット素材",
       "sizeList":[
         {
+          "sku": "10195s_gr",
           "skuName":"ゴムバンド付き敷きパッド single(オーガニックコットン BE S)",
           "goodsSize":"single",
           "sizeValue":"7564861",
@@ -675,6 +676,7 @@
             ]
            },
            {
+            "sku": "10195s_b",
             "skuName":"ゴムバンド付き敷きパッド single(オーガニックコットン BE S)",
             "goodsSize":"single",
             "sizeValue":"7564871",
@@ -698,6 +700,7 @@
             ]
            },
         {
+          "sku": "10195sd_gr",
           "skuName":"ゴムバンド付き敷きパッド semidouble(オーガニックコットン BE SD)",
           "goodsSize":"semidouble",
           "sizeValue":"7564862",
@@ -721,6 +724,7 @@
           ]
            },
            {
+            "sku": "10195sd_b",
             "skuName":"ゴムバンド付き敷きパッド semidouble(オーガニックコットン BE SD)",
           "goodsSize":"semidouble",
           "sizeValue":"7564872",
@@ -743,7 +747,7 @@
               "http://localhost:8080/assets/image/756486301.webp"
           ]
            },
-           {
+           {"sku": "10195sd_wh",
             "skuName":"ゴムバンド付き敷きパッド semidouble(オーガニックコットン BE SD)",
             "goodsSize":"semidouble",
             "sizeValue":"7564882",
@@ -767,6 +771,7 @@
             ]
              },
         {
+          "sku": "10195d_gr",
           "skuName":"ゴムバンド付き敷きパッド double(オーガニックコットン BE D)",
           "goodsSize":"double",
           "sizeValue":"7564863",
@@ -790,6 +795,7 @@
           ]
            },
            {
+            "sku": "10195d_b",
             "skuName":"ゴムバンド付き敷きパッド double(オーガニックコットン BE D)",
             "goodsSize":"double",
             "sizeValue":"7564873",
@@ -848,23 +854,39 @@
   ],
   
   "cart":[
+        {
+          "id":1, 
+          "userId":989898,
+          "sku": "10195d_b",
+          "date":"2022/06/14",
+          "goodsTitle":"ゴムバンド付き敷きパッド　double(オーガニックコットン BE D)",
+          "sizeValue":7564873,
+          "color":"beige",
+          "goodsSize":"double",
+          "price":3990,
+          "photo":"http://localhost:8080/assets/image/756486102.webp",
+          "count":1
+        },
+        {
+          "id":2,
+          "userId":989898,
+          "sku": "10195sd_wh",
+          "date":"2022/06/13",
+          "goodsTitle":"ゴムバンド付き敷きパッド　semidouble(オーガニックコットン BE SD)",
+          "sizeValue":7564882,
+          "color":"white",
+          "goodsSize":"semidouble",
+          "price":2990,
+          "photo":"http://localhost:8080/assets/image/white1.jpg",
+          "count":2
+        }  
+  ],
+  "user":[
     {
-      "goodsTitle":"ゴムバンド付き敷きパッド　double(オーガニックコットン BE D)",
-      "sizeValue":7564873,
-      "color":"beige",
-      "goodsSize":"double",
-      "price":3990,
-      "photo":"http://localhost:8080/assets/image/756486102.webp"
-    },
-    {
-      "goodsTitle":"ゴムバンド付き敷きパッド　semidouble(オーガニックコットン BE SD)",
-      "sizeValue":7564882,
-      "color":"white",
-      "goodsSize":"semidouble",
-      "price":2990,
-      "photo":"http://localhost:8080/assets/image/white1.jpg"
+      "count":1,
+      "sku":"10195d_b",
+      "userId":989898
     }
-    
   ]
         
 

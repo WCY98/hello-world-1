@@ -18,12 +18,9 @@ import CartPage from "../pages/CartPage.vue";
            path:"/goods/detail/:goodsId",
            name:"GoodsDetail",
            component:GoodsDetail,
-       
-        //    component:() =>
-        //    import ("../views/About.vue"),
         },
         {
-          path:"/cart/page",
+          path:"/cart/page/:userId",
           name:"CartPage",
           component: CartPage,
       },

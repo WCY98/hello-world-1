@@ -25,12 +25,14 @@
       <photo-container></photo-container>
       <!-- <style flex-direction:row></style> -->
       <info-container></info-container>
+      <pane-info></pane-info>
       
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import PaneInfo from "./PaneInfo.vue";
 import StarRating from 'vue-star-rating';
 import InfoContainer from "./InfoContainer.vue";
 import PhotoContainer from "./PhotoContainer.vue";

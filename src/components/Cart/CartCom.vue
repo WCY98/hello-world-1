@@ -1,14 +1,12 @@
 <template>
-  <div class="g-layout_head">
-	<h1>カート</h1>
-  </div>
   <div class="g-layout_body">
 	<ul class="g-itemList">
 		<li class="g-itemList_item g-media g-media-lg p-cartItem">
-			<p class="g-media_head"><a class="g-hover" href="/ec/product/7564862/">
-				<img class="g-fw g-rc" src="https://www.nitori-net.jp/ecstatic/image/product/7564862/756486201.jpg?imwidth=140&amp;imdensity=1&amp;ts=20210128145153691" 
-				srcset="https://www.nitori-net.jp/ecstatic/image/product/7564862/756486201.jpg?imwidth=97&amp;imdensity=1&amp;ts=20210128145153691 2x" 
-				alt="ゴムバンド付き敷きパッド セミダブル(オーガニックコットン BE SD)">
+			<p class="g-media_head">
+        <a class="g-hover" href="/goods/detail/10195">
+				<img class="g-fw g-rc" 
+				:src="photo"
+				:alt="goodsTitle">
 				</a>
 				</p>
 			<div class="g-media_body g-units-sm" style="display:flex">
@@ -36,11 +34,12 @@
 					<div>
             <input type="hidden" name="CSRFToken" value="a150be12-32dd-48ef-8288-25f9757878d6">
            </div></form>
-		<form id="uniDeleteCartEntryForm0" name="uniDeleteCartEntryForm0" action="/ec/cart/delete/cartEntry" method="post"><input id="pk" name="pk" value="12605385080876" type="hidden"><div>
-            <input type="hidden" name="CSRFToken" value="a150be12-32dd-48ef-8288-25f9757878d6">
-          </div></form>
+		<form id="uniDeleteCartEntryForm0" name="uniDeleteCartEntryForm0" action="/ec/cart/delete/cartEntry" method="post">
+		</form>
+		
 		<div class="p-cartItem_pcs">
-          <form id="uniUpdateQuantityForm0" name="uniUpdateQuantityForm0" action="/ec/cart/update/quantity" method="post"><input id="pk" name="pk" value="12605385080876" type="hidden"><input class="g-input g-input-sm g-fw" type="text" name="quantity" value="1" aria-label="個数" onchange="if(this.value&amp;&amp;this.value!=='1') uniUpdateQuantityForm0.submit();" aria-describedby="p-cartItem_pcs0_alert" data-validation-rules="[{&quot;action&quot;:&quot;hankaku&quot;},{&quot;rule&quot;:&quot;number&quot;}]" maxlength="3">
+          <form id="uniUpdateQuantityForm0" name="uniUpdateQuantityForm0" action="/ec/cart/update/quantity" method="post"><input id="pk" name="pk" value="12605385080876" type="hidden">
+		<input class="g-input g-input-sm g-fw" type="text" name="quantity" value="1" aria-label="個数" onchange="if(this.value&amp;&amp;this.value!=='1') uniUpdateQuantityForm0.submit();" aria-describedby="p-cartItem_pcs0_alert" data-validation-rules="[{&quot;action&quot;:&quot;hankaku&quot;},{&quot;rule&quot;:&quot;number&quot;}]" maxlength="3">
 				<div class="g-formGrid_error-alone" id="p-cartItem_pcs0_alert" role="alert">
 				</div>
 				<div>
@@ -51,6 +50,7 @@
 			<span>あとで買う</span></a></p>
 		<p class="p-cartItem_del"><a class="g-link g-link-gray" href="javascript:chgItem('uniDeleteCartEntryForm','0',false)" data-once="">
 			<i class="g-i g-i-close" aria-hidden="true"></i>
+      <span class="material-symbols-outlined" >close</span>
 			<span>削除</span></a></p>
 	<div class="p-cartItem_sum">
 		<p class="g-price">
@@ -70,22 +70,41 @@
 	</div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
+import {defineProps, toRefs} from 'vue';
 // import { computed , onMounted} from "vue";
 // import { useStore } from "../../store/index";
 // import { useRoute } from "vue-router";
 
+
 // const route = useRoute();
-// const sizeValue = route.params.sizeValue;
+// const userId = route.params.userId;
+// // const sku = "10195d_b";
 // const store = useStore();
 
 // onMounted(() => {
-// 	store.dispatch("setCart",sizeValue)
+// 	store.dispatch("setCart",userId)
 // });
 
-// const color = computed(() => store.getters.getCart.color);
-// const color = computed(() => store.getters.getNewList1.color);
-// const sizeValue = computed (() => store.getters.getNewList1.sizeValue)
+// const goodsTitle = computed (() => store.getters.getCart.goodsTitle);
+// const photo = computed (() => store.getters.getCart.photo);
+// const sizeValue = computed (() => store.getters.getCart.sizeValue);
+// const goodsSize = computed (() => store.getters.getCart.goodsSize);
+// const color = computed (() => store.getters.getCart.color);
+// const price = computed (() => store.getters.getCart.price);
+
+const props = defineProps({
+  photo:String,
+  goodsTitle:String,
+  sizeValue:Number,
+  color:String,
+  goodsSize:String,
+  price:Number
+})
+
+const{photo,goodsTitle,sizeValue,color,goodsSize,price}=toRefs(props);
+
+
 
 
 </script >

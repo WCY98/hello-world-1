@@ -11,4 +11,8 @@ import goodsInfoTwo from "./GoodsInfoTwo.vue";
 import GoodsInfo from "./GoodsInfo.vue";
 </script>
 
-<style scoped></style>
+<style scoped>
+.g-block-sm{
+  padding:20px
+}
+</style>

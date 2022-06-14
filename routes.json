@@ -5,6 +5,7 @@
     "/review/total/:goodsId":"/reviewTotal?goodsId=:goodsId",
     "/review/goodsId/:goodsId/offset/:offset": "/review?goodsId=:goodsId&offset=:offset",
     "/goodsqa/:goodsId": "/goodsqa?goodsId=:goodsId",
-    "/goods/info/:goodsId":"/goodsInfo?goodsId=:goodsId"
+    "/goods/info/:goodsId":"/goodsInfo?goodsId=:goodsId",
+    "/cart/:userId":"/cart?userId=:userId"
     
 }
