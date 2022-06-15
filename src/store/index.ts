@@ -10,7 +10,7 @@ import reviewRating from "./goodsDetail/reviewRating";
 import reviewTotal from "./goodsDetail/reviewTotal";
 import goodsQa from './goodsDetail/goodsQa';
 import goodsInfo from "./goodsDetail/goodsInfo";
-import cart from "./goodsDetail/cart"; 
+import cart from "./cart/cart"; 
 
 
 type State = {};

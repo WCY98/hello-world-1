@@ -4,7 +4,7 @@
     <p>goodsId:{{ goodsId }}</p>
     <router-link to="/">Home</router-link>
     <br>
-    <router-link to="/cart/page">Cart</router-link>
+    <router-link to="/cart/page/989898">Cart</router-link>
     <hr />
     <body-container></body-container>
     <qa-and-review></qa-and-review>

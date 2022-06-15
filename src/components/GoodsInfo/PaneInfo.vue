@@ -31,7 +31,17 @@
         <label for="p-pieces">数量</label>
 	</dt>
 	<dd>
-        <input class="g-input g-input-sm addToCartQty" id="p-pieces" type="text" name="quantity" value="1" size="5" maxlength="3">
+        <input 
+		class="g-input g-input-sm addToCartQty" 
+		id="p-pieces" 
+		type="number" 
+		name="quantity" 
+		:value="quantity"
+		placeholder="1"
+		@input="updateQuantity"
+		oninput="value = value.replace(/\D-/g , '');
+		if ( value.length > 3 ) value = value.slice ( 0,3 ) "
+		max="999" min="0" >
 	</dd>
 </dl>
 
@@ -45,12 +55,16 @@
 	</div>
 			<div class="g-foot-v">
 				<div class="cartBtnArea disp">
-                    <a href="/cart/page/userId" style="text-direction:none">
-					<button onclick="" class="g-btn g-btn-cv g-btn-c g-fw addToCartBtn" id="p-addItem" type="button">
+                    <!-- <a href="/cart/page/989898" style="text-direction:none"> -->
+					<button 
+					@click="addItem" 
+					class="g-btn g-btn-cv g-btn-c g-fw addToCartBtn" 
+					id="p-addItem" 
+					type="button">
 								<i class="g-i g-i-add-cart" aria-hidden="true"></i>
                                 <span>カートに入れる</span>
                                 </button>
-                                </a>
+                                <!-- </a> -->
 						</div>
 			</div>
 		<ul class="g-grid-2 g-grid-xs p-misc">
@@ -95,6 +109,16 @@ onMounted(() => {
     store.dispatch("setSizeList",goodsId)
 });
 const price = computed(() => store.getters.getNewList1.price)
+
+const addItem = () =>  store.dispatch("addCart")
+
+const quantity = computed (() => store.getters.getQuantity)
+
+const updateQuantity = (e:Event) => {
+	if(e.target instanceof HTMLInputElement){
+		store.commit("updateQuantity", e.target.value)
+	}
+}
 </script>
 
 <style scoped>

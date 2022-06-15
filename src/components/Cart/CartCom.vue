@@ -39,16 +39,32 @@
 		
 		<div class="p-cartItem_pcs">
           <form id="uniUpdateQuantityForm0" name="uniUpdateQuantityForm0" action="/ec/cart/update/quantity" method="post"><input id="pk" name="pk" value="12605385080876" type="hidden">
-		<input class="g-input g-input-sm g-fw" type="text" name="quantity" value="1" aria-label="個数" onchange="if(this.value&amp;&amp;this.value!=='1') uniUpdateQuantityForm0.submit();" aria-describedby="p-cartItem_pcs0_alert" data-validation-rules="[{&quot;action&quot;:&quot;hankaku&quot;},{&quot;rule&quot;:&quot;number&quot;}]" maxlength="3">
+		
+    
+    <input class="g-input g-input-sm g-fw" 
+    type="text" 
+    name="quantity"
+    v-model="quantity"
+    oninput="value = value.replace(/\D-/g , '')"
+    aria-label="個数" 
+    maxlength="3">
+
+
 				<div class="g-formGrid_error-alone" id="p-cartItem_pcs0_alert" role="alert">
 				</div>
 				<div>
         <input type="hidden" name="CSRFToken" value="a150be12-32dd-48ef-8288-25f9757878d6">
         </div></form>
 		</div>
-		<p class="p-cartItem_btn"><a class="g-btn g-btn-sm g-btn-em g-fw g-sm-font-md" href="javascript:chgItem('uniAddLaterListEntryForm','0',false)" data-once="">
-			<span>あとで買う</span></a></p>
-		<p class="p-cartItem_del"><a class="g-link g-link-gray" href="javascript:chgItem('uniDeleteCartEntryForm','0',false)" data-once="">
+		<p class="p-cartItem_btn"><a class="g-btn g-btn-sm g-btn-em g-fw g-sm-font-md" 
+       href="javascript:chgItem('uniAddLaterListEntryForm','0',false)" data-once="">
+			<span>あとで買う</span>
+      </a>
+    </p>
+		<p class="p-cartItem_del">
+      <a class="g-link g-link-gray" 
+      href="javascript:chgItem('uniDeleteCartEntryForm','0',false)" 
+      data-once="">
 			<i class="g-i g-i-close" aria-hidden="true"></i>
       <span class="material-symbols-outlined" >close</span>
 			<span>削除</span></a></p>
@@ -56,7 +72,7 @@
 		<p class="g-price">
 			<span>個別送料</span>0<span>円</span></p>
 		<p class="g-price g-lg-price-lg">
-			<span>小計</span>{{ price }}<span>円 （税込）</span></p>
+			<span>小計</span>{{ subtotal }}<span>円 （税込）</span></p>
 	</div>
 	</div>
 	</div>
@@ -71,39 +87,30 @@
 </template>
 
 <script setup lang="ts">
-import {defineProps, toRefs} from 'vue';
-// import { computed , onMounted} from "vue";
+
+import {defineProps, toRefs ,computed ,ref} from 'vue';
 // import { useStore } from "../../store/index";
-// import { useRoute } from "vue-router";
-
-
-// const route = useRoute();
-// const userId = route.params.userId;
-// // const sku = "10195d_b";
 // const store = useStore();
 
-// onMounted(() => {
-// 	store.dispatch("setCart",userId)
-// });
-
-// const goodsTitle = computed (() => store.getters.getCart.goodsTitle);
-// const photo = computed (() => store.getters.getCart.photo);
-// const sizeValue = computed (() => store.getters.getCart.sizeValue);
-// const goodsSize = computed (() => store.getters.getCart.goodsSize);
-// const color = computed (() => store.getters.getCart.color);
-// const price = computed (() => store.getters.getCart.price);
-
-const props = defineProps({
-  photo:String,
-  goodsTitle:String,
-  sizeValue:Number,
-  color:String,
-  goodsSize:String,
-  price:Number
-})
+const props = defineProps<{
+  photo:string,
+  goodsTitle:string,
+  sizeValue:number,
+  color:string,
+  goodsSize:string,
+  price:number,
+  quantity:number
+}>();
 
 const{photo,goodsTitle,sizeValue,color,goodsSize,price}=toRefs(props);
 
+const quantity = ref(props.quantity)
+
+
+const subtotal = computed (() =>
+    +quantity.value * +price.value);
+// const quantity = computed (() => store.getters.getQuantity)
+// const subtotal = 
 
 
 

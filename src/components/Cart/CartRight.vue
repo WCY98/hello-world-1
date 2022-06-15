@@ -1,6 +1,6 @@
 <template>
 <div data-attr="{&quot;lg&quot;:{&quot;data-sticky&quot;:true}}" data-sticky="true">
-	<section class="g-pane g-pane-gray g-units-lg g-lg-sticky">
+	<section class="g-pane g-pane-gray g-units-lg g-lg-sticky" style="width:70%">
 		<div class="p-payment">
 			<dl class="p-payment_total">
                 <dt class="p-paymentAmountLabel">お支払金額</dt>
@@ -12,8 +12,8 @@
             <dl class="p-payment_itemized p-shorten-dl" id="p-payment_itemized">
                 <a href="#p-aboutAcquiredPointModal" id="aboutAcquiredPoint" aria-expanded="false" aria-controls="p-aboutAcquiredPointModal">
                     <dt>獲得予定ポイント
-                        <span style="margin-right:10px;">
-                        </span>
+                        <!-- <span style="margin-right:10px;"> -->
+                        <!-- </span> -->
                     <span class="material-symbols-outlined">
 !!!
 </span>
@@ -270,7 +270,6 @@ input, textarea, select, optgroup, button {
     line-height: 1;
     letter-spacing: 0;
     pointer-events: none;
-    speak: none;
 }
 .g-checkable > span, .g-lg-checkable > span {
     line-height: normal;
@@ -377,7 +376,6 @@ b {
     letter-spacing: 0;
     text-transform: none;
     pointer-events: none;
-    speak: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }

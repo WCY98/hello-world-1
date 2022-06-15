@@ -3,10 +3,17 @@
       <div class="g-layout_head">
 	<h1>カート</h1>
   </div>
+  <div class="cartAndContainer" style="display:flex">
+    <div>
     <cart-com 
     v-for="(n,index) in cartList" :key="index" 
-    v-bind="n"></cart-com>
+    v-bind="n">
+    </cart-com>
+    </div>
+    <div>
     <cart-right></cart-right>
+    </div>
+    </div>
 </div>
 </template>
 
