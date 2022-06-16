@@ -1,12 +1,13 @@
 <template>
-  <div class="g-layout_body">
+<template v-for="(n,index) in cartList" :key="index" >
+  <div class="g-layout_body" style="width:110%">
 	<ul class="g-itemList">
 		<li class="g-itemList_item g-media g-media-lg p-cartItem">
 			<p class="g-media_head">
         <a class="g-hover" href="/goods/detail/10195">
 				<img class="g-fw g-rc" 
-				:src="photo"
-				:alt="goodsTitle">
+				:src="n.photo"  style="height:100%"
+				:alt="n.goodsTitle">
 				</a>
 				</p>
 			<div class="g-media_body g-units-sm" style="display:flex">
@@ -14,13 +15,13 @@
 					<a href="/ec/product/7564862/">ゴムバンド付き敷きパッド セミダブル(オーガニックコットン BE SD)
 					</a>
 				</p>
-				<p class="g-font-sm">商品コード {{ sizeValue }}</p>
+				<p class="g-font-sm">商品コード {{ n.sizeValue }}</p>
 				<ul class="g-font-sm">
-					<li>カラー：{{ color }}</li>
-					<li>サイズ：{{ goodsSize }}</li>
+					<li>カラー：{{ n.color }}</li>
+					<li>サイズ：{{ n.goodsSize }}</li>
 					<li></li>
 				</ul>
-				<p class="g-price">{{ price }}<span>円 （税込）</span></p>
+				<p class="g-price">{{ n.price }}<span>円 （税込）</span></p>
 				<div class="g-butterfly g-font-sm">
 					<p>
 						2～6日で出荷</p>
@@ -44,7 +45,7 @@
     <input class="g-input g-input-sm g-fw" 
     type="text" 
     name="quantity"
-    v-model="quantity"
+    v-model="n.quantity"
     oninput="value = value.replace(/\D-/g , '')"
     aria-label="個数" 
     maxlength="3">
@@ -61,18 +62,20 @@
 			<span>あとで買う</span>
       </a>
     </p>
-		<p class="p-cartItem_del">
-      <a class="g-link g-link-gray" 
-      href="javascript:chgItem('uniDeleteCartEntryForm','0',false)" 
-      data-once="">
-			<i class="g-i g-i-close" aria-hidden="true"></i>
+
+
+		<p class="p-cartItem_del"
+       :id="n.id"
+    @click="deleteItem(n.id, n.userId)" style="cursor: pointer">
       <span class="material-symbols-outlined" >close</span>
-			<span>削除</span></a></p>
+			<span>削除</span></p>
+
+
 	<div class="p-cartItem_sum">
 		<p class="g-price">
 			<span>個別送料</span>0<span>円</span></p>
 		<p class="g-price g-lg-price-lg">
-			<span>小計</span>{{ subtotal }}<span>円 （税込）</span></p>
+			<span>小計</span>{{ n.price*n.quantity }}<span>円 （税込）</span></p>
 	</div>
 	</div>
 	</div>
@@ -84,39 +87,61 @@
 	</li>
 	</ul>
 	</div>
+  </template>
 </template>
 
 <script setup lang="ts">
 
-import {defineProps, toRefs ,computed ,ref} from 'vue';
-// import { useStore } from "../../store/index";
-// const store = useStore();
+import {computed , onMounted} from 'vue';
+import { useStore } from "../../store/index";
+import { useRoute } from "vue-router";
 
-const props = defineProps<{
-  photo:string,
-  goodsTitle:string,
-  sizeValue:number,
-  color:string,
-  goodsSize:string,
-  price:number,
-  quantity:number
-}>();
+const store = useStore();
+const route = useRoute();
+const userId = route.params.userId;
+onMounted(() => {
+	store.dispatch("setCart",userId)
+});
+let cartList = computed (() => store.getters.getCart);
 
-const{photo,goodsTitle,sizeValue,color,goodsSize,price}=toRefs(props);
+// const props = defineProps<{
+//   photo:string,
+//   goodsTitle:string,
+//   sizeValue:number,
+//   color:string,
+//   goodsSize:string,
+//   price:number,
+//   quantity:number
+// }>();
 
-const quantity = ref(props.quantity)
+// const{photo,goodsTitle,sizeValue,color,goodsSize,price}=toRefs(props);
+
+// const quantity = ref(props.quantity)
 
 
-const subtotal = computed (() =>
-    +quantity.value * +price.value);
-// const quantity = computed (() => store.getters.getQuantity)
-// const subtotal = 
+// const subtotal = computed (() =>
+//     +quantity.value * +price.value);
+
+const deleteItem = (id:number,userId:number) => {
+  store.dispatch("deleteCart",{id, userId});
+};
+
+
+
 
 
 
 </script >
 
 <style scoped>
+.g-label-brand {
+  color: #009e96;
+  border: 2px solid #009e96;
+  width: 200px;
+  margin-left: 300px;
+  margin-bottom: 100px;
+  font-size: 4px;
+}
 ul,
 ol {
   padding: 0;
@@ -202,7 +227,7 @@ a {
   color: #009e96;
 }
 .p-cartItem_sum {
-  width: 150px;
+  width: 100px;
   margin: 6px 0 0 10px;
   -ms-grid-row: 1;
   -ms-grid-row-span: 3;
@@ -243,7 +268,7 @@ a {
   display: grid;
 }
 .g-fw {
-  width: 200%;
+  width: 100%;
 }
 .p-cartItem_pcs .g-input {
   text-align: right;

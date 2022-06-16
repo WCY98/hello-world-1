@@ -660,7 +660,7 @@
           "material": "コットン",
           "weight": "約920g",
           "warrantyYear": "1年",
-          "point": "18",
+          "point": 18,
           "photoList": [
             "http://localhost:8080/assets/image/graycolor1.jpg",
             "http://localhost:8080/assets/image/756486701.jpg",
@@ -683,7 +683,7 @@
           "material": "コットン",
           "weight": "約920g",
           "warrantyYear": "1年",
-          "point": "18",
+          "point": 18,
           "photoList": [
             "http://localhost:8080/assets/image/756486102.webp",
             "http://localhost:8080/assets/image/756486301.webp",
@@ -707,7 +707,7 @@
           "material": "コットン",
           "weight": "約920g",
           "warrantyYear": "1年",
-          "point": "27",
+          "point": 27,
           "photoList": [
             "http://localhost:8080/assets/image/graycolor1.jpg",
             "http://localhost:8080/assets/image/756486701.jpg",
@@ -731,7 +731,7 @@
           "material": "コットン",
           "weight": "約920g",
           "warrantyYear": "1年",
-          "point": "27",
+          "point": 27,
           "photoList": [
             "http://localhost:8080/assets/image/756486102.webp",
             "http://localhost:8080/assets/image/756486301.webp",
@@ -755,7 +755,7 @@
           "material": "コットン",
           "weight": "約920g",
           "warrantyYear": "1年",
-          "point": "27",
+          "point": 27,
           "photoList": [
             "http://localhost:8080/assets/image/white1.jpg",
             "http://localhost:8080/assets/image/white2.jpg",
@@ -779,7 +779,7 @@
           "material": "コットン",
           "weight": "約920g",
           "warrantyYear": "1年",
-          "point": "36",
+          "point": 36,
           "photoList": [
             "http://localhost:8080/assets/image/graycolor1.jpg",
             "http://localhost:8080/assets/image/756486701.jpg",
@@ -803,7 +803,7 @@
           "material": "コットン",
           "weight": "約920g",
           "warrantyYear": "1年",
-          "point": "36",
+          "point": 36,
           "photoList": [
             "http://localhost:8080/assets/image/756486102.webp",
             "http://localhost:8080/assets/image/756486301.webp",
@@ -856,7 +856,7 @@
       ]
     }
   ],
-  "cart": [
+  "cartList": [
     {
       "id": 1,
       "userId": 989898,
@@ -867,11 +867,12 @@
       "color": "beige",
       "goodsSize": "double",
       "price": 3990,
+      "point": 36,
       "photo": "http://localhost:8080/assets/image/756486102.webp",
       "quantity": 1
     },
     {
-      "id": 2,
+      "id": 3,
       "userId": 989898,
       "sku": "10195sd_wh",
       "date": "2022-06-14 10:30:00",
@@ -880,6 +881,7 @@
       "color": "white",
       "goodsSize": "semidouble",
       "price": 2990,
+      "point": 27,
       "photo": "http://localhost:8080/assets/image/white1.jpg",
       "quantity": 1
     }
@@ -887,24 +889,34 @@
   "addCart": [
     {
       "id": 1,
-      "userId": "989898",
+      "userId": 989898,
       "sku": "10195d_b",
       "quantity": 1,
       "cartDate": "2022-06-14 09:30:00"
     },
     {
       "id": 2,
-      "userId": "989898",
+      "userId": 989898,
       "sku": "10195sd_wh",
       "quantity": 1,
       "cartDate": "2022-06-14 10:30:00"
     },
     {
-      "userId": "989898",
-      "sku": "10195d_b",
-      "quantity": 1,
-      "cartDate": "2022-06-15T06:12:40.584Z",
+      "userId": 989898,
+      "sku": "10195sd_wh",
+      "sizeValue": "7564882",
+      "quantity": 333,
+      "cartDate": "2022-06-16T02:07:08.807Z",
       "id": 3
+    },
+    {
+      "userId": 989898,
+      "sku": "10195s_b",
+      "sizeValue": "7564871",
+      "point": 18,
+      "quantity": 777,
+      "cartDate": "2022-06-16T02:22:38.245Z",
+      "id": 4
     }
   ]
 }

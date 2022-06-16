@@ -42,6 +42,22 @@
 		oninput="value = value.replace(/\D-/g , '');
 		if ( value.length > 3 ) value = value.slice ( 0,3 ) "
 		max="999" min="0" >
+
+		<input 
+		class="g-input g-input-sm addToCartQty" 
+		type="hidden"
+		:value="sku"
+		@input="updateQuantity">
+		<input 
+		class="g-input g-input-sm addToCartQty" 
+		type="hidden"
+		:value="sizeValue"
+		@input="updateQuantity">
+		<input 
+		class="g-input g-input-sm addToCartQty" 
+		type="hidden"
+		:value="point"
+		@input="updateQuantity">
 	</dd>
 </dl>
 
@@ -113,6 +129,14 @@ const price = computed(() => store.getters.getNewList1.price)
 const addItem = () =>  store.dispatch("addCart")
 
 const quantity = computed (() => store.getters.getQuantity)
+const sku = computed(() => store.getters.getNewList1.sku )
+store.commit("setSku",sku);
+
+const sizeValue = computed(() => store.getters.getNewList1.sizeValue )
+store.commit("setSizeValue",sizeValue);
+
+const point = computed(() => store.getters.getNewList1.point )
+store.commit("setPoint",point);
 
 const updateQuantity = (e:Event) => {
 	if(e.target instanceof HTMLInputElement){

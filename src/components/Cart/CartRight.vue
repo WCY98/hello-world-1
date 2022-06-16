@@ -1,6 +1,7 @@
 <template>
 <div data-attr="{&quot;lg&quot;:{&quot;data-sticky&quot;:true}}" data-sticky="true">
-	<section class="g-pane g-pane-gray g-units-lg g-lg-sticky" style="width:70%">
+	<section class="g-pane g-pane-gray g-units-lg g-lg-sticky" style="width:70%" >
+    <section class="g-pane g-pane-gray g-units-lg g-lg-sticky" style="height:70%" >
 		<div class="p-payment">
 			<dl class="p-payment_total">
                 <dt class="p-paymentAmountLabel">お支払金額</dt>
@@ -26,7 +27,7 @@
                 商品金額合計
             </dt>
             <dd>
-                9970<span>円</span>
+                999<span>円</span>
             </dd>
             <dt>送料</dt>
             <dd>
@@ -90,7 +91,8 @@
             </p>
         <div class="g-foot-v">
             <p>
-                <button class="g-btn g-btn-cv g-fw" onclick="javascript:checkoutFlowModeForm.submit();return false;">
+                <button class="g-btn g-btn-cv g-fw" onclick="javascript:checkoutFlowModeForm.submit();return false;"
+                >
                 <span>レジへ進む</span>
                 </button>
             </p>
@@ -102,11 +104,25 @@
                 </a>
             </p>
 		</div>
+        </section>
 	</section>
 </div>
 </template>
 
 <script setup lang="ts">
+import { onMounted} from 'vue';
+import { useStore } from "../../store/index";
+import { useRoute } from "vue-router";
+
+const route = useRoute();
+const userId = route.params.userId;
+const store = useStore();
+onMounted(() => {
+    store.dispatch("setCart",userId)
+});
+
+
+
 </script>
 
 <style scoped>
@@ -337,7 +353,7 @@ b {
 }
 .g-btn, .g-lg-btn {
     font-size: 1.6rem;
-    line-height: 1.5;
+    line-height: 2.5;
 }
 .g-btn-cv, .g-lg-btn-cv {
     border-color: #eb6157;
@@ -386,13 +402,6 @@ b {
     font-size: 1.4rem;
     -ms-grid-row-align: center;
     align-self: center;
-}
-.g-foot-v, .g-foot-h, .g-lg-foot-v, .g-lg-foot-h {
-    margin-top: 30px;
-}
-.g-foot-v, .g-lg-foot-v {
-    display: flex;
-    flex-direction: column;
 }
 .g-layout-purchase .g-layout_sidebar .g-pane-gray, .g-layout-cart .g-layout_sidebar .g-pane-gray {
     padding: 15px;
