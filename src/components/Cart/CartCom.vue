@@ -42,7 +42,12 @@
           <form id="uniUpdateQuantityForm0" name="uniUpdateQuantityForm0" action="/ec/cart/update/quantity" method="post"><input id="pk" name="pk" value="12605385080876" type="hidden">
 		
     
-    <input class="g-input g-input-sm g-fw" 
+    <input 
+    :id="n.id"
+    @change="
+      updateQuantity($event);
+      updateItem(n.id,n.userId);"
+   class="g-input g-input-sm g-fw" 
     type="text" 
     name="quantity"
     v-model="n.quantity"
@@ -57,8 +62,10 @@
         <input type="hidden" name="CSRFToken" value="a150be12-32dd-48ef-8288-25f9757878d6">
         </div></form>
 		</div>
-		<p class="p-cartItem_btn"><a class="g-btn g-btn-sm g-btn-em g-fw g-sm-font-md" 
-       href="javascript:chgItem('uniAddLaterListEntryForm','0',false)" data-once="">
+		<p class="p-cartItem_btn">
+      <a class="g-btn g-btn-sm g-btn-em g-fw g-sm-font-md" 
+       href="javascript:chgItem('uniAddLaterListEntryForm','0',false)" 
+       data-once="">
 			<span>あとで買う</span>
       </a>
     </p>
@@ -66,7 +73,8 @@
 
 		<p class="p-cartItem_del"
        :id="n.id"
-    @click="deleteItem(n.id, n.userId)" style="cursor: pointer">
+    @click="deleteItem(n.id, n.userId)" 
+    style="cursor: pointer">
       <span class="material-symbols-outlined" >close</span>
 			<span>削除</span></p>
 
@@ -124,6 +132,17 @@ let cartList = computed (() => store.getters.getCart);
 
 const deleteItem = (id:number,userId:number) => {
   store.dispatch("deleteCart",{id, userId});
+};
+const updateItem = (id:number,userId:number) => {
+  store.dispatch("updateCart", { id, userId });
+  store.dispatch("setCart", userId );
+};
+
+
+const updateQuantity = (e: Event) => {
+  if (e.target instanceof HTMLInputElement) {
+    store.commit("updateQuantity", e.target.value);
+  }
 };
 
 
@@ -343,5 +362,8 @@ button {
   margin-left: 0.2em;
   -webkit-font-feature-settings: "palt";
   font-feature-settings: "palt";
+}
+.g-color-strong, .g-lg-color-strong {
+    color: #eb6157 !important;
 }
 </style>

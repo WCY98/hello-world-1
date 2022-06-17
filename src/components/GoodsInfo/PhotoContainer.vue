@@ -19,20 +19,7 @@
 						<div class="swiper-slide p-gallery_item swiper-slide-active" data-caption="" style="width: 395px; opacity: 1; transform: translate3d(0px, 0px, 0px);">
 								<img class="swiper-lazy swiper-lazy-loaded" :src="imgSrc" alt="" style="width: 320px"/>
 									</div>
-        <!-- <div class="captionArea-static" style="height: 0px;">
-			<div class="p-gallery_caption captionText-static" short="" show="long" long="" rowcount="0" index="0"></div>
-			<div id="p-galleryCaptionMore-static" aria-hidden="true"></div>
-			<div class="" id="js-caption-more-static" aria-hidden="false">
-				<p class="g-align-tc">
-					<a class="g-link displayMoreGalleryCaption" captiontype="static" aria-expanded="false" data-label="閉じる" style="display: none;">
-						<i class="g-i g-i-arrow-d"></i><span>もっと見る</span>
-					</a>
-				</p>
-			</div>
-		</div> -->
-
-							
-							
+			
 							</div>
 				</div>
         <div class="swiper-container"
@@ -45,24 +32,22 @@
 
         }"
              >
-              <div
+            <div
                 class="swiper-slide "
                 @click="changeUrl"
                 v-for = "(imgs,index) in imgList"
                 :key = "index"
-                style="width: 350px"
-                
-                >
+                style="width: 350px"  
+              >
+              
               <img 
                  class="slide-image-div"
                 
                  v-for = "(img,idx2) in imgs"
                  :key = "idx2"
                  :src ="img"
-                
-                  />
-                
-             </div>
+              />   
+            </div>
             
             </div>
             <div class="p-gallery_controls">

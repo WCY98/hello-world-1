@@ -5,8 +5,8 @@
 		<div class="p-payment">
 			<dl class="p-payment_total">
                 <dt class="p-paymentAmountLabel">お支払金額</dt>
-                <dd class="g-price g-price-lg">10520
-                    <span>円</span>
+                <dd class="g-price g-price-lg">
+                    {{totalprice}}<span>円</span>
                 </dd>
             </dl>
         <div class="p-payment_body g-units-lg">
@@ -15,23 +15,23 @@
                     <dt>獲得予定ポイント
                         <!-- <span style="margin-right:10px;"> -->
                         <!-- </span> -->
-                    <span class="material-symbols-outlined">
+                    <span class="material-symbols-outlined" >
 !!!
 </span>
                     </dt>
                 </a>
 			<dd class="p-pointMerginTop">
-				90<span>pt</span>
+				{{totalpoint}}<span>pt</span>
 			</dd>
             <dt class="p-payment_sum p-paymentSumShorten">
                 商品金額合計
             </dt>
             <dd>
-                999<span>円</span>
+                {{subtotal}}<span>円</span>
             </dd>
             <dt>送料</dt>
             <dd>
-                550<span>円</span>
+                {{postage}}<span>円</span>
             </dd>
             </dl>
         <ul class="g-list g-list-note">
@@ -47,7 +47,7 @@
                         <span>
                             <i class="g-s g-s-radio-on g-checkable_on" aria-hidden="true"></i>
                             <i class="g-s g-s-radio-off g-checkable_off" aria-hidden="true"></i>
-                            <span class="g-checkable_label">ご指定の場所に配送する</span>
+                            <span class="g-checkable_label" style="font-size: 20px">ご指定の場所に配送する</span>
                         </span>
                     </label>
 				</li>
@@ -57,7 +57,7 @@
                         <span>
                             <i class="g-s g-s-radio-on g-checkable_on" aria-hidden="true"></i>
                             <i class="g-s g-s-radio-off g-checkable_off" aria-hidden="true"></i>
-                            <span class="g-checkable_label">
+                            <span class="g-checkable_label" style="font-size: 20px">
                                 <span class="g-align-vm g-mr-10">店舗/配送センターで受け取る</span>
                                 <span class="g-label-price">送料無料</span>
                             </span>
@@ -70,13 +70,16 @@
             </div>
         </form>
         <div>
-            <p class="g-price p-calcShipping">
-                <span>あと</span>1,030
+            <div v-if="subtotal < 11000">
+            <p class="g-price p-calcShipping" >
+                <span >あと</span>{{freeEdge}}
                 <span>
                     <span>円</span>（税込）で
+                    <br>
                     <b class="g-color-strong">送料無料</b>
                 </span>
             </p>
+            </div>
             <ul class="g-list g-list-note g-unit-xs">
                 <li>大型家具除く</li>
 			</ul>
@@ -99,8 +102,9 @@
 			<p>
                 <a class="g-btn g-fw" href="/ec/">
                     <span>ショッピングを続ける</span>
-                    <i class="g-i g-i-arrow-r" aria-hidden="true">
-                    </i>
+                    <span class="material-symbols-outlined green-icon">
+                chevron_right
+              </span>
                 </a>
             </p>
 		</div>
@@ -110,7 +114,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted} from 'vue';
+import { onMounted, computed} from 'vue';
 import { useStore } from "../../store/index";
 import { useRoute } from "vue-router";
 
@@ -121,174 +125,35 @@ onMounted(() => {
     store.dispatch("setCart",userId)
 });
 
+//
+const freeEdge = computed (() => (11000-subtotal.value))
 
+const totalprice = computed (() => subtotal.value + postage.value);
 
+const totalpoint = computed (() => Math.round(subtotal.value/110));
+
+const subtotal = computed (() => store.getters.getSubtotal)
+
+const postage = computed (() => {
+    if (subtotal.value > 10000 ) {
+        return 0;
+    }else{
+        return 550;
+    }
+})
 </script>
 
 <style scoped>
-.g-layout-purchase .g-layout_sidebar .g-pane-gray, .g-layout-cart .g-layout_sidebar .g-pane-gray {
-    padding: 15px;
-}
-.g-pane, .g-lg-pane {
-    padding: 30px;
-}
-div {
-    display: block;
-}
-.p-payment_total {
-    font-weight: bold;
-    color: #eb6157;
-}
-p, form, h1, h2, h3, h4, h5, h6, ul, ol, dl, dd, input, textarea, select, button {
-    margin: 0;
-}
-*, *::before, *::after {
-    box-sizing: border-box;
-}
-dl {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-}
-.p-payment_total dt {
-    margin-top: 3px;
-}
-.p-payment dt {
-    float: left;
-    clear: left;
-    /* -webkit-font-feature-settings: 'palt'; */
-    /* font-feature-settings: 'palt'; */
-}
-.p-payment dd {
-    overflow: hidden;
-    text-align: right;
-}
-.g-price-lg, .g-lg-price-lg {
-    font-size: 2.6rem;
-}
-.p-payment_total dd span {
-    font-weight: bold;
-    font-size: 1.5rem;
-}
-.p-payment dd span {
-    margin-left: 3px;
-}
-[aria-expanded][aria-controls]:not([data-breakpoints]):not([disabled]):not([aria-disabled='true']) {
-    cursor: pointer;
-}
-a {
-    text-decoration: none;
-    color: #333;
-}
-.p-payment_itemized dt:nth-of-type(1), .p-payment_itemized dd:nth-of-type(1) {
-    border-top-width: 0;
-}
-.p-shorten-dl dt, .p-shorten-dl dd {
-    padding: 4px 4px !important;
-}
 .p-payment_itemized dt, .p-payment_itemized dd {
+    padding: 9px 0 6px 0;
     border-top: 1px solid #dbdbdb;
 }
-.material-symbols-outlined {
-    color: #009e96;
+.p-shorten-dl dt, .p-shorten-dl dd {
+    padding: 4px 0px !important;
 }
-.material-symbols-outlined {
-    flex-shrink: 0;
-    width: 1em;
-    height: 1em;
-    display: inline-block;
-    vertical-align: middle;
-    font-family: 'icon';
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    line-height: 1;
-    letter-spacing: 0;
-    text-transform: none;
-    pointer-events: none;
-    -webkit-font-smoothing: antialiased;
-}
-.p-paymentSumShorten, .p-paymentSumShorten + dd {
-    margin-top: 5px !important;
-}
-.g-list-note, .g-lg-list-note {
-    font-size: 1.2rem;
-    line-height: 1.58333;
-    text-indent: -1em;
-    color: #808080;
-}
-ul, ol {
-    padding: 0;
-    list-style: none;
-}
-.g-list-note > li, .g-lg-list-note > li {
-    margin-left: 1em;
-}
-.g-list-note, .g-lg-list-note {
-    font-size: 1.2rem;
-    line-height: 1.5;
-}
-.g-units-lg > *:nth-child(n + 2):not(.g-units_ignore), .g-lg-units-lg > *:nth-child(n + 2):not(.g-units_ignore) {
-    margin-top: 20px;
-}
-li {
-    display: list-item;
-    text-align: -webkit-match-parent;
-}
-.g-checkable, .g-lg-checkable {
-    line-height: 1;
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-}
-label {
-    cursor: default;
-}
-.g-checkable input[type='radio'], .g-checkable input[type='checkbox'], .g-lg-checkable input[type='radio'], .g-lg-checkable input[type='checkbox'] {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-color: transparent;
-    border-radius: 0;
-    background-color: transparent;
-    appearance: none;
-}
-button, input[type="radio"], input[type="checkbox"] {
-    cursor: pointer;
-}
-input, textarea, select, optgroup, button {
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    line-height: inherit;
-    color: inherit;
-}
-.g-checkable input:not(:checked) + span .g-checkable_on{
-    display: none;
-}
-.g-checkable [class*='g-s-radio-'], .g-lg-checkable [class*='g-s-radio-'] {
-    font-size: 2.4rem;
-}
-.g-s-radio-off {
-    background-position: -45em -45em;
-}
-.g-s {
-    flex-shrink: 0;
-    width: 1em;
-    height: 1em;
-    display: inline-block;
-    vertical-align: middle;
-    background-size: 79em 79em;
-    line-height: 1;
-    letter-spacing: 0;
-    pointer-events: none;
-}
-.g-checkable > span, .g-lg-checkable > span {
-    line-height: normal;
+.p-payment_sum, .p-payment_sum + dd {
+    margin-top: 9px;
+    border-top: 2px solid #b3b3b3 !important;
 }
 .g-label-price {
     color: #eb6157;
@@ -304,11 +169,111 @@ input, textarea, select, optgroup, button {
     white-space: nowrap;
     background-color: #fff;
 }
-.g-price, .g-lg-price {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-weight: bold;
-}.p-calcShipping {
+.g-color-strong, .g-lg-color-strong {
+    color: #eb6157 !important;
+}
+b {
+    font-weight: normal;
+}
+.material-symbols-outlined{
+    color:#009e96;
+    font-size:3px
+}
+.g-layout_sidebar {
+  width: 320px;
+}
+.g-layout-cart {
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  grid-template-columns: 1fr 400px;
+}
+.g-layout-cart .g-layout_sidebar,
+.g-layout-purchase .g-layout_sidebar {
+  margin-left: 40px;
+}
+.g-layout_sidebar [data-sticky="true"] {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 40px;
+}
+.g-pane,
+.g-lg-pane {
+  padding: 30px;
+}
+.g-pane-gray,
+.g-lg-pane-gray {
+  background-color: #f7f7f7;
+}
+.g-pane,
+.g-lg-pane {
+  display: block;
+}
+.p-payment_total {
+  font-weight: bold;
+  color: #eb6157;
+}
+.p-payment dt {
+  float: left;
+  clear: left;
+  -webkit-font-feature-settings: "palt";
+  font-feature-settings: "palt";
+}
+.p-payment dd {
+  overflow: hidden;
+  text-align: right;
+}
+.g-price-lg,
+.g-lg-price-lg {
+  font-size: 1.3rem;
+}
+.g-price-lg span {
+  font-size: 0.8rem;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+.g-list-note {
+  font-size: 0.7rem;
+  line-height: 1.58333;
+  text-indent: -1em;
+  color: #808080;
+}
+.g-list-note > li::before {
+  content: "\203B";
+}
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+input {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+.g-foot-v {
+  display: flex;
+  flex-direction: column;
+}
+.g-btn {
+  font-size: 1rem;
+  line-height: 1;
+}
+.g-btn-cv {
+  border-color: #eb6157;
+  background-color: #eb6157;
+  color: #fff;
+}
+.g-fw,
+.g-lg-fw {
+  width: 100% !important;
+}
+.p-calcShipping {
     color: #eb6157;
+    font-size:35px
 }
 .p-calcShipping span {
     color: #333;
@@ -316,112 +281,5 @@ input, textarea, select, optgroup, button {
 .p-calcShipping span {
     font-size: 1.4rem;
     line-height: 1.42857;
-}
-.g-price span, .g-lg-price span {
-    font-size: 1.3rem;
-    font-weight: normal;
-    margin-right: 0.2em;
-    margin-left: 0.2em;
-    -webkit-font-feature-settings: 'palt';
-    font-feature-settings: 'palt';
-}
-.g-color-strong, .g-lg-color-strong {
-    color: #eb6157 !important;
-}
-b {
-    font-weight: normal;
-}
-.g-price, .g-lg-price {
-    font-size: 2rem;
-}
-.g-unit-xs, .g-lg-unit-xs {
-    margin-top: 5px !important;
-}
-.g-link, .g-lg-link {
-    display: inline-flex;
-    align-items: center;
-}
-.g-foot-v, .g-foot-h, .g-lg-foot-v, .g-lg-foot-h {
-    margin-top: 30px;
-}
-.g-foot-v, .g-lg-foot-v {
-    display: flex;
-    flex-direction: column;
-}
-.g-fw, .g-lg-fw {
-    width: 100% !important;
-}
-.g-btn, .g-lg-btn {
-    font-size: 1.6rem;
-    line-height: 2.5;
-}
-.g-btn-cv, .g-lg-btn-cv {
-    border-color: #eb6157;
-    background-color: #eb6157;
-}
-.g-btn-brand, .g-btn-cv, .g-btn-cancel, .g-lg-btn-brand, .g-lg-btn-cv, .g-lg-btn-cancel {
-    color: #fff;
-}
-.g-btn, .g-lg-btn {
-    font-size: 1.6rem;
-    line-height: 1.5;
-    font-weight: normal;
-    display: inline-flex;
-    padding: 0;
-    transition: background-color 0.2s;
-    vertical-align: middle;
-    border: 1px solid #dbdbdb;
-    border-radius: 4px;
-    appearance: none;
-}
-.g-i-arrow-r, .g-i-arrow-l, .g-i-arrow-u, .g-i-arrow-d, .g-i-arrow-d2 {
-    transition: transform 0.3s;
-    color: #009e96;
-}
-.g-i {
-    flex-shrink: 0;
-    width: 1em;
-    height: 1em;
-    display: inline-block;
-    vertical-align: middle;
-    font-family: 'icon';
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    line-height: 1;
-    letter-spacing: 0;
-    text-transform: none;
-    pointer-events: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-.g-btn > .g-i:last-child, .g-btn > .g-s:last-child, .g-lg-btn > .g-i:last-child, .g-lg-btn > .g-s:last-child {
-    margin-right: 8px;
-}
-.g-btn > .g-i, .g-btn > .g-s, .g-lg-btn > .g-i, .g-lg-btn > .g-s {
-    font-size: 1.4rem;
-    -ms-grid-row-align: center;
-    align-self: center;
-}
-.g-layout-purchase .g-layout_sidebar .g-pane-gray, .g-layout-cart .g-layout_sidebar .g-pane-gray {
-    padding: 15px;
-}
-.g-pane-gray, .g-lg-pane-gray {
-    background-color: #f7f7f7;
-}
-.g-pane, .g-lg-pane {
-    padding: 30px;
-}
-.g-pane, .g-lg-pane {
-    display: block;
-}
-.g-layout-cart .g-layout_sidebar, .g-layout-purchase .g-layout_sidebar {
-    margin-left: 40px;
-}
-.g-layout-purchase, .g-layout-cart {
-    -ms-grid-rows: auto auto auto auto;
-    grid-template-rows: auto auto auto auto;
-    -ms-grid-columns: 1fr 300px;
-    grid-template-columns: 1fr 300px;
 }
 </style>

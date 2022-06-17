@@ -1,3 +1,4 @@
+import { CommentOutlined } from "@ant-design/icons-vue";
 import axios from "axios";
 
 const url = "http://localhost:3000/cart/list/";
@@ -5,24 +6,39 @@ const url = "http://localhost:3000/cart/list/";
 const headers = { Accept: "application/json" };
 
 type CartState={
-    cart:{},
+    cart:CartContent[],
     quantity:number,
     sku: string,
     sizeValue:number,
-    point:number
+    point:number,
+    subtotal:number
 }
+type CartContent = {
+    id: number,
+    userId: number,
+    sku: string,
+    goodsTitle:string,
+    sizeValue:string,
+    color:string,
+    goodsSize:string,
+    price:number,
+    point:number,
+    photo:string,
+    quantity: number
+  }
 
 export default{
     state:{
-        cart:{},
+        cart:[],
         quantity:1,
         sku: "",
+        subtotal:0
         
     },
 
 
 mutations:{
-    setCart(state:CartState,payload:{}){
+    setCart(state:CartState,payload:any){
         state.cart = payload;
     },
     updateQuantity(state:CartState,quantity:number){
@@ -43,16 +59,27 @@ mutations:{
 
     setPoint(state:CartState, point:number){
         state.point = point
-    }
+    },
+
+    setSubtotal(state: CartState, payload: number) {
+        state.subtotal = payload;
+      },
 },
 
 actions:{
-    async setCart({ commit }: { commit: Function }, payload: string) {
+    async setCart(context, payload: string) {
         const cart = await fetch(url + payload, { headers });
         const j = await cart.json();
-        commit("setCart", j);
+        context.commit("setCart", j);
         console.log("in setCart method", j);
+
+        //add new data
+    let subtotal = 0;
+    context.state.cart.map(
+        (CartContent) => (subtotal += CartContent.price*CartContent.quantity))
+        context.commit("setSubtotal",subtotal)
       },
+      
     
     async addCart(context) {
         const addCart = {
@@ -79,11 +106,28 @@ actions:{
     }
     },
 
-    async deleteCart({commit}:{commit:Function}, {id, userId}:{id:number,userId:number}) {
+    async deleteCart(context, {id, userId}:{id:number,userId:number}) {
         await fetch("http://localhost:3000/cartList/"+ id, { method: "DELETE" });
         const cart = await fetch(url + userId, { headers });
         const j = await cart.json();
-        commit("setCart", j);
+        context.commit("setCart", j);
+    },
+    // update data
+    async updateCart(context, { id, userId }: { id: number; userId: string }) {
+        await axios.patch("http://localhost:3000/cartList/" + id, {
+          quantity: context.state.quantity,
+        });
+        const cart = await fetch(url + userId, { headers });
+        const j = await cart.json();
+        context.commit("setCart", j);
+        console.log("in setCart method", j);
+
+        //add new data
+    let subtotal = 0;
+    context.state.cart.map(
+        (CartContent) => (subtotal += CartContent.price*CartContent.quantity))
+        context.commit("setSubtotal",subtotal)
+      
       },
 },
 
@@ -107,7 +151,11 @@ getters:{
 
     getPoint:(state:CartState) => {
         return state.point;
-    }
+    },
+
+    getSubtotal: (state: CartState) => {
+        return state.subtotal;
+      },
 
 
 
