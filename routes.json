@@ -7,7 +7,8 @@
     "/goodsqa/:goodsId": "/goodsqa?goodsId=:goodsId",
     "/goods/info/:goodsId":"/goodsInfo?goodsId=:goodsId",
     "/add/cart/:userId":"/addCart?userId=:userId",
-    "/cart/list/:userId":"/cartList?userId=:userId"
+    "/cart/list/:userId":"/cartList?userId=:userId",
+    "/buy/later/list/:userId": "/buyLaterList?userId=:userId"
 
     
 }

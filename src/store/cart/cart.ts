@@ -2,6 +2,7 @@ import { CommentOutlined } from "@ant-design/icons-vue";
 import axios from "axios";
 
 const url = "http://localhost:3000/cart/list/";
+const url2 = "http://localhost:3000/buy/later/list/";
 //routes.json
 const headers = { Accept: "application/json" };
 
@@ -11,7 +12,8 @@ type CartState={
     sku: string,
     sizeValue:number,
     point:number,
-    subtotal:number
+    subtotal:number,
+    buyLaterItem: CartContent[];
 }
 type CartContent = {
     id: number,
@@ -32,7 +34,21 @@ export default{
         cart:[],
         quantity:1,
         sku: "",
-        subtotal:0
+        subtotal:0,
+        buyLaterItem: [],
+        item:{
+            id: Number,
+            userId: Number,
+            sku: String,
+            goodsTitle:String,
+            sizeValue:String,
+            color:String,
+            goodsSize:String,
+            price:Number,
+            point:Number,
+            photo:String,
+            quantity: Number
+        }
         
     },
 
@@ -63,7 +79,11 @@ mutations:{
 
     setSubtotal(state: CartState, payload: number) {
         state.subtotal = payload;
-      },
+    },
+
+    setBuyLaterItem(state: CartState, payload: any) {
+        state.buyLaterItem = payload;
+    },
 },
 
 actions:{
@@ -108,12 +128,14 @@ actions:{
 
     async deleteCart(context, {id, userId}:{id:number,userId:number}) {
         await fetch("http://localhost:3000/cartList/"+ id, { method: "DELETE" });
-        const cart = await fetch(url + userId, { headers });
-        const j = await cart.json();
-        context.commit("setCart", j);
+        // const cart = await fetch(url + userId, { headers });
+        // const j = await cart.json();
+        // context.commit("setCart", j);
+        //get data again
+        context.dispatch("setCart", userId);
     },
     // update data
-    async updateCart(context, { id, userId }: { id: number; userId: string }) {
+    async updateCart(context, { id, userId }: { id: number, userId: string }) {
         await axios.patch("http://localhost:3000/cartList/" + id, {
           quantity: context.state.quantity,
         });
@@ -128,6 +150,65 @@ actions:{
         (CartContent) => (subtotal += CartContent.price*CartContent.quantity))
         context.commit("setSubtotal",subtotal)
       
+    },
+
+    async setBuyLaterItem(context, payload: string) {
+        const buyLater = await fetch(url2 + payload, { headers });
+        const j = await buyLater.json();
+        context.commit("setBuyLaterItem", j);
+    },
+    async intoLaterList(context, { id, item,userId }: { id: number, item:{},userId: string }) {
+        await fetch("http://localhost:3000/cartList/" + id, { method: "DELETE" });
+        // const cartList = {
+        //   id: 3,
+        //   userId: "989898",
+        //   sku: "10195sd_wh",
+        //   date: "2022-06-14 09:30:00",
+        //   goodsTitle: "ゴムバンド付き敷きパッド semidouble(オーガニックコットン BE SD)",
+        //   sizeValue: "7564882",
+        //   color: "white",
+        //   goodsSize: "semidouble",
+        //   price: 2990,
+        //   point: 27,
+        //   photo: "http://localhost:8080/assets/image/white1.jpg",
+        //   quantity: 1
+        // };
+        await axios.post("http://localhost:3000/buyLaterList", item);
+
+        //get data again
+      context.dispatch("setCart", userId);
+      context.dispatch("setBuyLaterItem", userId);
+    
+    },
+    async backtoCartList(context, { id, item,userId }: { id: number, item:{}, userId: string }) {
+        await fetch("http://localhost:3000/buyLaterList/" + id, {method: "DELETE",});
+        // const cartList = 
+        // {
+        //   id: 3,
+        //   userId: "989898",
+        //   sku: "10195sd_wh",
+        //   date: "2022-06-14 09:30:00",
+        //   goodsTitle: "ゴムバンド付き敷きパッド semidouble(オーガニックコットン BE SD)",
+        //   sizeValue: "7564882",
+        //   color: "white",
+        //   goodsSize: "semidouble",
+        //   price: 2990,
+        //   point: 27,
+        //   photo: "http://localhost:8080/assets/image/white1.jpg",
+        //   quantity: 1
+        // };
+          await axios.post("http://localhost:3000/cartList", item);
+
+          //get data again
+      context.dispatch("setCart", userId);
+      context.dispatch("setBuyLaterItem", userId);
+    },
+
+    async deleteByLater(context, { id, userId }: { id: number; userId: string }) {
+        await fetch("http://localhost:3000/buyLaterList/" + id, {method: "DELETE"});
+  
+        //get data again
+        context.dispatch("setBuyLaterItem", userId);
       },
 },
 
@@ -155,9 +236,11 @@ getters:{
 
     getSubtotal: (state: CartState) => {
         return state.subtotal;
-      },
+    },
 
-
+    getBuyLaterItem: (state: CartState) => {
+        return state.buyLaterItem;
+    },
 
     // "goodsTitle":string,
     // "code":number,

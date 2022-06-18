@@ -1,13 +1,13 @@
 <template>
-<template v-for="(n,index) in cartList" :key="index" >
+<template v-for="(item,index) in cartList" :key="index" >
   <div class="g-layout_body" style="width:110%">
 	<ul class="g-itemList">
 		<li class="g-itemList_item g-media g-media-lg p-cartItem">
 			<p class="g-media_head">
         <a class="g-hover" href="/goods/detail/10195">
 				<img class="g-fw g-rc" 
-				:src="n.photo"  style="height:100%"
-				:alt="n.goodsTitle">
+				:src="item.photo"  style="height:100%"
+				:alt="item.goodsTitle">
 				</a>
 				</p>
 			<div class="g-media_body g-units-sm" style="display:flex">
@@ -15,13 +15,13 @@
 					<a href="/ec/product/7564862/">ゴムバンド付き敷きパッド セミダブル(オーガニックコットン BE SD)
 					</a>
 				</p>
-				<p class="g-font-sm">商品コード {{ n.sizeValue }}</p>
+				<p class="g-font-sm">商品コード {{ item.sizeValue }}</p>
 				<ul class="g-font-sm">
-					<li>カラー：{{ n.color }}</li>
-					<li>サイズ：{{ n.goodsSize }}</li>
+					<li>カラー：{{ item.color }}</li>
+					<li>サイズ：{{ item.goodsSize }}</li>
 					<li></li>
 				</ul>
-				<p class="g-price">{{ n.price }}<span>円 （税込）</span></p>
+				<p class="g-price">{{ item.price }}<span>円 （税込）</span></p>
 				<div class="g-butterfly g-font-sm">
 					<p>
 						2～6日で出荷</p>
@@ -43,14 +43,14 @@
 		
     
     <input 
-    :id="n.id"
+    :id="item.id"
     @change="
       updateQuantity($event);
-      updateItem(n.id,n.userId);"
+      updateItem(item.id,item.userId);"
    class="g-input g-input-sm g-fw" 
     type="text" 
     name="quantity"
-    v-model="n.quantity"
+    v-model="item.quantity"
     oninput="value = value.replace(/\D-/g , '')"
     aria-label="個数" 
     maxlength="3">
@@ -62,7 +62,10 @@
         <input type="hidden" name="CSRFToken" value="a150be12-32dd-48ef-8288-25f9757878d6">
         </div></form>
 		</div>
-		<p class="p-cartItem_btn">
+		<p class="p-cartItem_btn"
+       :id="item.id"
+       :item="item"
+      @click="intoLaterList(item.id, item)">
       <a class="g-btn g-btn-sm g-btn-em g-fw g-sm-font-md" 
        href="javascript:chgItem('uniAddLaterListEntryForm','0',false)" 
        data-once="">
@@ -72,8 +75,8 @@
 
 
 		<p class="p-cartItem_del"
-       :id="n.id"
-    @click="deleteItem(n.id, n.userId)" 
+       :id="item.id"
+    @click="deleteItem(item.id, item.userId)" 
     style="cursor: pointer">
       <span class="material-symbols-outlined" >close</span>
 			<span>削除</span></p>
@@ -83,7 +86,7 @@
 		<p class="g-price">
 			<span>個別送料</span>0<span>円</span></p>
 		<p class="g-price g-lg-price-lg">
-			<span>小計</span>{{ n.price*n.quantity }}<span>円 （税込）</span></p>
+			<span>小計</span>{{ item.price * item.quantity }}<span>円 （税込）</span></p>
 	</div>
 	</div>
 	</div>
@@ -112,6 +115,9 @@ onMounted(() => {
 });
 let cartList = computed (() => store.getters.getCart);
 
+const intoLaterList = (id , item) => {
+  store.dispatch("intoLaterList", { id, item, userId});
+};
 // const props = defineProps<{
 //   photo:string,
 //   goodsTitle:string,

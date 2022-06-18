@@ -20,12 +20,14 @@
     </div>
     </div>
     </div>
+    <buy-later></buy-later>
 </div>
 </template>
 
 <script setup lang="ts">
 import CartCom from "./CartCom.vue";
 import CartRight from "./CartRight.vue";
+import BuyLater from "./BuyLater.vue";
 import { useStore } from "../../store/index";
 // import { useRoute } from "vue-router";
 import { computed , onMounted} from "vue";
