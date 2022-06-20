@@ -204,7 +204,7 @@ actions:{
       context.dispatch("setBuyLaterItem", userId);
     },
 
-    async deleteByLater(context, { id, userId }: { id: number; userId: string }) {
+    async deleteByLater(context, { id, userId }: { id: number, userId: string }) {
         await fetch("http://localhost:3000/buyLaterList/" + id, {method: "DELETE"});
   
         //get data again

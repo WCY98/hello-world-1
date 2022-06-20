@@ -3,6 +3,7 @@ import HomePage from "../pages/HomePage.vue";
 import GoodsDetail from "../pages/GoodsDetail.vue";
 import TestChange from "../pages/TestChange.vue";
 import CartPage from "../pages/CartPage.vue";
+import MyPage from "../pages/MyPage.vue";
 
 
 
@@ -24,6 +25,11 @@ import CartPage from "../pages/CartPage.vue";
           path:"/cart/page/:userId",
           name:"CartPage",
           component: CartPage,
+      },
+      {
+        path:"/my/page/:userId",
+        name:"MyPage",
+        component:MyPage,
       },
         {  
           path: "/test", 

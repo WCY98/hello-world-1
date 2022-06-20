@@ -158,7 +158,7 @@ const updateQuantity = (e: Event) => {
 
 </script >
 
-<style scoped>
+<style >
 .g-label-brand {
   color: #009e96;
   border: 2px solid #009e96;

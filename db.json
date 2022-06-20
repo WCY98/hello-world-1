@@ -872,20 +872,6 @@
       "quantity": 1
     },
     {
-      "id": 2,
-      "userId": 989898,
-      "sku": "10195d_gr",
-      "date": "2022-06-14 09:30:00",
-      "goodsTitle": "ゴムバンド付き敷きパッド　double(オーガニックコットン BE D)",
-      "sizeValue": "7564863",
-      "color": "gray",
-      "goodsSize": "double",
-      "price": 3990,
-      "point": 36,
-      "photo": "http://localhost:8080/assets/image/graycolor1.jpg",
-      "quantity": 1
-    },
-    {
       "id": 1,
       "userId": 989898,
       "sku": "10195d_b",
@@ -942,5 +928,30 @@
       "id": 5
     }
   ],
-  "buyLaterList": []
+  "buyLaterList": [
+    {
+      "id": 2,
+      "userId": 989898,
+      "sku": "10195d_gr",
+      "date": "2022-06-14 09:30:00",
+      "goodsTitle": "ゴムバンド付き敷きパッド　double(オーガニックコットン BE D)",
+      "sizeValue": "7564863",
+      "color": "gray",
+      "goodsSize": "double",
+      "price": 3990,
+      "point": 36,
+      "photo": "http://localhost:8080/assets/image/graycolor1.jpg",
+      "quantity": 1
+    }
+  ],
+  "userInfo":[
+    {
+      "userId":989898,
+      "name":"user1",
+      "currentPoint":0,
+      "invalidPoint":0,
+      "barCode":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAAAyAQAAAAAxKqlMAAAAL0lEQVR42mP4Oa+iTnIe+/wZdXWVM+exVf6QS3w4f15d5XyGUZlRmVGZUZkRJwMAmAiCT1WO9tcAAAAASUVORK5CYII=",
+      "cardNum":2200758580177
+    }
+  ]
 }

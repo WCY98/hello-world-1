@@ -42,6 +42,7 @@
 					<div class="g-media_foot">
 						<div class="p-cartItem_controls">
                             <p class="p-cartItem_btn"
+                            style="width: 200px;"
                                :id="item.id"
                                :item="item"
                                @click="backtoCartList(item.id,item)">
@@ -91,7 +92,7 @@ const deleteByLater = (id: number) => {
   store.dispatch("deleteByLater", { id, userId });
 };
 const backtoCartList = (id, item) => {
-  store.dispatch("backtoCartList", { id, item,userId });
+  store.dispatch("backtoCartList", { id, item, userId });
 };
 //mouse event: change style, add underline
 // const state = reactive({ underline: "" });
@@ -105,7 +106,7 @@ const backtoCartList = (id, item) => {
 // }
 </script>
 
-<style>
+<style >
 .g-label-brand {
   color: #009e96;
   border: 2px solid #009e96;
