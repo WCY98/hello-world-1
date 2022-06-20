@@ -1,10 +1,11 @@
 <template>
-  <div>
-    <h1>注文履歴</h1>
-  </div>
+ <div>
+  <order-container></order-container>
+ </div>
 </template>
 
 <script setup lang="ts">
+import OrderContainer from "../components/MyOrder/OrderContainer.vue";
 </script>
 
 <style scoped>

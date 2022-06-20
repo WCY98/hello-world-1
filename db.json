@@ -944,6 +944,7 @@
       "quantity": 1
     }
   ],
+
   "userInfo":[
     {
       "userId":989898,
@@ -953,5 +954,48 @@
       "barCode":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAAAyAQAAAAAxKqlMAAAAL0lEQVR42mP4Oa+iTnIe+/wZdXWVM+exVf6QS3w4f15d5XyGUZlRmVGZUZkRJwMAmAiCT1WO9tcAAAAASUVORK5CYII=",
       "cardNum":2200758580177
     }
-  ]
+  ],
+
+  "orderList":[
+    {
+      "userId":989898,
+      "name":"user1",
+      "orderCode":"EC121231234",
+      "orderId":1,
+      "orderDate":"2022/06/20",
+      "deliveryDate":"2022/07/04",
+      "orderTimeSlot":"過去半年分の注文",
+      "orderStatus":"出荷・お渡し準備中"
+    },
+    {
+      "userId":989898,
+      "name":"user1",
+      "orderCode":"EC121231235",
+      "orderId":2,
+      "orderDate":"2022/05/20",
+      "deliveryDate":"2022/06/04",
+      "orderTimeSlot":"過去半年分の注文",
+      "orderStatus":"出荷・配送・お渡し済"
+    },
+    {
+      "userId":989898,
+      "name":"user1",
+      "orderCode":"EC121231236",
+      "orderId":3,
+      "orderDate":"2021/04/20",
+      "deliveryDate":"2021/05/04",
+      "orderTimeSlot":"2021年分の注文",
+      "orderStatus":"出荷・配送・お渡し済"
+    },
+    {
+      "userId":989898,
+      "name":"user1",
+      "orderCode":"EC121231237",
+      "orderId":4,
+      "orderDate":"2021/12/20",
+      "deliveryDate":"2022/10/04",
+      "orderTimeSlot":"2021年分の注文",
+      "orderStatus":"出荷・お渡し準備中"
+    }
+    ]
 }

@@ -4,6 +4,7 @@ import GoodsDetail from "../pages/GoodsDetail.vue";
 import TestChange from "../pages/TestChange.vue";
 import CartPage from "../pages/CartPage.vue";
 import MyPage from "../pages/MyPage.vue";
+import MyOrder from "../pages/OrderPage.vue";
 
 
 
@@ -30,6 +31,11 @@ import MyPage from "../pages/MyPage.vue";
         path:"/my/page/:userId",
         name:"MyPage",
         component:MyPage,
+      },
+      {
+        path:"/my/order/:userId",
+        name:"MyOrder",
+        component:MyOrder,
       },
         {  
           path: "/test", 

@@ -2,17 +2,16 @@ const url = "http://localhost:3000/user/info/";
 const headers = { Accept: "application/json" };
 
 type userInfoState = {
-  userInfo: {userInfo:info[]};
+  userInfo: {
+    userId:number,
+    name:string,
+    currentPoint:number,
+    InvalidPoint:number,
+    barCode:string,
+    cardNum:number
+  };
 };
 
-type info={
-  userId:Number,
-  name:String,
-  currentPoint:Number,
-  InvalidPoint:Number,
-  barCode:String,
-  cardNum:Number
-}
 
 export default {
   state: {
@@ -28,7 +27,7 @@ export default {
 
   mutations: {
     setUserInfo(state: userInfoState, payload:any) {
-      state.userInfo = payload[0];
+      state.userInfo = payload;
       console.log("qwer",payload)
     },
   },

@@ -1,5 +1,5 @@
 <template>
-<div class="g-layout_sidebar g-sm-mb-20">
+<div class="g-layout_sidebar g-sm-mb-20" style="width:500px">
 <div class="p-welcome">
 	<div class="g-butterfly g-myPageCorpKbnSpaceBottom">
 		<h1>
@@ -13,7 +13,8 @@
 	<ul class="g-list-note g-unit-xs">
 		<li>
             <a href="/ec/userguide/nitorinet/#member">
-                <span class="g-list-note">会員種別について</span>
+                <span class="g-list-note" 
+                style="margin-left:-400px">会員種別について</span>
                 <i class="g-i g-i-info about-corpkbn" aria-hidden="true"></i>
             </a>
         </li>
@@ -31,14 +32,14 @@
         <p id="memberCardNumber">{{userInfo.cardNum}}</p>
     </div>
 						
-    <dl class="p-pointInfo">
-		<dt>
+    <dl class="p-pointInfo" >
+		<dt style="margin-left:-75px">
 			現在のポイント
         </dt>
-		<dd class="g-digit p-pointInfo_available">
+		<dd class="g-digit p-pointInfo_available" style="margin-left:36px">
             {{userInfo.currentPoint}}<span>pt</span>
 		</dd>
-		<dt>
+		<dt style="margin-left:-40px">
 			今年失効するポイント
         </dt>
 		<dd class="g-digit p-pointInfo_lapse">
@@ -46,7 +47,7 @@
 		</dd>
 	</dl>
 
-    <ul class="g-list-note g-unit-xs">
+    <ul class="g-list-note g-unit-xs" style="margin-left:-280px">
 		<li>毎日午前9時以降に順次更新されます</li>
 	</ul>
 </div>
@@ -149,9 +150,6 @@ a {
 .p-pointInfo span {
   font-size: 1rem;
   margin-left: 0.2em;
-}
-.g-list-note{
-    margin-right: 170px;
 }
 .g-layout_sidebar{
     margin-left: 50px;

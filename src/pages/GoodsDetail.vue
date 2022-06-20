@@ -5,6 +5,8 @@
     <router-link to="/">Home</router-link>
     <br>
     <router-link to="/cart/page/989898">Cart</router-link>
+    <br>
+    <router-link to="/my/page/989898">My Account</router-link>
     <hr />
     <body-container></body-container>
     <qa-and-review></qa-and-review>

@@ -11,7 +11,8 @@ import reviewTotal from "./goodsDetail/reviewTotal";
 import goodsQa from './goodsDetail/goodsQa';
 import goodsInfo from "./goodsDetail/goodsInfo";
 import cart from "./cart/cart"; 
-import mypage from "./MyPage"
+import mypage from "./MyPage";
+import myorder from "./MyOrder"
 
 
 type State = {};
@@ -29,7 +30,8 @@ export const store = createStore<State>({
     goodsQa,
     goodsInfo,
     cart,
-    mypage
+    mypage,
+    myorder
   },
 })
 
