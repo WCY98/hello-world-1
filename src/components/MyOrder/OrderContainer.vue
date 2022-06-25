@@ -39,13 +39,18 @@
     <div class="g-order_headtitle3" style="display:flex">
         <div class="g-order_headtitle3-1">
             注文時期を選択
-            <select class="g-order_headtitle3-1-content">
-                <option>過去半年分の注文</option>
+            <select class="g-order_headtitle3-1-content"
+                    id="orderTime" name="orderTime" @change="filterByDate">
+                <!-- <option>過去半年分の注文</option>
                 <option>2022年分の注文</option>
                 <option>2021年分の注文</option>
                 <option>2020年分の注文</option>
                 <option>2019年分の注文</option>
-                <option>2018年分の注文</option>
+                <option>2018年分の注文</option> -->
+                <option v-for="(time, index) in orderTime" 
+                        :key="index"
+                        :value="time.value">
+                        {{time.time}}</option>
             </select>
         </div>
 
@@ -68,6 +73,16 @@
 
 <script setup lang="ts">
 import OrderItem from "./OrderItem.vue";
+import { computed } from "vue";
+import { useStore } from "../../store/index";
+const store = useStore();
+const filterByDate = (e:Event) :void => {
+    if (e.target instanceof HTMLSelectElement){
+        store.commit("filterByDate", e.target.value)
+    }
+}
+
+const orderTime = computed(() => store.getters.filteredList)
 
 </script>
 
