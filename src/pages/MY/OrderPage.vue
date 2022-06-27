@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import OrderContainer from "../components/MyOrder/OrderContainer.vue";
+import OrderContainer from "../../components/MyOrder/OrderContainer.vue";
 </script>
 
 <style scoped>

@@ -3,8 +3,9 @@ import HomePage from "../pages/HomePage.vue";
 import GoodsDetail from "../pages/GoodsDetail.vue";
 import TestChange from "../pages/TestChange.vue";
 import CartPage from "../pages/CartPage.vue";
-import MyPage from "../pages/MyPage.vue";
-import MyOrder from "../pages/OrderPage.vue";
+import MyPage from "../pages/MY/MyPage.vue";
+import MyOrder from "../pages/MY/OrderPage.vue";
+import MyLike from "../pages/MY/WishPage.vue";
 
 
 
@@ -36,6 +37,11 @@ import MyOrder from "../pages/OrderPage.vue";
         path:"/my/order/:userId",
         name:"MyOrder",
         component:MyOrder,
+      },
+      {
+        path:"/my/like/:userId",
+        name:"MyLike",
+        component:MyLike,
       },
         {  
           path: "/test", 

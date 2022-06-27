@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import MyPage from "../components/MyAccount/MyPage.vue";
+import MyPage from "../../components/MyAccount/MyPage.vue";
 
 
 </script>
