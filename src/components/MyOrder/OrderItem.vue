@@ -1,9 +1,9 @@
 <template>
-<template v-for="order in orderList" :key="order">
+<!-- <template v-for="order in orderList" :key="order"> -->
 <div class="g-order_titlebody">
     <ul class="g-order_title" >
         <div class="g-order_titlecon">
-             注文番号:{{order.orderCode}}
+             注文番号:{{props.orderCode}}
             <button class="g-order_btn"
                     style="margin-left:600px">注文詳細</button>
         </div>
@@ -14,7 +14,7 @@
             <div style="display:flex">
                 <span class="material-symbols-outlined">calendar_month</span>
             </div>
-            <p id="orderDate">{{order.orderDate}}</p>
+            <p id="orderDate">{{props.orderDate}}</p>
             </div>
             <div class="g-order_" style="display:flex">
                 <span class="g-order_content2">購入店舗</span>
@@ -35,11 +35,27 @@
         <p class="g-order_bodyc1-1">現在の状況</p>
         <div style="margin-left:200px">
             <div class="bar" >
+                <div :class="orderStatus === '受注済'
+                ? ' ellipse-active':
+                'ellipse'
+                ">
+                </div>
+                <div class="line"></div>
+                <div :class="orderStatus === '出荷・お渡し準備中'
+                ? ' ellipse-active':
+                'ellipse'
+                ">
+                </div>
+                <div class="line"></div>
+                <div :class="orderStatus === '出荷・配送・お渡し済'
+                ? ' ellipse-active':
+                'ellipse'
+                ">
+                </div>
+                <!-- <div class="line"></div>
                 <div class="ellipse"></div>
                 <div class="line"></div>
-                <div class="ellipse"></div>
-                <div class="line"></div>
-                <div class="ellipse"></div>
+                <div class="ellipse"></div> -->
             </div>
             <div class="text-box" >
                     <p class="text">受注済</p>
@@ -58,25 +74,37 @@
     <div class="g-order_bodyc3" style="display:flex">
         <p class="g-order_bodyc3-1">配達予定日</p>
         <p class="g-order_bodyc3-2" 
-           style="margin-left:260px">{{order.deliveryDate}}</p>
+           style="margin-left:260px">{{props.deliveryDate}}</p>
     </div>
     </div>
 </div>
-</template>
+<!-- </template> -->
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted } from "vue";
-import { useStore } from "../../store/index";
-import { useRoute } from "vue-router";
-const route = useRoute();
-const userId = route.params.userId;
-// const userId = 989898;
-const store = useStore();
-onMounted(() => {
-  store.dispatch("setOrderList", userId);
-});
-const orderList = computed(() => store.getters.getOrderList)
+// import { onMounted } from "vue";
+// import { useStore } from "../../store/index";
+// import { useRoute } from "vue-router";
+import { defineProps } from "vue";
+// const route = useRoute();
+// const userId = route.params.userId;
+// // const userId = 989898;
+// const store = useStore();
+// onMounted(() => {
+//   store.dispatch("setOrderList", userId);
+// });
+// const orderList = computed(() => store.getters.getOrderList)
+const props=defineProps<{
+    orderDate:string,
+    orderCode:string,
+    deliveryDate:string,
+    orderStatus:string
+
+}>();
+
+// const{orderDate,orderCode,deliveryDate}=toRefs(props)
+
+
 </script>
 
 <style scoped>
@@ -89,8 +117,14 @@ const orderList = computed(() => store.getters.getOrderList)
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: white;
   border:5px solid #42c0b6
+}
+.ellipse-active{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #42c0b6;
+  border:5px solid #42c0b6;
 }
 .line {
   width:200px;

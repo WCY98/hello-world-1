@@ -11,8 +11,8 @@ import reviewTotal from "./goodsDetail/reviewTotal";
 import goodsQa from './goodsDetail/goodsQa';
 import goodsInfo from "./goodsDetail/goodsInfo";
 import cart from "./cart/cart"; 
-import mypage from "./MyPage";
-import myorder from "./MyOrder"
+import mypage from "./myPage/MyPage";
+import myorder from "./myPage/MyOrder"
 
 
 type State = {};

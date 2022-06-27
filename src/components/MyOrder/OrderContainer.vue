@@ -56,34 +56,91 @@
 
         <div class="g-order_headtitle3-2">
             注文状況を選択
-            <select class="g-order_headtitle3-2-content">
-                <option>すべて</option>
-                <option>受注済</option>
-                <option>出荷・お渡し準備中</option>
-                <option>出荷・配送・お渡し済</option>
-                <option>キャンセル済</option>
+            <select class="g-order_headtitle3-2-content"
+                    id="orderStatus" name="orderStatus" @change="filterByStatus">
+                <option value="ALL">すべて</option>
+                <option value="ORDERS">受注済</option>
+                <option value="READY">出荷・お渡し準備中</option>
+                <option value="SHIPPED">出荷・配送・お渡し済</option>
+                <option value="CANCELLED">キャンセル済</option>
             </select>
         </div>
 
     </div>
-
+    <div class="g-order_foot" v-if="length ===0 ">
+        <p>注文履歴がありません</p>
+    </div>
 </div>
-<order-item></order-item>
+<div v-for="(order,index) in orderList" :key="index">
+    <order-item v-bind="order"></order-item>
+</div>
 </template>
 
 <script setup lang="ts">
 import OrderItem from "./OrderItem.vue";
+import { onMounted } from "vue";
 import { computed } from "vue";
 import { useStore } from "../../store/index";
+import { useRoute } from "vue-router";
+
+const route = useRoute();
+const userId = route.params.userId;
+// const userId = 989898;
 const store = useStore();
-const filterByDate = (e:Event) :void => {
+onMounted(() => {
+  store.dispatch("setOrderList", userId);
+   });
+
+const orderList = computed(() => store.getters.getFilteredList)
+console.log(":",store.getters.getOrderList)
+
+// let date = computed (() => store.getters.getDate)
+const filterByDate = (e:Event) => {
     if (e.target instanceof HTMLSelectElement){
-        store.commit("filterByDate", e.target.value)
+        store.commit("setDate", e.target.value)
+        store.commit("filterByDateAndStatus")
     }
 }
 
-const orderTime = computed(() => store.getters.filteredList)
+// const orderTime = computed(() => store.getters.filteredList)
+let thisYear = new Date().getFullYear();
+const orderTime = [
+    {
+        value:"00",
+        time:"過去半年分の注文"
+    },
+    {
+        value:"10",
+        time:  thisYear  + "年分の注文",
+    },
+    {
+        value:"11",
+        time:  thisYear - 1  + "年分の注文"
+    },
+    {
+        value:"12",
+        time:  thisYear - 2  + "年分の注文"
+    },
+    {
+        value:"13",
+        time:  thisYear - 3  + "年分の注文"
+    },
+    {
+        value:"14",
+        time:  thisYear - 4  + "年分の注文"
+    },
+]
 
+
+// let status = computed (() => store.getters.getStatus)
+const filterByStatus = (e:Event) => {
+    if (e.target instanceof HTMLSelectElement){
+        store.commit("setStatus", e.target.value)
+        store.commit("filterByDateAndStatus")
+    }
+}
+
+let length = computed (() => store.getters.getFilteredList.length)
 </script>
 
 <style scoped>
@@ -146,5 +203,10 @@ const orderTime = computed(() => store.getters.filteredList)
     color:rgb(160, 158, 158);
     font-size:0.8rem;
     margin-bottom: 70px;
+}
+.g-order_foot{
+    margin-right: 450px;
+    font-size:1rem;
+    font-weight: bold;
 }
 </style>

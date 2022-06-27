@@ -964,8 +964,8 @@
       "orderId":1,
       "orderDate":"2022/06/20",
       "deliveryDate":"2022/07/04",
-      "orderTimeSlot":"過去半年分の注文",
-      "orderStatus":"出荷・お渡し準備中"
+      "orderStatus":"出荷・お渡し準備中",
+      "statusValue":"READY"
     },
     {
       "userId":989898,
@@ -974,8 +974,8 @@
       "orderId":2,
       "orderDate":"2022/05/20",
       "deliveryDate":"2022/06/04",
-      "orderTimeSlot":"過去半年分の注文",
-      "orderStatus":"出荷・配送・お渡し済"
+      "orderStatus":"出荷・配送・お渡し済",
+      "statusValue":"SHIPPED"
     },
     {
       "userId":989898,
@@ -984,8 +984,8 @@
       "orderId":3,
       "orderDate":"2021/04/20",
       "deliveryDate":"2021/05/04",
-      "orderTimeSlot":"2021年分の注文",
-      "orderStatus":"出荷・配送・お渡し済"
+      "orderStatus":"出荷・配送・お渡し済",
+      "statusValue":"SHIPPED"
     },
     {
       "userId":989898,
@@ -994,8 +994,8 @@
       "orderId":4,
       "orderDate":"2021/12/20",
       "deliveryDate":"2022/10/04",
-      "orderTimeSlot":"2021年分の注文",
-      "orderStatus":"出荷・お渡し準備中"
+      "orderStatus":"出荷・お渡し準備中",
+      "statusValue":"READY"
     }
     ]
 }
