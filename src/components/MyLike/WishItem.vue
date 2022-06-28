@@ -4,7 +4,8 @@
         <div class="g-media g-media-lg g-media-lead g-media-tail p-favoriteItem">
             <div class="g-media_lead g-align-im">
                 <div class="g-checkable">
-                    <input type="checkbox" name="productCheckBox" value="10662529991358" data-checkall-children="favorite">
+                    <input 
+                    type="checkbox" name="productCheckBox" value="10662529991358" data-checkall-children="favorite">
                     <span><i class="g-s g-s-checkbox-on g-checkable_on" aria-hidden="true"></i>
                           <i class="g-s g-s-checkbox-off g-checkable_off" aria-hidden="true"></i>
                     </span>
@@ -20,13 +21,25 @@
                 <a href="/goods/detail/10195">{{props.skuName}}</a>
             </p>
             <p class="g-price">
-                {{props.price}}
+                {{props.price * props.quantity}}
                 <span class="g-price-unit">円（税込）</span>
             </p>
             <dl class="g-flow-gm" style="width: 50px;">
                 <dt>数量</dt>
                 <dd style="width: 25px;">
-                    <input class="g-input-addtocart" type="text" inputmode="numeric" name="quantity" value="1" size="5" id="p-pieces">
+                    <input 
+                    id="props.id"
+                    @change="
+                    updateQuantity($event);
+                    updateItem(props.id, props.userId)"
+                    class="g-input-addtocart" 
+                    type="number" 
+                    name="quantity"
+                    :v-model="props.quantity"
+                    oninput="value = value.replace(/\D-/g , '');
+                    if ( value.length > 3 ) value = value.slice ( 0,3 ) "
+                    max="999" min="0"
+                    value="1">
                 </dd>
             </dl>
         
@@ -50,11 +63,30 @@
 
 <script setup lang="ts">
 import { defineProps } from "vue";
+import { useStore } from "../../store/index";
+
+const store = useStore();
 const props=defineProps<{
+    userId:number
     skuName:string,
     price:number,
-    imgUrl:string
+    imgUrl:string,
+    id:number,
+    quantity:1
 }>();
+
+const updateItem = (id:number,userId:number) => {
+  store.dispatch("updateWishList", { id, userId });
+  store.dispatch("setWishList", userId );
+};
+
+
+const updateQuantity = (e: Event) => {
+  if (e.target instanceof HTMLInputElement) {
+    store.commit("updateQuantity", e.target.value);
+  }
+};
+
 </script>
 
 <style scoped>
@@ -95,5 +127,8 @@ const props=defineProps<{
     margin-top: 20px;
     font-size: 1rem;
     padding:2px
+}
+.g-media_h:hover{
+    text-decoration: underline;
 }
 </style>

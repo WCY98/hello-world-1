@@ -4,8 +4,10 @@
     <ul class="g-order_title" >
         <div class="g-order_titlecon">
              注文番号:{{props.orderCode}}
-            <button class="g-order_btn"
+             <a href="/order/detail/EC121231234">
+            <button class="g-order_btn" 
                     style="margin-left:600px">注文詳細</button>
+            </a>
         </div>
         <div class="g-order_content" style="margin-left:100px">
             <div style="display:flex">

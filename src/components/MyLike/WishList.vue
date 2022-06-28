@@ -30,7 +30,8 @@
             <div class="p-listControl" >
                 <label class="g-checkable">
                     <div class="g-check-check" style="display:flex;width: 20px;">
-                    <input type="checkbox" data-checkall="favorite">
+                    <input type="checkbox"
+                           data-checkall="favorite">
                     </div>
                     <span style="display:flex">
                         <i class="g-s g-s-checkbox-on g-checkable_on" aria-hidden="true"></i>
@@ -47,9 +48,7 @@
             </div>
             <div class="g-body-wishitem" 
               v-for="(wish,index) in wishList" :key="index">
-                
                 <wish-item v-bind="wish"></wish-item>
-                
             </div>
             </div>
         </div>

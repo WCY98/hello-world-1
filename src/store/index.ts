@@ -13,6 +13,7 @@ import goodsInfo from "./goodsDetail/goodsInfo";
 import cart from "./cart/cart"; 
 import mypage from "./myPage/MyPage";
 import myorder from "./myPage/MyOrder"
+import orderdetail from "./myPage/OrderDetail"
 import mywish from "./myPage/MyWish"
 
 
@@ -33,6 +34,7 @@ export const store = createStore<State>({
     cart,
     mypage,
     myorder,
+    orderdetail,
     mywish
   },
 })

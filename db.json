@@ -869,7 +869,7 @@
       "price": 2990,
       "point": 27,
       "photo": "http://localhost:8080/assets/image/white1.jpg",
-      "quantity": 1
+      "quantity": 7
     },
     {
       "id": 1,
@@ -883,6 +883,20 @@
       "price": 3990,
       "point": 36,
       "photo": "http://localhost:8080/assets/image/756486102.webp",
+      "quantity": 0
+    },
+    {
+      "id": 2,
+      "userId": 989898,
+      "sku": "10195d_gr",
+      "date": "2022-06-14 09:30:00",
+      "goodsTitle": "ゴムバンド付き敷きパッド　double(オーガニックコットン BE D)",
+      "sizeValue": "7564863",
+      "color": "gray",
+      "goodsSize": "double",
+      "price": 3990,
+      "point": 36,
+      "photo": "http://localhost:8080/assets/image/graycolor1.jpg",
       "quantity": 1
     }
   ],
@@ -928,95 +942,121 @@
       "id": 5
     }
   ],
-  "buyLaterList": [
+  "buyLaterList": [],
+  "userInfo": [
     {
-      "id": 2,
       "userId": 989898,
-      "sku": "10195d_gr",
-      "date": "2022-06-14 09:30:00",
-      "goodsTitle": "ゴムバンド付き敷きパッド　double(オーガニックコットン BE D)",
-      "sizeValue": "7564863",
-      "color": "gray",
-      "goodsSize": "double",
-      "price": 3990,
-      "point": 36,
-      "photo": "http://localhost:8080/assets/image/graycolor1.jpg",
-      "quantity": 1
+      "name": "user1",
+      "currentPoint": 0,
+      "invalidPoint": 0,
+      "barCode": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAAAyAQAAAAAxKqlMAAAAL0lEQVR42mP4Oa+iTnIe+/wZdXWVM+exVf6QS3w4f15d5XyGUZlRmVGZUZkRJwMAmAiCT1WO9tcAAAAASUVORK5CYII=",
+      "cardNum": 2200758580177
     }
   ],
-
-  "userInfo":[
+  "orderList": [
     {
-      "userId":989898,
-      "name":"user1",
-      "currentPoint":0,
-      "invalidPoint":0,
-      "barCode":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAAAyAQAAAAAxKqlMAAAAL0lEQVR42mP4Oa+iTnIe+/wZdXWVM+exVf6QS3w4f15d5XyGUZlRmVGZUZkRJwMAmAiCT1WO9tcAAAAASUVORK5CYII=",
-      "cardNum":2200758580177
+      "userId": 989898,
+      "name": "user1",
+      "orderCode": "EC121231234",
+      "orderId": 1,
+      "orderDate": "2022/06/20",
+      "deliveryDate": "2022/07/04",
+      "orderStatus": "出荷・お渡し準備中",
+      "statusValue": "READY"
+    },
+    {
+      "userId": 989898,
+      "name": "user1",
+      "orderCode": "EC121231235",
+      "orderId": 2,
+      "orderDate": "2022/05/20",
+      "deliveryDate": "2022/06/04",
+      "orderStatus": "出荷・配送・お渡し済",
+      "statusValue": "SHIPPED"
+    },
+    {
+      "userId": 989898,
+      "name": "user1",
+      "orderCode": "EC121231236",
+      "orderId": 3,
+      "orderDate": "2021/04/20",
+      "deliveryDate": "2021/05/04",
+      "orderStatus": "出荷・配送・お渡し済",
+      "statusValue": "SHIPPED"
+    },
+    {
+      "userId": 989898,
+      "name": "user1",
+      "orderCode": "EC121231237",
+      "orderId": 4,
+      "orderDate": "2021/12/20",
+      "deliveryDate": "2022/10/04",
+      "orderStatus": "出荷・お渡し準備中",
+      "statusValue": "READY"
     }
   ],
-
-  "orderList":[
+  "orderDetail": [
     {
-      "userId":989898,
-      "name":"user1",
-      "orderCode":"EC121231234",
-      "orderId":1,
-      "orderDate":"2022/06/20",
-      "deliveryDate":"2022/07/04",
-      "orderStatus":"出荷・お渡し準備中",
-      "statusValue":"READY"
-    },
-    {
-      "userId":989898,
-      "name":"user1",
-      "orderCode":"EC121231235",
-      "orderId":2,
-      "orderDate":"2022/05/20",
-      "deliveryDate":"2022/06/04",
-      "orderStatus":"出荷・配送・お渡し済",
-      "statusValue":"SHIPPED"
-    },
-    {
-      "userId":989898,
-      "name":"user1",
-      "orderCode":"EC121231236",
-      "orderId":3,
-      "orderDate":"2021/04/20",
-      "deliveryDate":"2021/05/04",
-      "orderStatus":"出荷・配送・お渡し済",
-      "statusValue":"SHIPPED"
-    },
-    {
-      "userId":989898,
-      "name":"user1",
-      "orderCode":"EC121231237",
-      "orderId":4,
-      "orderDate":"2021/12/20",
-      "deliveryDate":"2022/10/04",
-      "orderStatus":"出荷・お渡し準備中",
-      "statusValue":"READY"
+      "userId": 989898,
+      "orderCode": "EC121231234",
+      "userName": "user1",
+      "postCode": 1234567,
+      "orderStatus": "出荷・お渡し準備中",
+      "orderDate": "2022/06/20",
+      "deliveryDate": "2022/07/04(月)19:00~21:00",
+      "deliveryNo": "121231234",
+      "deliveryType": "宅配便",
+      "detailAddress": "address1",
+      "detailEmail": "email1",
+      "phoneNo": "phone1",
+      "orderDetail": [
+        {
+          "skuName": "ゴムバンド付き敷きパッド single(オーガニックコットン BE S)",
+          "sizeValue": "7564871",
+          "color": "beige",
+          "size": "single",
+          "quantity": 1,
+          "warrantYear": "1年",
+          "price": 1990,
+          "imgUrl": "http://localhost:8080/assets/image/756486102.webp"
+        },
+        {
+          "skuName": "ゴムバンド付き敷きパッド single(オーガニックコットン BE D)",
+          "sizeValue": "7564863",
+          "color": "gray",
+          "size": "double",
+          "quantity": 4,
+          "warrantYear": "1年",
+          "price": 3990,
+          "imgUrl": "http://localhost:8080/assets/image/graycolor3.jpg"
+        }
+      ]
     }
-    ],
-
-  "wishList":[
+  ],
+  "wishList": [
     {
-      "userId":"989898",
+      "userId": "989898",
+      "id": 1,
       "skuName": "ゴムバンド付き敷きパッド single(オーガニックコットン BE S)",
       "price": 1990,
-      "imgUrl": "http://localhost:8080/assets/image/graycolor2.jpg"
+      "imgUrl": "http://localhost:8080/assets/image/graycolor2.jpg",
+      "quantity": 1
     },
     {
-      "userId":"989898",
+      "userId": "989898",
+      "id": 2,
       "skuName": "ゴムバンド付き敷きパッド semidouble(オーガニックコットン BE SD)",
       "price": 2990,
-      "imgUrl": "http://localhost:8080/assets/image/white1.jpg"
+      "imgUrl": "http://localhost:8080/assets/image/white1.jpg",
+      "quantity": 1
     },
     {
-      "userId":"989898",
+      "userId": "989898",
+      "id": 3,
       "skuName": "ゴムバンド付き敷きパッド double(オーガニックコットン BE D)",
       "price": 3990,
-      "imgUrl": "http://localhost:8080/assets/image/756486102.webp"
+      "imgUrl": "http://localhost:8080/assets/image/756486102.webp",
+      "quantity": 1
     }
   ]
 }
