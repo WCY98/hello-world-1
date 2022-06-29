@@ -4,10 +4,15 @@ import GoodsDetail from "../pages/GoodsDetail.vue";
 import TestChange from "../pages/TestChange.vue";
 import CartPage from "../pages/CartPage.vue";
 import MyPage from "../pages/MY/MyPage.vue";
+
 import MyOrder from "../pages/MY/OrderPage.vue";
 import OrderDetail from "../pages/MY/OrderDetailPage.vue";
+
 import MyLike from "../pages/MY/WishPage.vue";
 
+import CustomerInfo from "../pages/MY/CustomerInfo.vue";
+import EmailChange from "../pages/MY/CusEmail.vue";
+import OtherChange from "../pages/MY/CusOther.vue";
 
 
 // export default createRouter({
@@ -48,6 +53,21 @@ import MyLike from "../pages/MY/WishPage.vue";
         path:"/my/like/:userId",
         name:"MyLike",
         component:MyLike,
+      },
+      {
+        path:"/customer/info/:userId",
+        name:"CustomerInfo",
+        component:CustomerInfo,
+      },
+      {
+        path:"/email/change/:userId",
+        name:"EmailChange",
+        component:EmailChange,
+      },
+      {
+        path:"/other/change/:userId",
+        name:"OhterChange",
+        component:OtherChange,
       },
         {  
           path: "/test", 

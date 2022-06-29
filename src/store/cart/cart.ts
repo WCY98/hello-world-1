@@ -118,7 +118,7 @@ actions:{
 
       
       
-    if(addCart.quantity < 1 || addCart.quantity > 999 || addCart.quantity == null){
+    if(addCart.quantity < 1 || addCart.quantity > 999 ){
         alert("INPUT AGAIN");
     }else{
         await axios.post("http://localhost:3000/addCart",addCart);
