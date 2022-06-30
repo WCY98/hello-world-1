@@ -55,7 +55,7 @@
             </div>
           </header>
           <div class="g-modal_body">
-            <p id="modalMessage">
+            <p id="modalMessage" >
               お気に入り商品リストの新規作成は完了しました。
             </p>
           </div>
@@ -156,17 +156,93 @@
             </select>
         </div>
         <!-- 选择【お気に入り商品】以外时 start -->
-      <p class="wishlist-controls" v-if="selectedName !== 'お気に入り商品'">
+      <p class="wishlist-controls" v-if="selectedName !== 'お気に入り商品'"
+         @click="
+          isShow03 = true;
+          state.newName = selectedName;">
         <a
           class="g-btn g-btn-em g-btn-sm g-lg-fh"
           id="changepopupbutton"
-          href="#p-changeModal"
           role="button"
-          aria-expanded="false"
-          aria-controls="p-changeModal"
           ><span class="list-changeName">リスト名を変更</span></a
         >
       </p>
+<!-- modal03 リスト名を変更?-->
+    <GDialog v-model="isShow03">
+      <div class="modal">
+        <div class="g-modal_el">
+          <header class="g-modal_head">
+            <p class="g-modal_h" id="p-messageModal_h">リスト名を変更</p>
+            <button
+              @click="isShow03 = false"
+              class="g-modal_close"
+              type="button"
+              aria-label="閉じる"
+            >
+              <span class="material-symbols-outlined" style="cursor: pointer">
+                close
+              </span>
+            </button>
+          </header>
+
+          <div class="g-modal_body">
+            <p id="modalMessage">"リスト名を変更してください。</p>
+            <div class="button-delete-div">
+              <input type="text" v-model="state.newName" />
+              <button
+                :newName="state.newName"
+                class="button-delete"
+                :id="id"
+                @click="
+                  updateListName(state.newName, id);
+                  isShow03 = false;
+                "
+                style="margin-left: 10px"
+              >
+                <span>変更する</span>
+              </button>
+            </div>
+            <div
+              v-if="state.newName.length === 0"
+
+            >
+              <p style="color: #eb6157; font-size: 0.8rem">
+                入力必須項目です。
+              </p>
+            </div>
+            <div
+              v-if="state.newName.length > 20"  >
+              <p style="color: #eb6157; font-size: 0.8rem">
+                20文字以内で入力してください。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </GDialog>
+    <!-- modal04 リストを削除した-->
+    <GDialog v-model="isShow04">
+      <div class="modal">
+        <div class="g-modal_el">
+          <header class="g-modal_head">
+            <p class="g-modal_h" id="p-messageModal_h">リスト名を変更</p>
+            <button
+              @click="isShow04 = false"
+              class="g-modal_close"
+              type="button"
+              aria-label="閉じる"
+            >
+              <span class="material-symbols-outlined" style="cursor: pointer">
+                close
+              </span>
+            </button>
+          </header>
+          <div class="g-modal_body">
+            <p id="modalMessage">お気に入り商品リストの名前を変更しました。</p>
+          </div>
+        </div>
+      </div>
+    </GDialog>
         <p
         class="g-inputGroup_static wishlist-controls"
         v-if="selectedName !== 'お気に入り商品'"
@@ -250,7 +326,7 @@
 
 <script setup lang="ts">
 import WishItem from './WishItem.vue';
-import { onMounted,computed, ref } from "vue";
+import { onMounted,computed, ref,reactive } from "vue";
 import { useStore } from "../../store/index";
 import { useRoute } from "vue-router";
 
@@ -306,6 +382,19 @@ const id = computed(() => store.getters.getId);
 
 const isShow01 = ref(false);
 const isShow02 = ref(false);
+const isShow03 = ref(false);
+const isShow04 = ref(false);
+
+const state = reactive({
+  newName: "",
+});
+
+//update listName
+const updateListName = (newName: string, id: number) => {
+  store.dispatch("updateListName", { newName, id, userId });
+  state.newName = newName; //清空modal4中的输入框
+  isShow04.value = true;
+};
 
 //delect listName
 const deleteWishList = (id: number) => {

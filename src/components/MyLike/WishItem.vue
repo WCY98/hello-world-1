@@ -3,15 +3,13 @@
         <div id="wishlistEntryList" class="g-block-sm" v-if="goodsList.length != 0">
             <div class="p-listControl" >
                 <label class="g-checkable">
-                    <div class="g-check-check" style="display:flex;width: 20px;">
-                    <input type="checkbox"
-                           data-checkall="favorite">
-                    </div>
-                    <span style="display:flex">
-                        <i class="g-s g-s-checkbox-on g-checkable_on" aria-hidden="true"></i>
-                        <i class="g-s g-s-checkbox-off g-checkable_off" aria-hidden="true"></i>
-                        <span class="g-checkable_label">すべて選択</span>
-                    </span>
+                    <input type="checkbox" class="g-check-check" style="display:flex;width: 20px;"
+                    data-checkall="favorite"
+                    v-model="state.checked"
+                    @change="selectAll"/>
+
+                  <span class="g-checkable_label" style="display:flex">すべて選択</span>
+
                 </label>
             <div class="p-listControl_edit">
                 <div>チェックしたものを</div>
@@ -41,7 +39,7 @@
     <div class="g-123456">
         各商品の紹介ページで「お気に入り」を押すと追加できます。</div>
       </div>
-<div v-for="(wish,index) in goodsList" :key="index" :value="wish">
+<div v-for="wish in goodsList" :key="wish.id" >
 <ul id="p-ProductList" class="g-itemList g-itemList-border g-mt-20 g-mb-20">
     <li class="g-itemList_item">
         <div class="g-media g-media-lg g-media-lead g-media-tail p-favoriteItem">
@@ -199,10 +197,6 @@ onMounted(() => {
 
 const showError = ref(false);
 const isShow = ref(false);
-// const updateItem = (id:number,userId:number) => {
-//   store.dispatch("updateWishList", { id, userId });
-//   store.dispatch("setWishList", userId );
-// };
 
 const goodsList = computed(() => store.getters.getGoodsList)
 const wishList = computed(() => store.getters.getWishList)
@@ -218,7 +212,6 @@ const addItem = (sku: string) => {
   if ( quantity.value < 1 || quantity.value > 999) {
     showError.value = true;
   } else {
-    state.checkList = [];
     store.dispatch("addCart", sku);
     isShow.value = true;
     store.commit("updateQuantity", 1);
@@ -229,6 +222,18 @@ const state = reactive({
   checked: false,
   checkList: [],
 });
+
+//------------------すべて選択-----------------------
+const selectAll = async () => {
+  if (state.checked) {
+    const checkList1 = goodsList.value.map((wish) => wish.id);
+    console.log("checkList1", checkList1);
+    state.checkList = checkList1;
+    console.log("checkList", state.checkList);
+  } else {
+    state.checkList = [];
+  }
+};
 
 </script>
 

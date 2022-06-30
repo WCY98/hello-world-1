@@ -93,17 +93,17 @@ export default {
     async deleteWishList(context,{ id, userId }: { id: number; userId: string }) {
       await fetch("http://localhost:3000/wishList/" + id, { method: "DELETE" });
       context.dispatch("setWishList", userId);
+      //删除之后初始化wishList
+      context.state.selectedName = "お気に入り商品";
     },
 
 
-    async updateWishList(context, { id, userId }: { id: number, userId: string }) {
+    async updateListName(context, { newName,id, userId }: {newName:string, id: number, userId: string }) {
       await axios.patch("http://localhost:3000/wishList/" + id, {
-        quantity: context.state.quantity,
+        listName: newName,
       });
-      const wish = await fetch(url + userId, { headers });
-      const j = await wish.json();
-      context.commit("setWishList", j);
-      console.log("in setWishList method", j);
+      context.dispatch("setWishList", userId);
+      context.state.selectedName = "お気に入り商品";
   }
 
     
