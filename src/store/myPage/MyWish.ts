@@ -77,6 +77,12 @@ export default {
       state.selectableList = state.canMoveList[0].listName;
     },
 
+    selectableListBySelect(state:wishListState,payload:string){
+      state.selectableList = payload;
+      //payload是在modal里可供选择的list名
+      //选中的list名，eg:可供选择的是list1和list2，若选择了list1，payload就是list1
+    },
+
     updateValue(state: wishListState, payload: string) {
       state.value = payload;
     },
@@ -90,6 +96,7 @@ export default {
       const j = await wish.json();
       context.commit("setWishList", j);
       // context.commit("setGoodsList", j[0].goodsList);
+      //63payload
       const filtered = j.filter((w: Wish) => w.listName !== "お気に入り商品");
       context.commit("setCanMoveList", filtered);
     },
@@ -157,13 +164,13 @@ export default {
   //move goods from  [お気に入り商品] list to [123] list
   async moveGoods(context,
     {
-      anotherName,
+      selectableList,
       id,
       userId,
     }: 
-    { anotherName: string; id: number; userId: string } ) {
+    { selectableList: string; id: number; userId: string } ) {
     await axios.patch("http://localhost:3000/wishgoodsList/" + id, {
-      listName: anotherName,
+      listName: selectableList,
     });
     //console.log("anotherName", anotherName);
     context.dispatch("setWishGoodsList", userId);
@@ -201,5 +208,9 @@ export default {
     getAllGoodsList(state: wishListState) {
       return state.allGoodsList;
     },
+
+    getSelectableList(state: wishListState){
+      return state.selectableList;
+    }
   },
 };

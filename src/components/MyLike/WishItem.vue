@@ -120,7 +120,11 @@
                   商品を移動させるリストを選択してください。
                 </p>
                 <div class="button-delete-div">
-                  <select v-model="anotherName">
+
+                  <!-- selectableList是modal选择框 -->
+                  <select v-model="selectableList"
+                  @change="selectableListBySelect"
+                  >
                     <option
                       v-for="(c, index) in canMoveList"
                       :key="index"
@@ -131,10 +135,10 @@
                   </select>
 
                   <button
-                    :anotherName="anotherName"
+                    :selectableList="selectableList"
                     class="button-delete"
                     @click="
-                      moveGoods(anotherName);
+                      moveGoods(selectableList);
                       isShow07 = false;
                     "
                     style="margin-left: 10px"
@@ -334,10 +338,12 @@ const store = useStore();
 onMounted( async () => {
     await store.dispatch("setWishList",userId);
     store.dispatch("setWishGoodsList", userId);
-    if (canMoveList.value.length > 0) {
-      anotherName.value = canMoveList.value[0].listName;
-    }
+    // if (canMoveList.value.length > 0) {
+    //   anotherName.value = canMoveList.value[0].listName;
+    // }
 });
+
+
 // const props=defineProps<{
 //     userId:number
 //     skuName:string,
@@ -358,8 +364,10 @@ const goodsList = computed(() => store.getters.getGoodsList)
 const wishList = computed(() => store.getters.getWishList)
 // const quantity = computed(() => store.getters.getGoodsList.quantity)
 const canMoveList = computed (() => store.getters.getCanMoveList)
-const anotherName = ref("")
 
+//modal里初始状态
+const selectableList = computed (() => store.getters.getSelectableList)
+// const selectableList = computed (() => store.getters.getCanMoveList[0].listName)
 //------------------商品をカートに入れる-----------------------
 //store goods quantity
 const quantity = computed(() => store.getters.getGoodsList.quantity)
@@ -413,16 +421,21 @@ const deleteGoods = () => {
   state.checked = false;
 };
 
-const moveGoods = (anotherName: string) => {
+const moveGoods = (selectableList: string) => {
   let id = -1;
   for (let i = 0; i < state.checkList.length; i++) {
     id = state.checkList[i];
     console.log("id", id);
-    store.dispatch("moveGoods", { anotherName, id, userId });
+    store.dispatch("moveGoods", { selectableList, id, userId });
     isShow08.value = true;
     state.checkList = [];
     state.checked = false;
   }
+};
+
+
+const selectableListBySelect = (e) => {
+  store.commit("selectableListBySelect", e.target.value);
 };
 
 </script>

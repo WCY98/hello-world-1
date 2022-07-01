@@ -1092,9 +1092,11 @@
       "id": 4
     }
   ],
+
+  
   "wishgoodsList": [
     {
-      "listName": "お気に入り商品",
+      "listName": "123",
       "userId": "989898",
       "id": 1,
       "skuName": "ゴムバンド付き敷きパッド single(オーガニックコットン BE S)",
@@ -1103,7 +1105,7 @@
       "quantity": 1
     },
     {
-      "listName": "お気に入り商品",
+      "listName": "123",
       "userId": "989898",
       "id": 2,
       "skuName": "ゴムバンド付き敷きパッド semidouble(オーガニックコットン BE SD)",
@@ -1113,15 +1115,6 @@
     },
     {
       "listName": "お気に入り商品",
-      "userId": "989898",
-      "id": 3,
-      "skuName": "ゴムバンド付き敷きパッド double(オーガニックコットン BE D)",
-      "price": 3990,
-      "imgUrl": "http://localhost:8080/assets/image/756486102.webp",
-      "quantity": 1
-    },
-    {
-      "listName": "123",
       "userId": "989898",
       "id": 4,
       "skuName": "ゴムバンド付き敷きパッド double(オーガニックコットン BE D)",
