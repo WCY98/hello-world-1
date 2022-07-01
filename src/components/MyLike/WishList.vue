@@ -352,10 +352,7 @@ function updateValue(e: Event) {
 
 function addWishList() {
   //去掉首尾空格后判断输入的内容是否为空
-  if (
-    value.value.replace(/(^\s*)|(\s*$)/g, "").length > 0 &&
-    value.value.length <= 20
-  ) {
+  if (value.value.trim().length > 0 && value.value.length <= 20) {
     //若不为空
     //继续判断输入的listName是否已经存在
     if (wishList.value.filter((w) => w.listName === value.value).length > 0) {
@@ -376,6 +373,7 @@ function addWishList() {
 
 const filterGoodsList = (e) => {
   store.commit("filterGoodsList", e.target.value);
+  store.commit("filterWishList", e.target.value);
 };
 const selectedName = computed(() => store.getters.getSelectName);
 const id = computed(() => store.getters.getId);
