@@ -1,4 +1,5 @@
 import axios from "axios";
+import { stringifyQuery } from "vue-router";
 
 const url = "http://localhost:3000/wish/list/";
 const headers = { Accept: "application/json" };
@@ -139,19 +140,30 @@ export default {
       context.state.selectedName = "お気に入り商品";
   },
 
-  // //add goods into [お気に入り商品] list
-  // async intoWish(context, newInfoList: {}) {
-  //   const key = "listName";
-  //   const value = "お気に入り商品";
-  //   const key2 = "userId";
-  //   const value2 = "989898";
-  //   newInfoList[key] = value;
-  //   newInfoList[key2] = value2;
-  //   await axios.post("http://localhost:3000/wishgoodsList", newInfoList);
+  //add goods into [お気に入り商品] list
+  async intoWish(context, newList1: {}) {
+    // const key = "listName";
+    // const value = "お気に入り商品";
+    // const key2 = "userId";
+    // const value2 = "989898";
+    // newList1[key] = value;
+    // newList1[key2] = value2;
+    // await axios.post("http://localhost:3000/wishgoodsList", newList1);
+    const obj={
+      userId:"989898",
+      listName:"お気に入り商品",
+      quantity:1
+    }
+    const item = {
+      ...obj,
+      ...newList1,
+    }
 
-  //   const userId = "989898";
-  //   context.dispatch("setWishList", userId);
-  // },
+    await axios.post("http://localhost:3000/wishgoodsList", item);
+
+    const userId = "989898";
+    context.dispatch("setWishList", userId);
+  },
 
   //delete goods in [お気に入り商品] list
   async deleteGoods(context, { id, userId }: { id: number; userId: string }) {

@@ -648,12 +648,13 @@
       "sizeList": [
         {
           "sku": "10195s_gr",
+          "quantity": 1,
           "skuName": "ゴムバンド付き敷きパッド single(オーガニックコットン BE S)",
           "goodsSize": "single",
           "sizeValue": "7564861",
           "dataCode": "05700010014",
           "color": "gray",
-          "imgUrl": "https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965479792670/BasicColor_GRY.jpg",
+          "imgUrl": "http://localhost:8080/assets/image/graycolor1.jpg",
           "price": 1990,
           "code": 7564865,
           "size": "幅100×奥行200cm",
@@ -671,12 +672,13 @@
         },
         {
           "sku": "10195s_b",
+          "quantity": 1,
           "skuName": "ゴムバンド付き敷きパッド single(オーガニックコットン BE S)",
           "goodsSize": "single",
           "sizeValue": "7564871",
           "dataCode": "05700010014",
           "color": "beige",
-          "imgUrl": "https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965478907934/BasicColor_BE.jpg",
+          "imgUrl": "http://localhost:8080/assets/image/756486301.webp",
           "price": 1990,
           "code": 7564861,
           "size": "幅100×奥行200cm",
@@ -694,6 +696,7 @@
         },
         {
           "sku": "10195sd_gr",
+          "quantity": 1,
           "skuName": "ゴムバンド付き敷きパッド semidouble(オーガニックコットン BE SD)",
           "goodsSize": "semidouble",
           "sizeValue": "7564862",
@@ -702,7 +705,7 @@
           "code": 7564866,
           "color": "gray",
           "colorValue": "00100070019",
-          "imgUrl": "https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965479792670/BasicColor_GRY.jpg",
+          "imgUrl": "http://localhost:8080/assets/image/graycolor1.jpg",
           "size": "幅100×奥行200cm",
           "material": "コットン",
           "weight": "約920g",
@@ -718,6 +721,7 @@
         },
         {
           "sku": "10195sd_b",
+          "quantity": 1,
           "skuName": "ゴムバンド付き敷きパッド semidouble(オーガニックコットン BE SD)",
           "goodsSize": "semidouble",
           "sizeValue": "7564872",
@@ -726,7 +730,7 @@
           "code": 7564862,
           "color": "beige",
           "colorValue": "00100180026",
-          "imgUrl": "https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965478907934/BasicColor_BE.jpg",
+          "imgUrl": "http://localhost:8080/assets/image/756486301.webp",
           "size": "幅100×奥行200cm",
           "material": "コットン",
           "weight": "約920g",
@@ -742,6 +746,7 @@
         },
         {
           "sku": "10195sd_wh",
+          "quantity": 1,
           "skuName": "ゴムバンド付き敷きパッド semidouble(オーガニックコットン BE SD)",
           "goodsSize": "semidouble",
           "sizeValue": "7564882",
@@ -750,7 +755,7 @@
           "code": 7564860,
           "color": "white",
           "colorValue": "00100180026",
-          "imgUrl": "https://www.nitori-net.jp/ecstatic/image/sys-master/images/8966164348958/BasicColor_WH.jpg",
+          "imgUrl": "http://localhost:8080/assets/image/white1.jpg",
           "size": "幅100×奥行200cm",
           "material": "コットン",
           "weight": "約920g",
@@ -766,6 +771,7 @@
         },
         {
           "sku": "10195d_gr",
+          "quantity": 1,
           "skuName": "ゴムバンド付き敷きパッド double(オーガニックコットン BE D)",
           "goodsSize": "double",
           "sizeValue": "7564863",
@@ -774,7 +780,7 @@
           "code": 7564867,
           "color": "gray",
           "colorValue": "00100070019",
-          "imgUrl": "https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965479792670/BasicColor_GRY.jpg",
+          "imgUrl": "http://localhost:8080/assets/image/graycolor1.jpg",
           "size": "幅100×奥行200cm",
           "material": "コットン",
           "weight": "約920g",
@@ -790,6 +796,7 @@
         },
         {
           "sku": "10195d_b",
+          "quantity": 1,
           "skuName": "ゴムバンド付き敷きパッド double(オーガニックコットン BE D)",
           "goodsSize": "double",
           "sizeValue": "7564873",
@@ -798,7 +805,7 @@
           "code": 7564863,
           "color": "beige",
           "colorValue": "00100180026",
-          "imgUrl": "https://www.nitori-net.jp/ecstatic/image/sys-master/images/8965478907934/BasicColor_BE.jpg",
+          "imgUrl": "http://localhost:8080/assets/image/756486301.webp",
           "size": "幅100×奥行200cm",
           "material": "コットン",
           "weight": "約920g",
@@ -979,6 +986,24 @@
       "quantity": 1,
       "cartDate": "2022-06-30T05:15:45.157Z",
       "id": 10
+    },
+    {
+      "userId": "989898",
+      "sku": "10195s_b",
+      "sizeValue": "7564871",
+      "point": 18,
+      "quantity": 1,
+      "cartDate": "2022-07-02T00:47:56.190Z",
+      "id": 11
+    },
+    {
+      "userId": "989898",
+      "sku": "10195s_b",
+      "sizeValue": "7564871",
+      "point": 18,
+      "quantity": 1,
+      "cartDate": "2022-07-02T00:58:31.735Z",
+      "id": 12
     }
   ],
   "buyLaterList": [],
@@ -1092,8 +1117,6 @@
       "id": 4
     }
   ],
-
-  
   "wishgoodsList": [
     {
       "listName": "123",
@@ -1107,20 +1130,98 @@
     {
       "listName": "123",
       "userId": "989898",
-      "id": 2,
-      "skuName": "ゴムバンド付き敷きパッド semidouble(オーガニックコットン BE SD)",
-      "price": 2990,
-      "imgUrl": "http://localhost:8080/assets/image/white1.jpg",
-      "quantity": 1
-    },
-    {
-      "listName": "お気に入り商品",
-      "userId": "989898",
       "id": 4,
       "skuName": "ゴムバンド付き敷きパッド double(オーガニックコットン BE D)",
       "price": 3990,
       "imgUrl": "http://localhost:8080/assets/image/756486102.webp",
       "quantity": 1
+    },
+    {
+      "sku": "10195s_b",
+      "quantity": 1,
+      "skuName": "ゴムバンド付き敷きパッド single(オーガニックコットン BE S)",
+      "goodsSize": "single",
+      "sizeValue": "7564871",
+      "dataCode": "05700010014",
+      "color": "beige",
+      "imgUrl": "http://localhost:8080/assets/image/756486301.webp",
+      "price": 1990,
+      "code": 7564861,
+      "size": "幅100×奥行200cm",
+      "material": "コットン",
+      "weight": "約920g",
+      "warrantyYear": "1年",
+      "point": 18,
+      "photoList": [
+        "http://localhost:8080/assets/image/756486102.webp",
+        "http://localhost:8080/assets/image/756486301.webp",
+        "http://localhost:8080/assets/image/756486103.webp",
+        "http://localhost:8080/assets/image/756486102.webp",
+        "http://localhost:8080/assets/image/756486301.webp"
+      ],
+      "listName": "123",
+      "userId": "989898",
+      "id": 5
+    },
+    {
+      "obj": {},
+      "item": {},
+      "id": 8
+    },
+    {
+      "userId": "989898",
+      "listName": "お気に入り商品",
+      "quantity": 1,
+      "sku": "10195d_gr",
+      "skuName": "ゴムバンド付き敷きパッド double(オーガニックコットン BE D)",
+      "goodsSize": "double",
+      "sizeValue": "7564863",
+      "dataCode": "05700010019",
+      "price": 3990,
+      "code": 7564867,
+      "color": "gray",
+      "colorValue": "00100070019",
+      "imgUrl": "http://localhost:8080/assets/image/graycolor1.jpg",
+      "size": "幅100×奥行200cm",
+      "material": "コットン",
+      "weight": "約920g",
+      "warrantyYear": "1年",
+      "point": 36,
+      "photoList": [
+        "http://localhost:8080/assets/image/graycolor1.jpg",
+        "http://localhost:8080/assets/image/756486701.jpg",
+        "http://localhost:8080/assets/image/graycolor2.jpg",
+        "http://localhost:8080/assets/image/graycolor3.jpg",
+        "http://localhost:8080/assets/image/graycolor4.jpg"
+      ],
+      "id": 9
+    },
+    {
+      "userId": "989898",
+      "listName": "お気に入り商品",
+      "quantity": 1,
+      "sku": "10195s_b",
+      "skuName": "ゴムバンド付き敷きパッド single(オーガニックコットン BE S)",
+      "goodsSize": "single",
+      "sizeValue": "7564871",
+      "dataCode": "05700010014",
+      "color": "beige",
+      "imgUrl": "http://localhost:8080/assets/image/756486301.webp",
+      "price": 1990,
+      "code": 7564861,
+      "size": "幅100×奥行200cm",
+      "material": "コットン",
+      "weight": "約920g",
+      "warrantyYear": "1年",
+      "point": 18,
+      "photoList": [
+        "http://localhost:8080/assets/image/756486102.webp",
+        "http://localhost:8080/assets/image/756486301.webp",
+        "http://localhost:8080/assets/image/756486103.webp",
+        "http://localhost:8080/assets/image/756486102.webp",
+        "http://localhost:8080/assets/image/756486301.webp"
+      ],
+      "id": 10
     }
   ]
 }

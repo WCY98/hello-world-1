@@ -8,9 +8,10 @@
             <h4 class="big-title">変更後メールアドレス入力</h4>
 			<p class="g-lead1">変更したいメールアドレスを入力のうえ、送信してください。</p>
 			<p class="g-lead2">ご入力いただいたメールアドレス宛にニトリネットから送信される確認メールをご確認ください。</p>
-            <!-- <div class="g-error g-error_efo" style="display: block;">
+            <div class="g-error g-error_efo" style="display: block;"
+            >
                 <p class="g-error_h">入力内容をご確認ください。</p>
-			</div> -->
+			</div>
 		</div>
 			
         <div class="g-layout_body">
@@ -28,7 +29,9 @@
                     <input id="p-mail" name="email" class="g-input-sm-fw" 
                     inputmode="email" data-validation-rules="[{&quot;action&quot;:&quot;hankaku&quot;},&quot;mail&quot;,{&quot;rule&quot;:&quot;length&quot;,&quot;max&quot;:100},{&quot;action&quot;:&quot;validate&quot;,&quot;subjects&quot;:[&quot;#p-mail-re&quot;]}]" aria-describedby="p-mail_alert" aria-required="true" 
                     placeholder="nitoritarou@nitori.jp" type="text" autocapitalize="off" value="">
-                    <div class="g-formGrid_error" id="p-mail_alert" role="alert"></div>
+                    <div class="g-formGrid_error" id="p-mail_alert" role="alert">
+                        メールアドレスの形式が正しくありません。
+                    </div>
 				</dd>
                 </div>
 				<dt  >
@@ -43,7 +46,13 @@
 					<p class="g-formGrid_note">コピー・貼り付けはせずに入力してください。</p>
 					<input id="p-mail-re" name="checkEmail" class="g-input-sm-fw1" 
                     inputmode="email" data-validation-rules="[{&quot;action&quot;:&quot;hankaku&quot;},&quot;mail&quot;,{&quot;rule&quot;:&quot;length&quot;,&quot;max&quot;:100},{&quot;rule&quot;:&quot;match&quot;,&quot;name&quot;:&quot;メールアドレス&quot;,&quot;subject&quot;:&quot;#p-mail&quot;},{&quot;action&quot;:&quot;validate&quot;,&quot;subjects&quot;:[&quot;#p-mail&quot;]}]" aria-describedby="p-mail-re_alert" aria-required="true" 
-                    placeholder="nitoritarou@nitori.jp" type="text" autocapitalize="off" value=""><div class="g-formGrid_error" id="p-mail-re_alert" role="alert"></div>
+                    placeholder="nitoritarou@nitori.jp" type="text" autocapitalize="off" value=""><div class="g-formGrid_error-error" id="p-mail-re_alert" role="alert">
+                        入力必須項目です。
+                        <br>
+                        メールアドレスの形式が正しくありません。
+                        <br>
+                        入力されたメールアドレスが一致していません。
+                    </div>
 				</dd>
 			</dl>
 
@@ -213,5 +222,34 @@
 .btn-content{
     font-size: 0.8rem;
     margin-left: 115px;
+}
+.g-error_h{
+    font-size: 0.8rem;
+    margin-top: 30px;
+    margin-bottom: -20px;
+    margin-left: 360px;
+    border:0.1px solid #fcf0f1; 
+    width: 720px;
+    text-align:left;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color:#eb6157;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: #fcf0f1;
+}
+.g-formGrid_error{
+    font-size: 0.6rem;
+    color:#eb6157;
+    margin-left: 98px;
+    margin-top: 10px;
+}
+.g-formGrid_error-error{
+    font-size: 0.6rem;
+    color:#eb6157;
+    margin-left: 630px;
+    margin-top: 10px;
+    text-align:left;
 }
 </style>

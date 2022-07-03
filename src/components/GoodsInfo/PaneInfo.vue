@@ -93,19 +93,22 @@
 					</a>
 			</li>
 		<li class="g-grid_item p-misc_item">
-				<a onclick="jswishclick()" id="addFavoriteA" data="7564862" data-login="113810160" class="g-hover" data-clickable="">
+				<a :class="Existed ? 'canNotClick' : 'canClick'"
+                  @click="intoWish">
 					<div class="p-misc_i g-hover_img ">
-						<i class="g-s g-s-favorite-g" aria-hidden="true"></i>
+						<span class="material-symbols-outlined g-s g-s-favorite-g">
+                      favorite
+                    </span>
 					</div>
 					<span class="p-misc_label">お気に入り</span>
 				</a>
 			
-				<a onclick="" id="addFavoriteDiv" class="g-hover" style="display: none;">
+				<!-- <a onclick="" id="addFavoriteDiv" class="g-hover" style="display: none;">
 					<div class="p-misc_i g-hover_img ">
 							<i class="g-s g-s-favorite"></i>
 					</div>
 					<span class="p-misc_label">お気に入り</span>
-				</a>
+				</a> -->
 		</li>
 	</ul>
           
@@ -115,20 +118,23 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted} from "vue";
+import { computed, onMounted,ref} from "vue";
 import { useStore } from "../../store/index";
 import { useRoute } from "vue-router";
 const route = useRoute();
 const goodsId = route.params.goodsId;
+const userId = route.params.userId;
 const store = useStore();
-onMounted(() => {
-    store.dispatch("setSizeList",goodsId)
+onMounted( async() => {
+    store.dispatch("setSizeList",goodsId);
+	await store.dispatch("setWishGoodsList", userId);
 });
 const price = computed(() => store.getters.getNewList1.price)
 
 const addItem = () =>  store.dispatch("addCart")
 
 const quantity = computed (() => store.getters.getQuantity)
+const skuName = computed(() => store.getters.getNewList1.skuName )
 const sku = computed(() => store.getters.getNewList1.sku )
 store.commit("setSku",sku);
 
@@ -143,9 +149,31 @@ const updateQuantity = (e:Event) => {
 		store.commit("updateQuantity", e.target.value)
 	}
 }
+
+const newList1 = computed(() => store.getters.getNewList1);
+//判断当前sku的商品是否在【お気に入り】列表（wishgoodsList）中，若存在（true），则不能再点击
+const allGoodsList = computed(() => store.getters.getAllGoodsList);
+let Existed = ref();
+ //判断当前sku的商品是否在【お気に入り】列表（wishgoodsList）中
+  if (allGoodsList.value.filter((a) => a.skuName === skuName.value).length > 0) {
+    Existed.value = true;
+  }
+// 把当前sku的商品加到【お気に入り】
+const intoWish = () => {
+  store.dispatch("intoWish", newList1.value);
+  Existed.value = true;
+};
 </script>
 
 <style scoped>
+.canClick {
+cursor: pointer;
+color: #333;
+}
+.canNotClick {
+pointer-events: none;
+color: #009e96;
+}
 .g-pane, .g-lg-pane {
     padding: 50px;
 	width:80%

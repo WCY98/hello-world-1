@@ -428,9 +428,10 @@ const moveGoods = (selectableList: string) => {
     console.log("id", id);
     store.dispatch("moveGoods", { selectableList, id, userId });
     isShow08.value = true;
-    state.checkList = [];
+    //不能在全选的情况下进行动作，所以不显示false
     state.checked = false;
   }
+      state.checkList = [];
 };
 
 
