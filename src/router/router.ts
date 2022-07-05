@@ -13,6 +13,7 @@ import MyLike from "../pages/MY/WishPage.vue";
 import CustomerInfo from "../pages/MY/CustomerInfo.vue";
 import EmailChange from "../pages/MY/CusEmail.vue";
 import OtherChange from "../pages/MY/CusOther.vue";
+import UpdateSuccess from "../pages/MY/UpdateSuccess.vue";
 
 
 // export default createRouter({
@@ -66,9 +67,17 @@ import OtherChange from "../pages/MY/CusOther.vue";
       },
       {
         path:"/other/change/:userId",
-        name:"OhterChange",
+        name:"OtherChange",
         component:OtherChange,
       },
+      {
+        path:"/update/success/:userId",
+        name:"UpdateSuccess",
+        component:UpdateSuccess,
+      },
+
+
+
         {  
           path: "/test", 
           name: "test", 

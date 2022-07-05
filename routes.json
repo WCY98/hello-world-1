@@ -13,7 +13,8 @@
     "/order/list/:userId":"/orderList?userId=:userId",
     "/order/detail/:orderCode":"/orderDetail?orderCode=:orderCode",
     "/wish/list/:userId":"/wishList?userId=:userId",
-    "/wish/goods/list/:userId": "/wishgoodsList?userId=:userId"
+    "/wish/goods/list/:userId": "/wishgoodsList?userId=:userId",
+    "/info/change/:userId":"/infoChange?userId=:userId"
 
     
 }

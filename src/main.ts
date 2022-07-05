@@ -12,24 +12,15 @@ import "element-plus/dist/index.css";
 
 
 
-import FormMaking from 'form-making'
-import {
-    GenerateForm,
-    MakingForm
-} from 'form-making'
-import 'form-making/dist/FormMaking.css'
-
 const app = createApp(App);
 // app.use(store);
 app.use( store, key);
 app.use(router);
 app.component('GDialog', GDialog)
 app.use(VueViewer);
-app.mount('#app');
-app.use(FormMaking);
-app.use(GenerateForm);
-app.use(MakingForm)
 app.use(ElementPlus);
+app.mount('#app');
+
 
 
 // const app1 = Vue.createApp({})

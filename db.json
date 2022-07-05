@@ -1223,5 +1223,33 @@
       ],
       "id": 10
     }
+  ],
+
+  "InfoChange": [
+    {
+      "userId": "989898",
+      "name": "王",
+      "nameKANA": "オウ",
+      "email": "wang@gmail.com",
+      "tel11": "123",
+      "tel12": "456",
+      "tel13": "789",
+      "gender": "女",
+      "birthyear": "2022",
+      "birthmonth": "07",
+      "birthday": "05",
+      "postCode": "1111111",
+      "city": "東京都",
+      "village": "中野区",
+      "villageName": "中央",
+      "streetname1": "123",
+      "streetname2": "456",
+      "streetname3": "789",
+      "buildingName": "ABC",
+      "roomNo": "101",
+      "typing": "集合住宅",
+      "ele": "なし",
+      "newPassword": "12345678"
+    }
   ]
 }

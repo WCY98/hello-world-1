@@ -1,4 +1,5 @@
 <template>
+
 <div class="g-main">
     <form id="uniRegisterMailForm" class="g-layout-narrow" 
           method="post" data-validation="" 
@@ -10,12 +11,25 @@
 			<p class="g-lead2">ご入力いただいたメールアドレス宛にニトリネットから送信される確認メールをご確認ください。</p>
             <div class="g-error g-error_efo" style="display: block;"
             >
-                <p class="g-error_h">入力内容をご確認ください。</p>
+                <p 
+                v-if="(ruleForm.emailCheck !== ruleForm.email) 
+                && (ruleForm.email !== '') 
+                && (ruleForm.emailCheck !== '')"
+                class="g-error_h">入力内容をご確認ください。</p>
 			</div>
 		</div>
 			
         <div class="g-layout_body">
-            <dl class="g-sm-formGrid-v g-lg-formGrid-h g-block-xs">
+            <el-form
+    ref="ruleFormRef"
+    :model="ruleForm"
+    :rules="rules"
+    label-width="120px"
+    class="demo-ruleForm"
+    :size="formSize"
+    status-icon
+  >
+            <!-- <dl class="g-sm-formGrid-v g-lg-formGrid-h g-block-xs">
                 <div style="border-bottom:1px dashed gray;padding-bottom: 13px;width:1200px;margin-left:100px">
                 <dt >
 					<label for="p-mail">
@@ -54,7 +68,17 @@
                         入力されたメールアドレスが一致していません。
                     </div>
 				</dd>
-			</dl>
+			</dl> -->
+<el-form-item label="メールアドレス" prop="email" style="margin-left:335px;margin-top:40px">
+        <el-input v-model="ruleForm.email" style="width: 600px;margin-left:100px" />
+        </el-form-item>
+
+        <p style="font-size: 0.5rem;margin-left:10px" >コピー・貼り付けはせずに入力してください。</p>
+<el-form-item label="メールアドレス(（確認用）)" prop="emailCheck" style="margin-left:340px">
+        <el-input v-model="ruleForm.emailCheck" style="width: 600px;margin-top:10px;margin-left:96px" />
+        </el-form-item>
+
+
 
 			<section class="g-block">
 				<ul class="g-list-note-unit" style="display:flex">
@@ -68,6 +92,7 @@
 					</li>
 				</ul>
 			</section>
+            </el-form>
 		</div>
 		<div class="g-layout_foot">
             <div class="g-sm-foot-v g-lg-foot-h g-foot-lg">
@@ -94,6 +119,68 @@
 </template>
 
 <script setup lang="ts">
+import { reactive, ref } from 'vue'
+import type { FormInstance, FormRules } from 'element-plus'
+
+const formSize = ref('default')
+const ruleFormRef = ref<FormInstance>()
+const ruleForm = reactive({
+  email:'',
+  emailCheck:'',
+  type: [],
+  resource: '',
+  desc: '',
+})
+
+const validatePass = (rule: any, value: any, callback: any) => {
+  if (value === '') {
+    callback(new Error('入力必須項目です。'))
+  } else {
+    if (ruleForm.emailCheck !== '') {
+      if (!ruleFormRef.value) return
+      ruleFormRef.value.validateField('emailCheck', () => null)
+    }
+    callback()
+  }
+}
+const validatePass2 = (rule: any, value: any, callback: any) => {
+  if (value === '') {
+    callback(new Error('入力必須項目です。'))
+  } else if (value !== ruleForm.email) {
+    callback(new Error("入力されたメールアドレスが一致していません。"))
+  } else {
+    callback()
+  }
+}
+const rules = reactive<FormRules>({
+  email: [
+    { validator: validatePass, trigger: 'blur' },
+    {
+          required: true,
+          message: 'メールアドレスを入力してください',
+          trigger: 'blur',
+        },
+    {
+          type: 'email',
+          message: '正しいメールアドレスを入力してください',
+          trigger: ['blur', 'change'],
+        }
+  ],
+
+  emailCheck: [
+    { validator: validatePass2, trigger: 'blur' },
+    {
+          required: true,
+          message: 'メールアドレスを入力してください',
+          trigger: 'blur',
+        },
+    {
+          type: 'email',
+          message: '正しいメールアドレスを入力してください',
+          trigger: ['blur', 'change'],
+        }
+  ],
+})
 </script>
 
 <style scoped>
@@ -251,5 +338,18 @@
     margin-left: 630px;
     margin-top: 10px;
     text-align:left;
+}
+.g-label-required{
+    font-size: 0.5rem;
+    color:rgb(216, 83, 83);
+    background-color: white;
+    border-color: rgb(216, 83, 83);
+    border: 1px solid rgb(216, 83, 83);
+    /* width:28px; */
+    height:25px;
+    padding-bottom:1px;
+    margin-top: 2px;
+    /* margin-left:5px */
+
 }
 </style>
