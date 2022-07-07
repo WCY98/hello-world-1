@@ -14,6 +14,7 @@ import CustomerInfo from "../pages/MY/CustomerInfo.vue";
 import EmailChange from "../pages/MY/CusEmail.vue";
 import OtherChange from "../pages/MY/CusOther.vue";
 import UpdateSuccess from "../pages/MY/UpdateSuccess.vue";
+import AddressBook from "../pages/MY/AddressBook.vue";
 
 
 // export default createRouter({
@@ -75,6 +76,12 @@ import UpdateSuccess from "../pages/MY/UpdateSuccess.vue";
         name:"UpdateSuccess",
         component:UpdateSuccess,
       },
+      {
+        path:"/address/book/:userId",
+        name:"AddressBook",
+        component:AddressBook,
+      },
+
 
 
 

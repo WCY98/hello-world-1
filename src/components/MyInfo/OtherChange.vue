@@ -70,17 +70,19 @@
     <el-form-item label="氏名" prop="name"
     style="margin-left:238px">
     <span class="g-label-required" style="margin-right:20px">必須</span>
-        <el-input v-model="ruleForm.name" style="width: 200px;margin-left:180px" />
+        <el-input v-model="ruleForm.name" id="name" @input="handleNameInput"
+        style="width: 200px;margin-left:180px" />
       </el-form-item>
       <div class="g-inputGroup_static" style="display:flex;margin-left:800px;margin-top:-50px">
       {{ info.name }}
       </div>
 
 
-    <el-form-item label="氏名（カナ）" prop="nameKANA"
+    <el-form-item label="氏名（カナ）" prop="nameKANA" 
     style="margin-left:293px;margin-top:50px">
     <span class="g-label-required" style="margin-right:20px">必須</span>
-        <el-input v-model="ruleForm.nameKANA" style="width: 200px;margin-left:125px" />
+        <el-input v-model="ruleForm.nameKANA" id="nameKANA" 
+        style="width: 200px;margin-left:125px" />
       </el-form-item>
       <div class="g-inputGroup_static" style="display:flex;margin-left:800px;margin-top:-50px">
       {{info.nameKANA}}
@@ -114,6 +116,7 @@
       ]">
         <span class="g-label-required" style="margin-right:20px">必須</span>
         <el-input v-model="ruleForm.email" style="width: 200px;margin-left:115px" placeholder="wangchengyu0324@gmail.com"/>
+        
       <!-- <dt style="display:flex;font-size:1rem;margin-left:115px;">wangchengyu0324@gmail.com</dt> -->
     </el-form-item>
 
@@ -227,7 +230,8 @@
         style="text-align: left; margin-bottom:5px;font-size:0.5rem;margin-left:165px">
             ハイフン不要・数字で入力してください。<br>
             事業所の個別郵便番号はご使用いただけません。</p>
-            <el-input v-model="ruleForm.postNo" style="width: 100px;margin-right:30px" placeholder="1111111"/>
+            <el-input v-model="ruleForm.postNo" style="width: 100px;margin-right:30px" placeholder="1111111"
+            @change="searchAddress"/>
         <p class="g-inputGroup_static">
             <a class="g-link" target="_blank" href="http://www.post.japanpost.jp/zipcode">
                 <span class="material-symbols-outlined" 
@@ -235,6 +239,9 @@
                 <span>郵便番号を調べる</span>
                 </a>
             </p>
+            <el-col style="color: red; font-weight: 100">
+              {{ ruleForm.error }}</el-col
+            >
         </el-form-item>
     
 
@@ -374,12 +381,12 @@
 <br>
 
     <el-button  class="btn-content" @click="resetForm(ruleFormRef)">
-    <a  href="/update/success/989898">
-    更新する
+    <a  href="/customer/info/989898">
+    戻る
     </a>
     </el-button>
         <el-button  class="g-btn-w-md1-1" type="primary" @click="submitForm(ruleFormRef)"
-        > 戻る</el-button>
+        > 更新する</el-button>
       
 
   </div>
@@ -392,6 +399,7 @@
 <script lang="ts" setup>
 import { reactive, ref } from 'vue'
 import type { FormInstance, FormRules } from 'element-plus'
+import * as AutoKana from 'vanilla-autokana';
 
 import { useStore } from "../../store/index";
 import { onMounted, computed } from "vue";
@@ -399,8 +407,12 @@ import { useRoute } from "vue-router";
 const route = useRoute();
 const userId = route.params.userId;
 const store = useStore();
-onMounted(() => {
-  store.dispatch("setInfoChange",userId);
+let autokana;
+/** 文字列内のひらがなをカタカナに変換します。 */
+onMounted( async () => {
+  // await nextTick();
+  await store.dispatch("setInfoChange",userId);
+  autokana = AutoKana.bind("#name","#nameKANA", { katakana: true });
 });
 
 const info = computed(() => store.getters.getInfoChange);
@@ -432,6 +444,7 @@ const ruleForm = reactive({
   ele:'',
   newPassword:'',
   newPasswordCheck:'',
+  error:'',
   type: [],
   resource: '',
   desc: '',
@@ -458,6 +471,19 @@ const validatePass2 = (rule: any, value: any, callback: any) => {
   }
 }
 
+//确认是否是全角
+function isZenkakuKana(s) {
+    return !!s.match(/^[ァ-ヶー]*$/); 
+     // 「」は全角スペースです.
+}
+const fullAngle = () => {
+  if(isZenkakuKana('ruleForm.nameKANA') ===true ){
+    console.log(isZenkakuKana('ruleForm.nameKANA'));  // true
+  }else{
+    return (new Error('20文字以内のカタカナで入力してください'))
+  }
+}
+
 const rules = reactive<FormRules>({
   name: [
     { required: true, message: '入力必須項目です。', trigger: 'blur' },
@@ -467,7 +493,7 @@ const rules = reactive<FormRules>({
   nameKANA: [
     { required: true, message: '入力必須項目です。', trigger: 'blur' },
     { max: 20, message: '20文字以内のカタカナで入力してください。', trigger: 'blur' },
-    // { validator: validateKanaPass, trigger: 'blur' }
+    { validator: fullAngle , trigger: 'blur' }
   ],
 
   tel11:[
@@ -486,8 +512,8 @@ const rules = reactive<FormRules>({
   ],
 
   postNo:[
-    { required: true, message: '入力必須項目です。', trigger: 'blur' },
-    { type:"number", max: 7, message: '7桁の数字で入力してください。', trigger: 'blur' },
+    { required: true, message: '入力必須項目です。', trigger: ['blur' ,'change']},
+    { type:'number', max: 7, message: '7桁の数字で入力してください。', trigger: 'blur' },
     // { type:[/^[0-9]{3}-[0-9]{4}$/] , message: '7桁の数字で入力してください。', trigger: 'blur' }
   ],
 
@@ -551,6 +577,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
   if (!formEl) return
   await formEl.validate((valid, fields) => {
     if (valid) {
+      window.location.href = "http://localhost:8080/update/success/989898";
       console.log('submit!')
     } else {
       console.log('error submit!', fields)
@@ -568,9 +595,37 @@ const resetForm = (formEl: FormInstance | undefined) => {
 //   label: `${idx + 1}`,
 // }))
 
-// function showPass {
+const handleNameInput = () => {
+  ruleForm.nameKANA = autokana.getFurigana();
+};
 
-// }
+const headers = { Accept: "application/json" };
+// const postNo = ref("");
+// const city = ref("");
+// const village = ref("");
+// const villageName = ref("");
+// const error = ref("");
+const searchAddress = async () => {
+  let api = "https://zipcloud.ibsnet.co.jp/api/search?zipcode=";
+  let url = api + ruleForm.postNo;
+  const info = await fetch(url, { headers });
+  const data = await info.json();
+  if (data.status === 400) {
+    //エラー時
+    ruleForm.error = data.message;
+  } else if (data.results === null) {
+    ruleForm.error = "郵便番号から住所が見つかりませんでした。";
+  } else {
+    ruleForm.error = "";
+    ruleForm.city = data.results[0].address1;
+    ruleForm.village = data.results[0].address2;
+    ruleForm.villageName = data.results[0].address3;
+  }
+};
+
+
+
+
 </script>
 
 <style scoped>

@@ -132,6 +132,8 @@ const ruleForm = reactive({
   desc: '',
 })
 
+
+//判断上下两个email是否一致，不一致就报错
 const validatePass = (rule: any, value: any, callback: any) => {
   if (value === '') {
     callback(new Error('入力必須項目です。'))
@@ -152,6 +154,8 @@ const validatePass2 = (rule: any, value: any, callback: any) => {
     callback()
   }
 }
+
+
 const rules = reactive<FormRules>({
   email: [
     { validator: validatePass, trigger: 'blur' },
@@ -161,6 +165,7 @@ const rules = reactive<FormRules>({
           trigger: 'blur',
         },
     {
+        //判断是否是正确的email格式
           type: 'email',
           message: '正しいメールアドレスを入力してください',
           trigger: ['blur', 'change'],
