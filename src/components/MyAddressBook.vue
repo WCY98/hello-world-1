@@ -38,19 +38,17 @@
         style="width:450px;font-size:0.5rem;margin-left:575px;margin-top:40px;text-align: left;">
             「転居先（地名）」、「勤務先」など認識しやすい名称を入力してください。<br>
             「自宅」は会員情報で設定済みのため、入力できません。</p>
-<el-form-item label="名称" prop="name"
+<el-form-item label="名称" prop="workplace"
     style="margin-left:258px;margin-top:10px">
     <span class="g-label-required" style="margin-right:20px">必須</span>
-        <el-input v-model="ruleForm.place" id="name"
+        <el-input v-model="ruleForm.workplace"
         style="width: 200px;margin-left:160px" placeholder="転居先（地名）"/>
       </el-form-item>
-      <div class="g-inputGroup_static" style="display:flex;margin-left:800px;margin-top:-50px">
-      
-      </div>
+
 
 <el-row type="flex" >
         <el-col > 
-    <el-form-item label="氏名" prop="name1" style="margin-top:30px;margin-left:260px; margin-top:60px" >
+    <el-form-item label="氏名" prop="name1" style="margin-left:260px; margin-top:60px" >
         <span class="g-label-required" style="margin-right:20px;margin-top:-5px">必須</span>
        
       <el-input v-model="ruleForm.name1"  @input="handleNameInput"
@@ -261,7 +259,7 @@ const handleNameInput = () => {
 const formSize = ref('default')
 const ruleFormRef = ref<FormInstance>()
 const ruleForm = reactive({
-  place:'',
+  workplace:'',
   name1: '',
   name2: '',
   nameKANA1:'',
@@ -290,8 +288,9 @@ const ruleForm = reactive({
 const rules = reactive<FormRules>({
   workplace: [
     { required: true, message: "入力必須項目です。", trigger: "blur", },
-    { max: 20, message: "20文字以内で入力してください。", trigger: "blur" },
+    // { max: 20, message: "20文字以内で入力してください。", trigger: "blur" },
   ],
+
   name1: [
     { required: true, message: '入力必須項目です。', trigger: 'blur' },
     { max: 10, message: '10文字以内で入力してください。', trigger: 'blur' },
@@ -329,7 +328,7 @@ const rules = reactive<FormRules>({
 
   postNo:[
     { required: true, message: '入力必須項目です。', trigger: ['blur' ,'change']},
-    { type:'number', max: 7, message: '7桁の数字で入力してください。', trigger: 'blur' },
+    { max: 7, message: '7桁の数字で入力してください。', trigger: 'blur' },
     // { type:[/^[0-9]{3}-[0-9]{4}$/] , message: '7桁の数字で入力してください。', trigger: 'blur' }
   ],
 

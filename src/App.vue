@@ -6,7 +6,8 @@
     <router-link to="/my/order/989898">注文履歴</router-link> |
     <router-link to="/goods/detail/10195">商品ページ 10195</router-link> |
     <router-link to="/my/like/989898">お気に入り</router-link> |
-    <router-link to="/customer/info/989898">情報変更</router-link>
+    <router-link to="/customer/info/989898">情報変更</router-link> |
+    <router-link to="/payment/detail/989898">カード</router-link>
   </p>
   <router-view></router-view>
 </template>

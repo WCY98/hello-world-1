@@ -15,6 +15,7 @@ import EmailChange from "../pages/MY/CusEmail.vue";
 import OtherChange from "../pages/MY/CusOther.vue";
 import UpdateSuccess from "../pages/MY/UpdateSuccess.vue";
 import AddressBook from "../pages/MY/AddressBook.vue";
+import PaymentDetail from "../pages/MY/PaymentDetail.vue";
 
 
 // export default createRouter({
@@ -80,6 +81,11 @@ import AddressBook from "../pages/MY/AddressBook.vue";
         path:"/address/book/:userId",
         name:"AddressBook",
         component:AddressBook,
+      },
+      {
+        path:"/payment/detail/:userId",
+        name:"PaymentDetail",
+        component:PaymentDetail,
       },
 
 
